@@ -2,28 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script>
-        window.addEventListener('deviceorientation', handleOrientation);
-
-        function handleOrientation(event) {
-            var output = document.getElementById('output');
-            var properties = "";
-            for(var prop in event){
-                properties+=prop+": "+event[prop]+"<br>"
-            }
-            output.innerHTML= (properties);
-        }
-
-        function simpleOutput(){
-            
-        }
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accelerometer</title>
+    <title>Accelerometer Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .data {
+            margin: 20px;
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
-    <!-- <div id="output"></div> -->
-    <canvas id="canvas_output"></canvas>
-    
+    <h1>Accelerometer Data</h1>
+    <div class="data">Acceleration X: <span id="accelerationX">0</span> m/s²</div>
+    <div class="data">Acceleration Y: <span id="accelerationY">0</span> m/s²</div>
+    <div class="data">Acceleration Z: <span id="accelerationZ">0</span> m/s²</div>
+
+    <script>
+        // Check if DeviceMotionEvent is supported
+        if ('DeviceMotionEvent' in window) {
+            window.addEventListener('devicemotion', function(event) {
+                // Get acceleration values
+                const acceleration = event.accelerationIncludingGravity;
+
+                // Update HTML elements with acceleration data
+                document.getElementById('accelerationX').innerText = acceleration.x ? acceleration.x.toFixed(2) : '0';
+                document.getElementById('accelerationY').innerText = acceleration.y ? acceleration.y.toFixed(2) : '0';
+                document.getElementById('accelerationZ').innerText = acceleration.z ? acceleration.z.toFixed(2) : '0';
+            });
+        } else {
+            alert('DeviceMotionEvent is not supported on this device/browser.');
+        }
+    </script>
 </body>
 </html>
