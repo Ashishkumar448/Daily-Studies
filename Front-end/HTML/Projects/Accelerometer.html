@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        window.addEventListener('deviceorientation', handleOrientation);
+
+        function handleOrientation(event) {
+            var output = document.getElementById('output');
+            var properties = "";
+            for(var prop in event){
+                properties+=prop+": "+event[prop]+"<br>"
+            }
+            output.innerHTML= (properties);
+        }
+
+        function simpleOutput(){
+            
+        }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accelerometer</title>
+</head>
+<body>
+    <!-- <div id="output"></div> -->
+    <canvas id="canvas_output"></canvas>
+    
+</body>
+</html>
