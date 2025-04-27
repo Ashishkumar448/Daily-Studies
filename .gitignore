@@ -1,0 +1,12 @@
+# Virtual Environment directories
+.venv/
+.oldvenv/
+EarlyCancerPrediction/.venv/
+EarlyCancerPrediction/.oldvenv/
+
+# Python virtual environment related files
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
