@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Yet Another Scroll Progress Indicator with GSAP (WIP)</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="section" data-section="start">Start</div>
+<div class="section" data-section="about">About</div>
+<div class="section" data-section="work">Work</div>
+<div class="section" data-section="contact">Contact</div>
+
+<div class="progress-container">
+  <div class="progress-track">
+    <div class="progress-header">
+      <span class="current-section">start</span>
+      <span class="progress-value">0%</span>
+    </div>
+    <div class="nav-items">
+      <div class="nav-item active" data-section="start">
+        <div class="nav-fill"></div>
+        <div class="nav-content">
+          <span class="nav-title">Start</span>
+          <span class="nav-index">01</span>
+        </div>
+      </div>
+      <div class="nav-item" data-section="about">
+        <div class="nav-fill"></div>
+        <div class="nav-content">
+          <span class="nav-title">About</span>
+          <span class="nav-index">02</span>
+        </div>
+      </div>
+      <div class="nav-item" data-section="work">
+        <div class="nav-fill"></div>
+        <div class="nav-content">
+          <span class="nav-title">Work</span>
+          <span class="nav-index">03</span>
+        </div>
+      </div>
+      <div class="nav-item" data-section="contact">
+        <div class="nav-fill"></div>
+        <div class="nav-content">
+          <span class="nav-title">Contact</span>
+          <span class="nav-index">04</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

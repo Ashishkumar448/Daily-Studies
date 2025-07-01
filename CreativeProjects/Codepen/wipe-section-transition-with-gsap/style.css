@@ -1,0 +1,100 @@
+/*
+  If anybody knows a more reasonable approach for masking linear gradient and animate it, feel free to message me x.com/filipz
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Caveat&family=New+Amsterdam&display=swap");
+/* Your existing CSS */
+:root {
+  --primary-color: #1a1a1a;
+  --secondary-color: #ffffff;
+  --font-family: "New Amsterdam", sans-serif;
+  --secondary-family: "Caveat", cursive;
+}
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  overflow-x: hidden;
+}
+.wrapper {
+  position: relative;
+}
+.section {
+  height: 200vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+.first-section {
+  z-index: 1;
+  height: 150vh;
+}
+img {
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  border-radius: 6px;
+  margin-top: 96px;
+}
+h1,
+h2 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 10rem;
+  z-index: 100;
+  text-align: center;
+}
+p {
+  font-weight: 700;
+  max-width: 768px;
+  text-align: center;
+  z-index: 100;
+  position: relative;
+  font-size: 2rem;
+}
+span {
+  font-family: var(--secondary-family);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 6rem;
+  text-transform: lowercase;
+  width: 100%;
+  text-align: center;
+  z-index: 101;
+}
+.wipe-section {
+  position: relative;
+  overflow: hidden; /* Important to contain the effect */
+}
+
+.wipe-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300%; /* Extra wide to ensure full coverage */
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(26, 26, 26, 0) 0%,
+    rgba(26, 26, 26, 0.5) 20%,
+    rgba(26, 26, 26, 1) 40%,
+    rgba(26, 26, 26, 1) 100%
+  );
+  z-index: 200; /* Higher than everything except spans (z-index: 101) */
+  pointer-events: none; /* So it doesn't block interaction */
+}
