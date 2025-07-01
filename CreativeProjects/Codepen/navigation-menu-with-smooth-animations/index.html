@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Navigation Menu with Smooth Animations</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="menu-background-overlay" id="menuBackgroundOverlay"></div>
+
+<header class="nav-bar">
+  <nav class="menu-wrapper">
+    <div class="logo">Creative Hub</div>
+    <button class="menu-btn" id="menuToggle">
+      <span class="menu-text">Menu</span>
+      <span class="close-text">Close</span>
+    </button>
+  </nav>
+  <div class="menu-overlay">
+    <div class="menu-grid">
+      <div class="menu-column">
+        <div class="menu-text-block">
+          <a href="#">Embrace the Process</a>
+        </div>
+        <a href="#">Flow</a>
+      </div>
+      <div class="menu-column">
+        <div class="menu-text-block">
+          <a href="#">Listen to the Silence</a>
+        </div>
+        <a href="#">Stillness</a>
+      </div>
+      <div class="menu-column">
+        <div class="menu-text-block">
+          <a href="#">Create Without Fear</a>
+        </div>
+        <a href="#">Courage</a>
+      </div>
+      <div class="menu-column">
+        <div class="menu-text-block">
+          <a href="#">See Beyond the Obvious</a>
+        </div>
+        <a href="#">Vision</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="image-section">
+  <div class="image-container">
+    <img src="https://images.unsplash.com/photo-1709160652776-0cef083d32f0?q=80&w=2532&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Centered Image" title="Creative Inspiration" class="centered-image" />
+  </div>
+</section>
+
+<div id="grid-overlay">
+  <div id="grid-container"></div>
+</div>
+
+<div id="shortcut-info">
+  Press <span class="key">G</span> to toggle grid<br />
+  Hold <span class="key">/</span> for all shortcuts
+</div>
+
+<div id="shortcut-modal">
+  <div class="modal-content">
+    <h3>Available Shortcuts</h3>
+    <ul>
+      <li><span class="key">/</span> - Hold for all Shortcuts Modal</li>
+      <li><span class="key">G</span> - Toggle Grid</li>
+      <li><span class="key">W</span> - Toggle between Light and Dark Themes</li>
+      <li><span class="key">B</span> - Toggle between Dark and Light Themes</li>
+      <li><span class="key">R</span> - Toggle between different Themes</li>
+    </ul>
+
+    <!-- Theme Grid Section for Theme Selection -->
+    <div class="theme-grid">
+      <div class="theme-item theme--preview theme--dark">
+        <div class="theme-info">
+          <h4>Dark</h4>
+        </div>
+        <div class="circle"></div>
+      </div>
+
+      <div class="theme-item theme--preview theme--light">
+        <div class="theme-info">
+          <h4>Light</h4>
+        </div>
+        <div class="circle"></div>
+      </div>
+
+      <div class="theme-item theme--preview theme--01">
+        <div class="theme-info">
+          <h4>Theme 01</h4>
+        </div>
+        <div class="circle"></div>
+      </div>
+
+      <div class="theme-item theme--preview theme--02">
+        <div class="theme-info">
+          <h4>Theme 02</h4>
+        </div>
+        <div class="circle"></div>
+      </div>
+
+      <div class="theme-item theme--preview theme--03">
+        <div class="theme-info">
+          <h4>Theme 03</h4>
+        </div>
+        <div class="circle"></div>
+      </div>
+
+      <div class="theme-item theme--preview theme--04">
+        <div class="theme-info">
+          <h4>Theme 04</h4>
+        </div>
+        <div class="circle"></div>
+      </div>
+
+      <div class="theme-item theme--preview theme--05">
+        <div class="theme-info">
+          <h4>Theme 05</h4>
+        </div>
+        <div class="circle"></div>
+      </div>
+
+      <div class="theme-item theme--preview theme--06">
+        <div class="theme-info">
+          <h4>Theme 06</h4>
+        </div>
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

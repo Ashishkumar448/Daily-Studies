@@ -1,0 +1,21 @@
+body {
+  margin: 0; 
+  overflow: hidden; 
+  background:#080310;
+  color:#fff;
+}
+
+
+
+div {
+color:#fff;
+display:flex;
+  align-items:center;
+  justify-content:center;
+font-size:18px;
+  font-family: helvetica;
+}
+
+div:hover {
+
+}

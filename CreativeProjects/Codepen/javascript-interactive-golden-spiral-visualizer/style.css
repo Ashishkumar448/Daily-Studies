@@ -1,0 +1,153 @@
+@import url("https://fonts.cdnfonts.com/css/thegoodmonolith");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  color: #f0f0f0;
+  font-family: "TheGoodMonolith", monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+#spiral {
+  width: 400px;
+  height: 400px;
+  margin: 40px 0;
+}
+
+.layout-container {
+  width: 80%;
+  max-width: 900px;
+  margin: 20px auto 60px;
+  border: 1px solid #fff;
+}
+
+.layout-header {
+  padding: 20px 30px;
+  border-bottom: 1px solid #fff;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.layout-title {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.layout-progress {
+  padding: 20px 30px;
+  border-bottom: 1px solid #fff;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shortcut-info {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.layout-services {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.service-item {
+  padding: 20px 30px;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-item h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.service-item p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.service-item code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 10px;
+}
+
+.service-item:nth-child(3n) {
+  border-right: none;
+}
+
+.service-item:nth-last-child(-n + 3) {
+  border-bottom: none;
+}
+
+/* Code formatting */
+pre {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  overflow-x: auto;
+  font-size: 10px;
+  margin: 10px 0;
+}
+
+/* Tweakpane container */
+.tweakpane-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  transition: opacity 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .layout-services {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .service-item:nth-child(3n) {
+    border-right: 1px solid #fff;
+  }
+
+  .service-item:nth-child(2n) {
+    border-right: none;
+  }
+
+  .service-item:nth-last-child(-n + 3) {
+    border-bottom: 1px solid #fff;
+  }
+
+  .service-item:nth-last-child(-n + 2) {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .layout-services {
+    grid-template-columns: 1fr;
+  }
+
+  .service-item {
+    border-right: none !important;
+  }
+
+  .service-item:not(:last-child) {
+    border-bottom: 1px solid #fff !important;
+  }
+}

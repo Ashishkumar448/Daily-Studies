@@ -1,0 +1,201 @@
+body {
+	height: 100vh;
+	margin: 0;
+	display: grid;
+	place-items: center;
+	background: lightblue;
+}
+#sandwich {
+	z-index: auto;
+}
+.toast-snack {
+	font-size: 5rem;
+	margin: auto;
+	position:relative;
+	z-index:auto;
+
+}
+.other {
+	position:absolute;
+	z-index:999999 !important;
+}
+.toast-snack:after {
+	content:"";
+	display:block;
+	position:absolute;
+	border-radius:100px;
+	background-color:black;
+	width:100px; height:20px;
+	top:80px;left:60px;
+	transform:rotatez(-570deg);
+	z-index:-1;
+	opacity:.2;
+	filter: blur(4px);
+}
+
+.slice {
+
+	border-radius:8px;
+transform: perspective(200px) rotatey(1deg) rotatex(60deg) rotatez(-40deg);
+background: linear-gradient(1800deg,rgba(169, 87, 31, 1) 0%, rgba(205, 157, 78, 1) 50%);
+
+	width:65px; height:55px;
+	position:relative;
+	display:inline-block;
+	left:42px;top:42px;
+	z-index:0;
+	box-shadow:0px -5px 1px rgba(169, 87, 31, 1);
+	
+	
+}
+
+.slice:before {
+	content:"";
+	display:block;
+	position:absolute;
+	width:10px; height:10px;
+	background: linear-gradient(12780deg,rgba(169, 87, 31, 1) 0%, rgba(205, 157, 78, 1) 50%);
+	top:15px; left:2px;
+	transform:rotatez(45deg);
+	border-radius:3px;
+	z-index:3;
+}
+.slice:after {
+	content:" ";
+	display:block;
+	position:absolute;
+		background: linear-gradient(90deg,rgba(235, 219, 178, 1) 50%, rgba(218, 196, 146, 1) 100%);
+	border: 0px solid #a9571f;
+	border-radius:8px;
+	border-right:1px solid brown;
+	border-top:1px solid brown;
+	width:65px; height:55px;
+	top:-9px;
+	left:7px;
+	z-index:0;
+}
+
+.spot {
+	display:block;
+	position:absolute;
+	mix-blend-mode:multiply;
+background: linear-gradient(270deg,rgba(235, 219, 178, 1) 50%, rgba(218, 196, 146, 1) 100%);
+	width:4px; height:3px;
+	top:10px; left:50px;
+	border-radius:11px;
+	z-index:9;
+}
+.spot:before {
+	content: "";
+		display:block;
+	position:absolute;
+	mix-blend-mode:multiply;
+background: linear-gradient(270deg,rgba(235, 219, 178, 1) 50%, rgba(218, 196, 146, 1) 100%);
+
+	width:5px; height:5px;
+	top:20px; left:-10px;
+	border-radius:11px;
+	z-index:9;
+	
+}
+
+.knife {
+	transform:rotatex(130deg);
+	position:relative;
+	top:-20px;
+	left:50px;
+	z-index:0;
+}
+.knife:after {
+		content:"";
+	display:block;
+	position:absolute;
+	border-radius:100px;
+	background-color:black;
+	width:100px; height:20px;
+	top:30px;left:-10px;
+	transform:rotatez(-130deg);
+	z-index:-1;
+	opacity:.2;
+	filter: blur(4px);
+	z-index:0;
+}
+
+.kitchen {
+	position:absolute;
+	left:0;
+		display:flex;
+	flex-direction:column;
+	vertical-align:middle;
+
+
+}
+
+.kitchen li {
+		 list-style-type: none;
+	display:flex;
+	flex-direction:column;
+	background-color:white;
+	border-radius:5px;
+	height:50px;
+	width:50px;
+  align-items: center;
+  justify-content: center;
+	margin-top:10px;
+	cursor:pointer;
+}
+
+#meatspot {
+	position:absolute;
+	transform:scale(.5)rotateX(55deg);
+	top:33px; left:33px;
+	z-index:999999999;
+}
+#cheesespot {
+	position:absolute;
+	transform:scale(.5)rotateX(55deg);
+	top:32px; left:33px;
+	z-index:999999;
+}
+
+#greensspot {
+	position:absolute;
+	transform:scale(.5)rotateX(55deg);
+	top:33px; left:33px;
+z-index:9999999999;
+}
+#saucespot {
+	position:absolute;
+	transform:scale(.5)rotateX(55deg);
+	top:38px; left:33px;
+	z-index:999999;
+	
+}
+.plate {
+	font-size: 5rem;
+    margin: auto;
+    position: absolute;
+    z-index: auto;
+    z-index: -1;
+    top: 28px;
+    left: -42px;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 2em;
+    transform: rotateX(42deg);
+}
+#sandwich p {
+	
+	  animation-duration: 3s;
+  animation-name: bounce;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+
+@keyframes bounce {
+  from, to { transform: scale(1, 1); }
+  25% { transform: scale(0.9, 1.1); }
+  50% { transform: scale(1.1, 0.9); }
+  75% { transform: scale(0.95, 1.05); }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Not the Simplest Slider Ever</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="slider-container">
+  <h1 class="headline">Architecture</h1>
+
+  <div class="slides-wrapper">
+    <div class="slide active">
+      <div class="slide-inner">
+        <img src="https://images.unsplash.com/photo-1656833067020-59892f875f05?q=80&w=2235&auto=format&fit=crop" alt="Slide 1" class="slide-img">
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-inner">
+        <img src="https://images.unsplash.com/photo-1727872303742-3c7d9088c67c?q=80&w=2488&auto=format&fit=crop" alt="Slide 2" class="slide-img">
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-inner">
+        <img src="https://images.unsplash.com/photo-1729107722504-1b129b03cb19?q=80&w=2487&auto=format&fit=crop" alt="Slide 3" class="slide-img">
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-number">01</div>
+
+  <div class="progress">
+    <div class="progress-bar"></div>
+  </div>
+
+  <div class="navigation">
+    <button class="nav-button prev">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+    <button class="nav-button next">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js'></script>
+<script src='https://unpkg.com/split-type'></script><script  src="./script.js"></script>
+
+</body>
+</html>

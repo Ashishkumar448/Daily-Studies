@@ -1,0 +1,15 @@
+/*
+https://github.com/danilw/GLSL-howto/blob/master/minimal_webgl_glsl/mini_glsl_viewer.html
+*/
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #202020;
+}
+canvas {
+  border: 1px solid #444;
+}

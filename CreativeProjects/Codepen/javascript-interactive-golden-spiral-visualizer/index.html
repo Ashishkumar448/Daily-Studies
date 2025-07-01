@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>[javascript] ❍  Interactive Golden Spiral Visualizer</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="spiral"></div>
+
+<div class="layout-container">
+  <div class="layout-header">
+    <div class="layout-title">GOLDEN SPIRAL METHOD</div>
+  </div>
+
+  <div class="layout-progress">
+    <div>IMPLEMENTATION PROGRESS 100%</div>
+    <div class="shortcut-info">PRESS 'H' TO TOGGLE PANEL | 'R' TO RANDOMIZE</div>
+  </div>
+
+  <div class="layout-services">
+    <div class="service-item">
+      <h3>KEY CONCEPT</h3>
+      <p>Inspired by phyllotaxis in plants, the golden spiral method (Vogel’s model) places points at an angle equal to the <strong>golden angle</strong>—2π·(1–1/φ) ≈ 137.5°—and adjusts radius by √(i/N) to ensure each new point occupies the same area as the last.</p>
+    </div>
+    <div class="service-item">
+      <h3>DISK ALGORITHM</h3>
+      <p>For a flat disk, assign each point an index <code>i + 0.5</code> (to center at mid‐cell) and compute:</p>
+      <p><code>r = MAX_RADIUS · √((i + 0.5) / N)</code><br>
+        <code>θ = (i + 0.5) · GOLDEN_ANGLE</code>
+      </p>
+    </div>
+    <div class="service-item">
+      <h3>SPHERE ALGORITHM</h3>
+      <p>To distribute on a sphere’s surface, sample the polar angle via the inverse CDF of sin φ:</p>
+      <p><code>φ = acos(1 – 2·(i + 0.5)/N)</code><br>
+        <code>θ = (i + 0.5) · GOLDEN_ANGLE</code>
+      </p>
+    </div>
+    <div class="service-item">
+      <h3>MATHEMATICS</h3>
+      <p>√(i/N) equalizes the differential ring areas (2πr dr), and the inverse‐CDF sampling for φ uses <code>sin φ dφ</code> to avoid polar clustering.</p>
+    </div>
+    <div class="service-item">
+      <h3>IMPLEMENTATION</h3>
+      <p>I build an SVG of <code>&lt;circle&gt;</code> elements, apply `<animate>` tags for pulsing radius and opacity—offset by each point’s fractional position to create a wave effect.</p>
+    </div>
+    <div class="service-item">
+      <h3>APPLICATIONS</h3>
+      <p>Ideal for generative art, data visualizations, computational geometry, or any scenario needing uniform sampling on circles or spheres.</p>
+    </div>
+  </div>
+
+  <div class="tweakpane-container" id="tweakpane-container"></div>
+<!-- partial -->
+  <script type="module" src="./script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Push-Down Menu Page with GSAP Animations</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<nav class="navigation" id="navigation">
+  <div class="navigation__container">
+    <div class="navigation__logo">The Artisan</div>
+    <div class="navigation__menu-btn" id="menu-btn">MENU</div>
+  </div>
+</nav>
+
+<div class="dropdown" id="dropdown">
+  <div class="dropdown__section dropdown__section--one">
+    <h1 class="dropdown__word">CREATE</h1>
+    <p class="dropdown__quote">The best art often comes from the void between words.</p>
+  </div>
+
+  <div class="dropdown__section dropdown__section--three">
+    <div class="divider"></div>
+    <div class="dropdown__nav">
+      <a class="dropdown__button">Index</a>
+      <a class="dropdown__button">Projects</a>
+      <a class="dropdown__button">About</a>
+      <a class="dropdown__button">News</a>
+      <a class="dropdown__button">Contact</a>
+    </div>
+  </div>
+</div>
+
+<div class="content" id="content">
+  <div class="grid-container">
+
+    <div class="grid-item">
+      <div class="grid-item__wrapper">
+        <div class="grid-copy">
+          Space & Images
+        </div>
+        <img src="https://images.unsplash.com/photo-1651876360196-a8c378bfca7f?q=80&w=2360&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Left Image">
+      </div>
+    </div>
+
+    <div class="grid-item grid-content">
+      <h1>A space for thoughts, sounds, and images</h1>
+      <p>In a world filled with noise, I focus on the silence between moments.<br />This is a portfolio of creation, an exploration of form and formlessness.</p>
+    </div>
+
+    <div class="grid-item">
+      <div class="grid-item__wrapper">
+        <div class="grid-copy">
+          Thoughts & Sounds
+        </div>
+        <img src="https://images.unsplash.com/photo-1618176729090-253077a8f948?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Right Image">
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/CustomEase.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

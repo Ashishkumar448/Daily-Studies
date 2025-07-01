@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Kawaii Alphabet Soup</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kawaii Alphabet Soup Challenge</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Lobster&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="kitchen">
+    <div class="kawaii-elements">
+      <div class="kawaii-cloud cloud1"><i class="fas fa-cloud"></i></div>
+      <div class="kawaii-cloud cloud2"><i class="fas fa-cloud"></i></div>
+      <div class="kawaii-star star1"><i class="fas fa-star"></i></div>
+      <div class="kawaii-star star2"><i class="fas fa-star"></i></div>
+      <div class="kawaii-heart"><i class="fas fa-heart"></i></div>
+    </div>
+
+    <div class="soup-bowl" id="soup-bowl">
+      <div class="bowl-rim"></div>
+      <div class="bowl-face">
+        <div class="eyes">
+          <div class="eye left-eye"></div>
+          <div class="eye right-eye"></div>
+        </div>
+        <div class="mouth"></div>
+      </div>
+      <div class="broth" id="broth">
+        <!-- Letters will be injected here by JavaScript -->
+      </div>
+      <div class="bowl-shadow"></div>
+    </div>
+    
+    <div class="controls">
+      <h1 class="title">Kawaii <span class="soup-word">Alphabet Soup</span></h1>
+      
+      <div class="recipe-card">
+        <h2><i class="fas fa-utensils"></i> Recipe for Fun</h2>
+        <ol>
+          <li>Add creativity <i class="fas fa-magic"></i></li>
+          <li>Mix in some code <i class="fas fa-code"></i></li>
+          <li>Sprinkle with animations <i class="fas fa-spinner"></i></li>
+          <li>Serve hot in a browser <i class="fas fa-fire"></i></li>
+        </ol>
+        
+        <div class="button-container">
+          <button id="stir-btn" class="kawaii-btn"><i class="fas fa-sync-alt"></i> Stir the Soup!</button>
+          <button id="add-letters-btn" class="kawaii-btn"><i class="fas fa-plus"></i> Add More Letters</button>
+          <button id="change-color-btn" class="kawaii-btn"><i class="fas fa-palette"></i> Change Broth</button>
+        </div>
+        
+        <div class="letter-controls">
+          <p><i class="fas fa-font"></i> Add your own letter:</p>
+          <input type="text" id="custom-letter" maxlength="1" placeholder="A">
+          <button id="add-custom-btn" class="kawaii-btn">Add</button>
+        </div>
+        
+        <div class="emoji-controls">
+          <p><i class="fas fa-smile"></i> Add emoji:</p>
+          <div class="emoji-picker">
+            <span class="emoji" data-emoji="😊">😊</span>
+            <span class="emoji" data-emoji="🌟">🌟</span>
+            <span class="emoji" data-emoji="❤️">❤️</span>
+            <span class="emoji" data-emoji="🍰">🍰</span>
+            <span class="emoji" data-emoji="🐱">🐱</span>
+          </div>
+        </div>
+        
+        <div class="temperature-control">
+          <label for="temp-slider"><i class="fas fa-thermometer-half"></i> Soup Temperature:</label>
+          <input type="range" id="temp-slider" min="1" max="10" value="5">
+          <span id="temp-display">Medium</span>
+        </div>
+        
+        <div class="theme-selector">
+          <p><i class="fas fa-paint-brush"></i> Theme:</p>
+          <div class="theme-buttons">
+            <button id="theme-pastel" class="theme-btn pastel"></button>
+            <button id="theme-galaxy" class="theme-btn galaxy"></button>
+            <button id="theme-candy" class="theme-btn candy"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="floating-spoon" id="spoon"></div>
+    <div class="steam-container">
+      <div class="steam steam1"></div>
+      <div class="steam steam2"></div>
+      <div class="steam steam3"></div>
+      <div class="steam steam4"></div>
+    </div>
+  </div>
+  
+  <div class="letter-count">
+    <i class="fas fa-font"></i> Letters in soup: <span id="letter-counter">0</span>
+  </div>
+  
+  <audio id="pop-sound" src="https://assets.mixkit.co/active_storage/sfx/933/933-preview.mp3" preload="auto"></audio>
+  <audio id="stir-sound" src="https://assets.mixkit.co/active_storage/sfx/2617/2617-preview.mp3" preload="auto"></audio>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

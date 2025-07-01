@@ -1,0 +1,90 @@
+/*
+  This is based on the original idea by https://www.shadertoy.com/view/3tBGRm and Glitch and Noise based on the https://codepen.io/chrisjdesigner/pen/ExNPqBx
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=JetBrains+Mono:ital@0;1&display=swap");
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-foreground--100: rgb(141, 168, 146);
+  --color-background--100: rgb(49, 49, 49);
+  --color-accent: rgb(243, 234, 196);
+  --font-primary: "Inter", sans-serif;
+  --font-secondary: "JetBrains Mono", monospace;
+}
+
+.dg {
+  /* Style for the dat.GUI */
+  z-index: 99999 !important;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  background-color: #fafafa;
+  position: relative;
+  z-index: 1;
+  line-height: 1.4;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 2px,
+    #0000002d 4px
+  );
+  background-size: auto 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+#canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.main-wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  color: var(--color-foreground--100);
+  position: fixed;
+  mix-blend-mode: darken;
+}
+
+.main-wrapper h1 {
+  width: 100%;
+  max-width: 400px;
+  font-size: clamp(2rem, 3vw, 4rem);
+  text-align: center;
+  line-height: 1;
+  text-align: left;
+}
+
+.main-wrapper p {
+  width: 100%;
+  max-width: 500px;
+  font-family: var(--font-secondary);
+}

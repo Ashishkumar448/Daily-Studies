@@ -1,0 +1,23 @@
+/*
+  Learning this from the https://tympanus.net/codrops/2024/06/12/shape-lens-blur-effect-with-sdfs-and-webgl/
+
+  ##Resources
+    - https://thebookofshaders.com/
+    - https://iquilezles.org/articles/distfunctions2d/
+    - https://thebookofshaders.com/07/
+*/
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+#container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}

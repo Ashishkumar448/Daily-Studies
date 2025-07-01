@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Minimal GLSL viewer</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- Vertex Shader -->
+<script type="x-shader/x-vertex" id="standard-vs">
+  precision mediump float;
+        attribute vec4 a_Position;
+        void main() {
+            gl_Position = a_Position;
+        }
+    </script>
+
+<!-- Fragment Shader -->
+<script type="x-shader/x-fragment" id="standard-frag">
+  precision mediump float;
+        uniform float u_time;
+        uniform vec2 u_resolution;
+        void main() {
+            vec4 f = vec4(0.);
+            vec2 u = gl_FragCoord.xy / u_resolution.xy;
+            float x, c;
+            for (float i = 1.; i < 20.; i++)
+                f = u.y + .04 * i < sin(c = floor(x = 200.0 * u.x / i + 9.0 * i + u_time)) ? 
+                    f + min(15.0 * ((x -= c) - x * x), 1.0) * (i / 20.0 - f) : f;
+            gl_FragColor = f;
+        }
+    </script>
+
+<canvas id="gl" width="800" height="600"></canvas>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

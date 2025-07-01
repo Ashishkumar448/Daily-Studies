@@ -1,0 +1,25 @@
+body {
+  min-height: calc(100vh - 1rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: black;
+  color: white;
+}
+
+svg {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 256px;
+  fill: white;
+  overflow: visible;
+}
+
+.svg-graphic {
+  width: 100%;
+  height: auto;
+}
+
+.svg-path {
+}
