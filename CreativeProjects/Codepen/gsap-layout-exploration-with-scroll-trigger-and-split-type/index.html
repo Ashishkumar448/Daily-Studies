@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>[gsap] ❍ Layout Exploration with Scroll Trigger and Split-Type</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="hero">
+  <h2 class="hero__caption hero__caption--top">The essence beneath all forms<br /><br />{{ scroll }}</h2>
+
+  <div class="hero__content">
+    <div class="hero__text-wrapper">
+      <p class="hero__main-text">
+        In the infinite substance of nature, mind and matter are one.
+        We find enlightenment when we perceive the eternal patterns connecting all beings.
+      </p>
+    </div>
+  </div>
+
+  <h2 class="hero__caption hero__caption--bottom">Knowledge is the highest joy</h2>
+</div>
+
+<footer class="footer">
+  <div class="footer__top">
+    <h1 class="footer__title" data-splitting data-center-animation>ETERNAL</h1>
+  </div>
+  <div class="footer__bottom">
+    <div class="footer__dots-container" id="dotsContainer"></div>
+  </div>
+</footer>
+<!-- partial -->
+  <script src='https://unpkg.com/gsap@3/dist/gsap.min.js'></script>
+<script src='https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js'></script>
+<script src='https://unpkg.com/split-type'></script><script  src="./script.js"></script>
+
+</body>
+</html>

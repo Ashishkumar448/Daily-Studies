@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Boldonse&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #00180e; /* Darker green background to match image */
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  color: #f0f0f0;
+}
+
+/* Background gradient */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at 75% 25%,
+      rgba(0, 36, 25, 0.8) 0%,
+      rgba(0, 0, 0, 0) 50%
+    ),
+    radial-gradient(
+      circle at 25% 75%,
+      rgba(1, 20, 15, 0.9) 0%,
+      rgba(0, 0, 0, 0.7) 60%
+    ),
+    linear-gradient(to bottom, #00180e 0%, #001208 100%);
+  z-index: -1;
+}
+
+.container {
+  position: fixed; /* Changed from relative to fixed for exact positioning */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+.centered-text {
+  position: absolute;
+  text-align: center;
+  z-index: 10;
+  max-width: min(680px, 85vw);
+  pointer-events: auto;
+  will-change: transform;
+}
+
+.centered-text h1 {
+  font-family: "Boldonse", serif;
+  font-size: clamp(3.5rem, 10vw, 8rem);
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: transparent;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  background: linear-gradient(
+    135deg,
+    #244b32 0%,
+    #3c6445 60%,
+    #4a7d5a 100%
+  ); /* Matches greener header from image */
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: none;
+}
+
+.centered-text p {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #d2a959; /* Keep the gold color for paragraph text */
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+  opacity: 0.85;
+  letter-spacing: 0.01em;
+  text-shadow: none;
+  max-width: min(600px, 90%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.8rem 2.5rem;
+  background: rgba(168, 130, 57, 0.1);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+  color: #d2a959;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 2px;
+  border: 1px solid rgba(168, 130, 57, 0.3);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  pointer-events: auto;
+  position: relative;
+  overflow: hidden;
+  box-shadow: none;
+  will-change: transform;
+}
+
+.cta-button:hover {
+  background: rgba(168, 130, 57, 0.15);
+  border-color: rgba(168, 130, 57, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(168, 130, 57, 0.2);
+}
+
+.cta-button::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(243, 232, 220, 0) 0%,
+    rgba(243, 232, 220, 0.08) 50%,
+    rgba(243, 232, 220, 0) 100%
+  );
+  transform: rotate(45deg);
+  transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: 1;
+}
+
+.cta-button:hover::after {
+  left: 100%;
+}
+
+.gallery {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  z-index: 2;
+  top: 0;
+  left: 0;
+}
+
+.item {
+  position: absolute;
+  width: 140px;
+  height: 190px;
+  transform-origin: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  will-change: transform, left, top, opacity;
+  z-index: 5;
+  pointer-events: none; /* Remove interaction with background images */
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+  box-shadow: none; /* Remove shadows as requested */
+  filter: brightness(0.9) contrast(1) saturate(0.95);
+  transform-origin: center center;
+  border: none;
+}
+
+/* Remove hover effect as requested */
+.item:hover img {
+  filter: brightness(0.9) contrast(1) saturate(0.95);
+  box-shadow: none;
+  transform: none;
+}
+
+/* Glow effect */
+.glow {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(
+    circle,
+    rgba(37, 82, 65, 0.08) 0%,
+    rgba(37, 82, 65, 0.05) 30%,
+    rgba(37, 82, 65, 0) 70%
+  );
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+  pointer-events: none;
+  filter: blur(40px);
+  z-index: 1;
+}

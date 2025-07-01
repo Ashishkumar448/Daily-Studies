@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>[gsap] ❍ Layout Preloader Exploration with GSAP and FLIP N°1</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<section class="preloader">
+  <div class="preloader__center-image">
+    <img src="https://images.unsplash.com/photo-1741879080222-b9b5f20b3333?q=80&w=2163&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Preloader image">
+  </div>
+  <div class="preloader__text">
+    <div class="text-line-wrapper" data-index="0">
+      <p class="mono">Space</p>
+    </div>
+    <div class="text-line-wrapper" data-index="1">
+      <p class="quote">Silence reveals what matters most.</p>
+    </div>
+    <div class="text-line-wrapper" data-index="2">
+      <p class="mono">Breathes</p>
+    </div>
+  </div>
+</section>
+
+<!-- Added grid system from the attached code -->
+<div class="grid-container">
+  <div class="grid-column"></div>
+  <div class="grid-column"></div>
+  <div class="grid-column"></div>
+  <div class="grid-column"></div>
+  <div class="grid-column"></div>
+  <div class="grid-column"></div>
+  <div class="grid-column"></div>
+  <div class="grid-column"></div>
+  <div class="grid-column"></div>
+  <div class="grid-column"></div>
+  <div class="grid-column"></div>
+  <div class="grid-column"></div>
+</div>
+
+<!-- Added content container from the attached code -->
+<div class="content-container">
+  <!-- Top Row Text Blocks -->
+  <div class="text-block text-top block-1 blur-in">
+    <p class="mono">EMBRACE</p>
+    <div class="spacer"></div>
+    <p class="mono">01</p>
+  </div>
+  <div class="text-block text-top block-2 blur-in">
+    <p class="mono">STILLNESS</p>
+    <p class="quote">Between chaos and order lies creativity.</p>
+    <p class="mono">02</p>
+  </div>
+  <div class="text-block text-top block-3 blur-in">
+    <p class="mono">DEEPLY</p>
+    <div class="spacer"></div>
+    <p class="mono">03</p>
+  </div>
+
+  <!-- Middle Row Text Blocks -->
+  <div id="middle-text-1" class="text-block text-middle block-1 blur-in">
+    <p class="mono">EMPTY</p>
+    <div class="spacer"></div>
+    <p class="mono">04</p>
+  </div>
+  <div id="middle-text-3" class="text-block text-middle block-3 blur-in">
+    <p class="mono">MEANING</p>
+    <div class="spacer"></div>
+    <p class="mono">06</p>
+  </div>
+
+  <!-- Bottom Row Text Blocks -->
+  <div class="text-block text-bottom block-1 blur-in">
+    <p class="mono">FIND</p>
+    <div class="spacer"></div>
+    <p class="mono">07</p>
+  </div>
+  <div class="text-block text-bottom block-2 blur-in">
+    <p class="mono">TRUTH</p>
+    <p class="quote">The unseen guides the seen.</p>
+    <p class="mono">08</p>
+  </div>
+  <div class="text-block text-bottom block-3 blur-in">
+    <p class="mono">WITHIN</p>
+    <div class="spacer"></div>
+    <p class="mono">09</p>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Flip.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/CustomEase.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

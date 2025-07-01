@@ -1,0 +1,117 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  perspective: 1200px;
+  overflow: hidden;
+}
+
+.scene {
+  width: 200px;
+  height: 200px;
+  perspective: 1200px;
+  margin: 50px auto;
+  transform-style: preserve-3d;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  -webkit-animation: rotate 15s infinite linear;
+          animation: rotate 15s infinite linear;
+}
+
+.cube__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  box-sizing: border-box;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.cube__face--front {
+  transform: rotateY(0deg) translateZ(100px);
+  background-image: url("https://cdn.cosmos.so/a39eeff4-d35e-43c6-898c-037e3e5f5f7b?format=jpeg");
+}
+
+.cube__face--right {
+  transform: rotateY(90deg) translateZ(100px);
+  background-image: url("https://cdn.cosmos.so/a2c3ed99-d5ba-4bd6-9b2d-a7b016f41d69?format=jpeg");
+}
+
+.cube__face--back {
+  transform: rotateY(180deg) translateZ(100px);
+  background-image: url("https://cdn.cosmos.so/a903289d-2a8a-4a67-9fda-48bf19cbc21e?format=jpeg");
+}
+
+.cube__face--left {
+  transform: rotateY(-90deg) translateZ(100px);
+  background-image: url("https://cdn.cosmos.so/9521b14a-7694-40d5-8a8d-39f55e1c246d?format=jpeg");
+}
+
+.cube__face--top {
+  transform: rotateX(90deg) translateZ(100px);
+  background-image: url("https://cdn.cosmos.so/61f61007-d151-45bf-9f51-699cf7434503?format=jpeg");
+}
+
+.cube__face--bottom {
+  transform: rotateX(-90deg) translateZ(100px);
+  background-image: url("https://cdn.cosmos.so/6544f00d-3370-4988-aa87-ad96c827acfd?format=jpeg");
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    transform: rotateX(0) rotateY(0);
+  }
+  25% {
+    transform: rotateX(90deg) rotateY(0);
+  }
+  50% {
+    transform: rotateX(180deg) rotateY(0);
+  }
+  75% {
+    transform: rotateX(270deg) rotateY(0);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(0);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateX(0) rotateY(0);
+  }
+  25% {
+    transform: rotateX(90deg) rotateY(0);
+  }
+  50% {
+    transform: rotateX(180deg) rotateY(0);
+  }
+  75% {
+    transform: rotateX(270deg) rotateY(0);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(0);
+  }
+}
+
+.controls {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 8px 16px;
+  cursor: pointer;
+}

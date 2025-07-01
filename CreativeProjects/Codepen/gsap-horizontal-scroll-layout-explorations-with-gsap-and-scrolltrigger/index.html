@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>[gsap] ❍ Horizontal Scroll Layout Explorations with GSAP and ScrollTrigger</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- Left Menu -->
+<div class="left-menu">
+  <div class="left-menu-top">
+    <button class="menu-btn" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <div class="left-menu-middle">
+    <div class="logo">SPACE</div>
+  </div>
+  <div class="section-nav">
+    <a class="section-nav-item" data-index="0">
+      <span class="section-nav-item-number">01</span>
+      <span>Introduction</span>
+    </a>
+    <a class="section-nav-item" data-index="1">
+      <span class="section-nav-item-number">02</span>
+      <span>Matthew</span>
+    </a>
+    <a class="section-nav-item" data-index="2">
+      <span class="section-nav-item-number">03</span>
+      <span>Beyond</span>
+    </a>
+    <a class="section-nav-item" data-index="3">
+      <span class="section-nav-item-number">04</span>
+      <span>Rick</span>
+    </a>
+    <a class="section-nav-item" data-index="4">
+      <span class="section-nav-item-number">05</span>
+      <span>Cosmos</span>
+    </a>
+    <a class="section-nav-item" data-index="5">
+      <span class="section-nav-item-number">06</span>
+      <span>Dialogue</span>
+    </a>
+    <a class="section-nav-item" data-index="6">
+      <span class="section-nav-item-number">07</span>
+      <span>Infinite</span>
+    </a>
+    <a class="section-nav-item" data-index="7">
+      <span class="section-nav-item-number">08</span>
+      <span>Vision</span>
+    </a>
+    <a class="section-nav-item" data-index="8">
+      <span class="section-nav-item-number">09</span>
+      <span>Contact</span>
+    </a>
+  </div>
+</div>
+
+<div class="page-container">
+  <div class="horizontal-container">
+    <div class="panels-container">
+      <!-- First panel: Editorial split -->
+      <section class="panel panel-split editorial-split" data-index="0">
+        <div class="editorial-content">
+          <div class="panel-content">
+            <div class="chapter">The Conversation</div>
+            <h1 class="title split-text">When you look up at the stars, you're really looking at the past. Our time here is brief, but our gaze is eternal</h1>
+            <div class="text">
+              <p class="split-text">The vast emptiness of space offers us perspective. It reminds us how small we are in the grand scheme of things. Yet somehow, that doesn't diminish us – it elevates our existence into something miraculous.</p>
+            </div>
+          </div>
+        </div>
+        <div class="editorial-image">
+          <div class="image-wrapper">
+            <img src="https://cdn.cosmos.so/996569d5-2f19-40e9-9504-af3009286f9f.jpeg" alt="Space perspective" class="parallax" data-speed="0.3">
+          </div>
+        </div>
+      </section>
+
+      <!-- Second panel: Full background -->
+      <section class="panel panel-full" data-index="1">
+        <div class="image-wrapper">
+          <img src="https://cdn.cosmos.so/6828e15d-6b7e-4116-ba62-99493fa821cf.jpeg" alt="Cave opening" class="panel-full-background parallax" data-speed="0.2">
+        </div>
+        <div class="panel-full-overlay"></div>
+        <div class="panel-full-content">
+          <div class="chapter">Matthew</div>
+          <h2 class="title split-text">The universe doesn't care about our plans. It only rewards our presence</h2>
+          <div class="text">
+            <p class="split-text">We think we know what's out there, but man, we've barely scratched the surface. It's like we're children opening our eyes for the first time. Every discovery is just the beginning of ten thousand more questions.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Third panel: Fixed panel -->
+      <section class="panel panel-fixed" data-index="2">
+        <div class="image-wrapper">
+          <img src="https://cdn.cosmos.so/47895928-9611-45a3-b94d-0d8ef8ac02dc.jpeg" alt="Galaxy view" class="panel-fixed-image parallax" data-speed="0.25">
+        </div>
+        <div class="panel-fixed-content">
+          <div class="space-text">BEYOND</div>
+        </div>
+      </section>
+
+      <!-- Fourth panel: Editorial split reversed -->
+      <section class="panel panel-split editorial-split" data-index="3">
+        <div class="editorial-image">
+          <div class="image-wrapper">
+            <img src="https://cdn.cosmos.so/a28a9abc-6d7a-4160-a44b-2d9968c689c6.jpeg" alt="Space explorer" class="parallax" data-speed="0.3">
+          </div>
+        </div>
+        <div class="editorial-content">
+          <div class="panel-content">
+            <div class="chapter">Rick</div>
+            <h2 class="title split-text">Silence is the canvas where the universe reveals itself</h2>
+            <div class="text">
+              <p class="split-text">There's something profound about the emptiness. It's not empty at all. It's full of potential. The space between things – that's where the magic happens. We're drawn to explore not because we want to conquer, but because we yearn to understand.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fifth panel: Full background with COSMOS -->
+      <section class="panel panel-full" data-index="4">
+        <div class="image-wrapper">
+          <img src="https://cdn.cosmos.so/e3817e25-3312-43ea-b666-75aa0bc4b5ae.jpeg" alt="Deep space" class="panel-full-background parallax" data-speed="0.2">
+        </div>
+        <div class="panel-full-overlay"></div>
+        <div class="panel-full-content">
+          <div class="beyond-text">COSMOS</div>
+          <div class="text">
+            <p class="split-text">Sometimes I think about how every atom in our bodies was forged in the heart of a dying star. We're not just in the universe – the universe is in us. That connection, that's what drives us forward.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sixth panel: Split with quotes -->
+      <section class="panel panel-split" data-index="5">
+        <div class="panel-left">
+          <div class="panel-content">
+            <div class="direction-label">Matthew</div>
+            <div class="quote-container">
+              <div class="quote">"I've always approached the cosmos with a sense of wonder. It's like looking at your reflection in a mirror that stretches into infinity. You see yourself, but you also see beyond yourself."</div>
+              <div class="author">INTERSTELLAR, 2014</div>
+            </div>
+            <div class="image-container">
+              <div class="image-wrapper">
+                <img src="https://cdn.cosmos.so/f22462ad-b33d-448d-aa08-cfbbbe79ef42.jpeg" alt="Space journey" class="parallax" data-speed="0.15">
+              </div>
+            </div>
+            <div class="conclusion-text">
+              <p class="split-text">Looking out there is really looking in here. The questions we ask about the stars are really questions about ourselves.</p>
+            </div>
+          </div>
+        </div>
+        <div class="panel-right">
+          <div class="panel-content">
+            <div class="direction-label">Rick</div>
+            <div class="quote-container">
+              <div class="quote">"Great art creates space. Great space creates perspective. When we stand at the edge of the known, that's where true creativity begins."</div>
+              <div class="author">CREATIVE PROCESS, 2022</div>
+            </div>
+            <div class="full-quote">
+              "The universe doesn't rush, yet everything gets done. That's the paradox we're trying to understand – infinite patience paired with constant evolution."
+            </div>
+            <div class="text">
+              <p class="split-text">What we discover out there transforms everything down here. Each revelation about a distant galaxy reshapes how we see ourselves on this pale blue dot.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seventh panel: New big text with image -->
+      <section class="panel panel-full" data-index="6">
+        <div class="image-wrapper">
+          <img src="https://cdn.cosmos.so/ee8be9fb-15f6-4f3b-a13f-309cbf5453c2.jpeg" alt="Space infinite" class="panel-full-background parallax" data-speed="0.3">
+        </div>
+        <div class="panel-full-overlay"></div>
+        <div class="panel-full-content">
+          <div class="mega-text">INFINITE</div>
+          <div class="text">
+            <p class="split-text">The universe expands in all directions at once, infinitely complex and infinitely simple. We are but a momentary gathering of stardust, witnessing the cosmic dance.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Eighth panel: Video with text -->
+      <section class="panel panel-video" data-index="7">
+        <video class="video-background" autoplay loop muted playsinline>
+          <source src="https://cdn.cosmos.so/fdfc1996-66fd-4536-8d36-0ad173a4acff.mp4" type="video/mp4">
+        </video>
+        <div class="panel-video-overlay"></div>
+        <div class="panel-video-content">
+          <div class="mega-text">VISION</div>
+        </div>
+      </section>
+
+      <!-- Ninth panel: Contact -->
+      <section class="panel panel-contact" data-index="8">
+        <div class="contact-container">
+          <div class="contact-content">
+            <div class="space-text contact-name">GET IN TOUCH</div>
+            <div class="email-wrapper">
+              <a href="mailto:hi@filip.fyi" class="email">hi@filip.fyi</a>
+              <button class="copy-email" title="Copy email" aria-label="Copy email to clipboard">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </button>
+              <span class="copy-tooltip">Copied!</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<div class="navigation">
+  <div class="nav-text">SCROLL</div>
+  <div class="nav-progress">
+    <div class="nav-progress-fill"></div>
+  </div>
+  <div class="nav-text">01 / 09</div>
+</div>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.jshttps://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

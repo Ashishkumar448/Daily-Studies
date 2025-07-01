@@ -1,0 +1,339 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  --color-background: #000000;
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: rgba(245, 245, 245, 0.85);
+  --color-text-muted: rgba(245, 245, 245, 0.7);
+  --color-grid-overlay: rgba(255, 255, 255, 0.03);
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+  --grid-columns: 12;
+  --grid-gap: 1rem;
+  --z-index-background: 1;
+  --z-index-main: 10;
+  --z-index-overlay: 2;
+  --z-index-preloader: 9999;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
+  color: #f5f5f5;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  overflow-x: hidden;
+  height: 100%;
+  position: relative;
+}
+
+/* Background noise effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent
+    url("http://assets.iceable.com/img/noise-transparent.png") repeat 0 0;
+  background-size: 300px 300px;
+  -webkit-animation: noise-animation 0.3s steps(5) infinite;
+          animation: noise-animation 0.3s steps(5) infinite;
+  opacity: 0.3;
+  will-change: transform;
+  z-index: 100;
+  pointer-events: none;
+}
+
+@-webkit-keyframes noise-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-2%, -3%);
+  }
+
+  20% {
+    transform: translate(-4%, 2%);
+  }
+
+  30% {
+    transform: translate(2%, -4%);
+  }
+
+  40% {
+    transform: translate(-2%, 5%);
+  }
+
+  50% {
+    transform: translate(-4%, 2%);
+  }
+
+  60% {
+    transform: translate(3%, 0);
+  }
+
+  70% {
+    transform: translate(0, 3%);
+  }
+
+  80% {
+    transform: translate(-3%, 0);
+  }
+
+  90% {
+    transform: translate(2%, 2%);
+  }
+
+  100% {
+    transform: translate(1%, 0);
+  }
+}
+
+@keyframes noise-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-2%, -3%);
+  }
+
+  20% {
+    transform: translate(-4%, 2%);
+  }
+
+  30% {
+    transform: translate(2%, -4%);
+  }
+
+  40% {
+    transform: translate(-2%, 5%);
+  }
+
+  50% {
+    transform: translate(-4%, 2%);
+  }
+
+  60% {
+    transform: translate(3%, 0);
+  }
+
+  70% {
+    transform: translate(0, 3%);
+  }
+
+  80% {
+    transform: translate(-3%, 0);
+  }
+
+  90% {
+    transform: translate(2%, 2%);
+  }
+
+  100% {
+    transform: translate(1%, 0);
+  }
+}
+
+/* Your original preloader styles */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--color-background);
+}
+
+/* Preloader image */
+.preloader__center-image {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+  filter: blur(10px);
+  will-change: transform, filter;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.preloader__center-image img {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  filter: brightness(0.5);
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+/* Preloader text */
+.preloader__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 40ch;
+  will-change: transform;
+}
+
+/* Text line wrapper for overflow control - reduced spacing */
+.text-line-wrapper {
+  overflow: hidden;
+  margin: 0.1rem 0;
+  padding: 0.2rem 0;
+}
+
+.preloader__text .mono {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  color: rgba(245, 245, 245, 0.85);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transform: translateY(100%);
+  -webkit-clip-path: inset(0 0 100% 0);
+          clip-path: inset(0 0 100% 0);
+  will-change: transform, clip-path;
+}
+
+.preloader__text .quote {
+  font-style: italic;
+  font-size: 1.25rem;
+  margin: 0.2rem 0;
+  transform: translateY(100%);
+  -webkit-clip-path: inset(0 0 100% 0);
+          clip-path: inset(0 0 100% 0);
+  will-change: transform, clip-path;
+}
+
+/* Added grid system styles from the attached code */
+.grid-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 0 var(--spacing-lg);
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  grid-column-gap: var(--grid-gap);
+  pointer-events: none;
+  opacity: 0; /* Initially hidden */
+}
+
+.grid-column {
+  height: 0;
+  background-color: var(--color-grid-overlay);
+  pointer-events: none;
+}
+
+/* Added content container styles from the attached code */
+.content-container {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  gap: var(--grid-gap);
+  padding: var(--spacing-lg);
+  min-height: 100vh;
+  position: relative;
+  opacity: 0; /* Initially hidden */
+  justify-items: stretch;
+}
+
+.text-block {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-md);
+  position: relative;
+}
+
+.block-1 {
+  grid-column: 1 / span 4;
+  text-align: left;
+}
+
+.block-2 {
+  grid-column: 5 / span 4;
+  text-align: center;
+  align-items: center; /* Center the content horizontally */
+}
+
+.block-3 {
+  grid-column: 9 / span 4;
+  text-align: right;
+}
+
+.text-block p {
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: -0.02em;
+}
+
+.text-block .title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.text-block .mono {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.05em;
+}
+
+.text-block .quote {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+  max-width: 30ch;
+}
+
+/* Row-specific alignments */
+.text-top {
+  grid-row: 1;
+  align-self: start;
+}
+
+.text-middle {
+  grid-row: 2;
+  align-self: center;
+}
+
+.text-bottom {
+  grid-row: 3;
+  align-self: end;
+}
+
+/* Animation utility classes */
+.blur-in {
+  filter: blur(10px);
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+/* Spacer for maintaining vertical rhythm */
+.spacer {
+  height: 1.5rem;
+}

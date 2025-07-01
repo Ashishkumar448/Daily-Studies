@@ -1,0 +1,477 @@
+/* Import fonts */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=IBM+Plex+Mono&display=swap");
+
+/* Variables for consistency */
+:root {
+  --color-background: #e6e0d8; /* Content background */
+  --color-body-bg: #1a1a1a; /* Dark body background for depth effect */
+  --color-foreground: #2a2826;
+  --color-accent: #c5b8a5;
+  --color-menu-bg: #ffffff; /* Solid white for menu background */
+  --color-menu-text: #2a2826; /* Match the top menu text color */
+  --font-primary: "Manrope", sans-serif;
+  --font-secondary: "IBM Plex Mono", monospace;
+  --margin: 32px;
+  --gutter: 16px;
+  --font-size-large: 64px;
+  --font-size-medium: 18px;
+  --font-size-small: 16px;
+  --nav-height: 60px;
+  --border-radius: 4px; /* Consistent border radius */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-body-bg); /* Dark background color */
+  color: var(--color-foreground);
+  letter-spacing: -0.03em;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  transition: padding 0.3s ease; /* Add transition for padding */
+  will-change: padding; /* Optimize for padding changes */
+}
+
+/* Background noise effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent
+    url("http://assets.iceable.com/img/noise-transparent.png") repeat 0 0;
+  background-size: 300px 300px;
+  -webkit-animation: noise-animation 0.3s steps(5) infinite;
+          animation: noise-animation 0.3s steps(5) infinite;
+  opacity: 0.3;
+  will-change: transform;
+  z-index: 100;
+  pointer-events: none;
+}
+
+@-webkit-keyframes noise-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-2%, -3%);
+  }
+  20% {
+    transform: translate(-4%, 2%);
+  }
+  30% {
+    transform: translate(2%, -4%);
+  }
+  40% {
+    transform: translate(-2%, 5%);
+  }
+  50% {
+    transform: translate(-4%, 2%);
+  }
+  60% {
+    transform: translate(3%, 0);
+  }
+  70% {
+    transform: translate(0, 3%);
+  }
+  80% {
+    transform: translate(-3%, 0);
+  }
+  90% {
+    transform: translate(2%, 2%);
+  }
+  100% {
+    transform: translate(1%, 0);
+  }
+}
+
+@keyframes noise-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-2%, -3%);
+  }
+  20% {
+    transform: translate(-4%, 2%);
+  }
+  30% {
+    transform: translate(2%, -4%);
+  }
+  40% {
+    transform: translate(-2%, 5%);
+  }
+  50% {
+    transform: translate(-4%, 2%);
+  }
+  60% {
+    transform: translate(3%, 0);
+  }
+  70% {
+    transform: translate(0, 3%);
+  }
+  80% {
+    transform: translate(-3%, 0);
+  }
+  90% {
+    transform: translate(2%, 2%);
+  }
+  100% {
+    transform: translate(1%, 0);
+  }
+}
+
+a {
+  color: var(--color-foreground);
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+
+h1 {
+  font-size: var(--font-size-large);
+  margin: var(--gutter) 0;
+  font-weight: 300;
+  line-height: 0.9;
+}
+
+p {
+  font-size: var(--font-size-medium);
+  line-height: 1.4;
+  margin-top: 1rem;
+}
+
+/* All content wrapper */
+.all-content {
+  background-color: var(--color-background);
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  transition: transform 0.3s ease, border-radius 0.3s ease; /* Add border-radius transition */
+  will-change: transform, border-radius;
+  border-radius: 0; /* Start with no border radius */
+  overflow: hidden; /* Ensure content respects the border radius */
+}
+
+/* Add a class for when the menu is open to apply border radius */
+.all-content.menu-open {
+  border-radius: var(--border-radius);
+}
+
+/* Navigation */
+.navigation {
+  color: var(--color-foreground);
+  position: relative; /* Not fixed */
+  width: 100%;
+  z-index: 20; /* Higher than dropdown */
+  background-color: var(--color-background);
+  padding: var(--gutter) var(--margin);
+  height: var(--nav-height);
+  transition: margin 0.3s ease;
+}
+
+.navigation__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative; /* Ensure proper positioning context */
+}
+
+.navigation__logo {
+  font-size: 24px;
+  flex: 1;
+  transition: transform 0.3s ease; /* Add transition for smooth movement */
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.navigation__center {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.navigation__right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  transition: transform 0.3s ease; /* Add transition for smooth movement */
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.navigation__menu {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-menu-bg); /* Solid white */
+  padding: 8px 16px;
+  border-radius: var(--border-radius);
+  position: relative;
+  will-change: transform; /* Optimize for animations */
+  transform: translateZ(0); /* Force GPU acceleration */
+}
+
+.nav-link {
+  font-family: var(--font-secondary);
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-right: 16px;
+  letter-spacing: 0.05em;
+  text-rendering: optimizeLegibility; /* Improve text rendering */
+  -webkit-font-smoothing: antialiased; /* Better font smoothing */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.contact-link {
+  font-family: var(--font-secondary); /* Same font as nav links */
+  font-size: 12px; /* Same size as nav links */
+  text-transform: uppercase; /* Same text transform as nav links */
+  letter-spacing: 0.05em; /* Same letter spacing as nav links */
+  text-rendering: optimizeLegibility; /* Improve text rendering */
+  -webkit-font-smoothing: antialiased; /* Better font smoothing */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  font-family: var(--font-secondary);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-foreground);
+  cursor: pointer;
+  padding: 0;
+  margin-left: 8px;
+  line-height: 1;
+}
+
+/* Dropdown Menu - MODIFIED to fix text skewing */
+.dropdown {
+  background-color: var(--color-menu-bg);
+  color: var(--color-menu-text);
+  width: 40vw; /* 40% viewport width as requested */
+  position: absolute; /* Not fixed */
+  top: calc(
+    var(--nav-height) + 20px
+  ); /* Position below the navigation + account for padding */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center horizontally without scaling */
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  border-radius: var(--border-radius);
+  box-shadow: none; /* No shadow */
+  height: auto; /* Auto height based on content */
+  max-height: 0;
+  will-change: opacity, max-height;
+  overflow: hidden;
+}
+
+.dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  max-height: 50vh; /* Limit maximum height */
+  overflow: visible;
+}
+
+.dropdown__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: var(--margin);
+  border-radius: var(
+    --border-radius
+  ); /* Ensure content has rounded corners too */
+  background-color: var(--color-menu-bg); /* Match dropdown background */
+  transform: translateY(-100%); /* Start offscreen */
+  transition: transform 0.3s ease;
+  will-change: transform;
+  max-height: 50vh;
+}
+
+.dropdown.open .dropdown__content {
+  transform: translateY(0); /* Slide in when open */
+}
+
+.dropdown__menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.dropdown__image {
+  margin-top: var(--margin);
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: var(
+    --border-radius
+  ); /* Ensure image container has rounded corners */
+  will-change: opacity, transform; /* Optimize for animations */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Add transition for smoother animation */
+}
+
+.dropdown__image img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: var(--border-radius);
+}
+
+.dropdown__button {
+  font-family: var(--font-secondary);
+  font-size: 24px;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  filter: blur(10px); /* Initial blur state */
+  will-change: opacity, transform, filter;
+  position: relative;
+  display: inline-block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content; /* Make the element only as wide as its content */
+  font-weight: 500; /* Fatter weight */
+  color: var(--color-menu-text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-rendering: optimizeLegibility; /* Improve text rendering */
+  -webkit-font-smoothing: antialiased; /* Better font smoothing */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dropdown__button:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-menu-text);
+  transition: width 0.3s ease;
+}
+
+.dropdown__button:hover:after {
+  width: 100%;
+}
+
+/* Main Content */
+.content {
+  background-color: var(--color-background);
+  position: relative;
+  z-index: 5; /* Lower than dropdown */
+  width: 100%;
+  max-width: 100%;
+  margin-top: 0; /* No top margin since nav is not fixed */
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--gutter);
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  padding: var(--margin);
+  box-sizing: border-box;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.grid-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.grid-copy {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-family: var(--font-secondary);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.grid-content {
+  padding: var(--margin);
+  width: 100%;
+}
+
+.grid-item__wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.grid-item img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: var(--border-radius);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .dropdown {
+    width: 100%; /* Full width on mobile */
+    left: 0;
+    transform: translateX(0);
+  }
+
+  .dropdown.open {
+    transform: translateX(0);
+  }
+
+  .dropdown__content {
+    transform: translateY(-100%);
+  }
+
+  .dropdown.open .dropdown__content {
+    transform: translateY(0);
+  }
+
+  .navigation__menu {
+    display: none;
+  }
+
+  .navigation__center {
+    display: none;
+  }
+
+  .navigation__container {
+    justify-content: space-between;
+  }
+
+  .navigation__logo {
+    font-size: 20px;
+  }
+
+  .menu-btn {
+    display: block;
+    font-size: 24px;
+  }
+}

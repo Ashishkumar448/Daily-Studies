@@ -1,0 +1,237 @@
+/* Clean reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #121212;
+  color: #f0f0f0;
+  overflow-x: hidden;
+  height: 600vh;
+  /* 6 sections x 100vh */
+}
+
+/* Main gallery container - fixed position */
+#gallery {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  background: #121212;
+}
+
+/* Column layouts */
+.col-left {
+  width: 25%;
+  height: 100%;
+  padding: 20px 10px 20px 20px;
+}
+
+.col-nav {
+  width: 4%;
+  height: 100%;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: rgba(18, 18, 18, 0.5);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: width 0.4s ease;
+}
+
+.col-right {
+  width: 71%;
+  height: 100%;
+  display: flex;
+  padding: 20px 20px 20px 10px;
+}
+
+/* Column hover effects */
+.col-nav:hover {
+  width: 12%;
+}
+
+/* Image columns */
+.img-col {
+  flex: 1;
+  padding: 0 10px;
+  position: relative;
+}
+
+.col-right .img-col {
+  width: 50%;
+  /* 50% for 2 columns */
+}
+
+/* Reverse column styling */
+#col2 {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+/* Image items - with min-height to ensure 3 fit in viewport */
+.img-item {
+  width: 100%;
+  height: calc(100vh / 3 - 16px);
+  min-height: 33vh;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.img-item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.img-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Navigation styling */
+.nav-container {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-item {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-item.active {
+  border-color: #fff;
+}
+
+.nav-item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.nav-label {
+  position: absolute;
+  left: 120%;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 12px;
+}
+
+.col-nav:hover .nav-label {
+  opacity: 1;
+}
+
+/* Minimap hover behavior - fixed to maintain consistent spacing */
+.col-nav:hover ~ .col-left .img-item,
+.col-nav:hover ~ .col-right .img-item {
+  height: calc(100vh / 6 - 16px);
+  /* Keep the same margin as normal state */
+  transition: height 0.4s ease;
+}
+
+/* Fade overlays */
+.fade-top,
+.fade-bottom {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.fade-top {
+  top: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.fade-bottom {
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .col-left {
+    width: 30%;
+  }
+
+  .col-nav {
+    width: 5%;
+  }
+
+  .col-right {
+    width: 65%;
+  }
+
+  .col-nav:hover {
+    width: 15%;
+  }
+}
+
+@media (max-width: 768px) {
+  #gallery {
+    flex-direction: column;
+  }
+
+  .col-left {
+    width: 100%;
+    height: 40%;
+  }
+
+  .col-nav {
+    width: 100%;
+    height: 10%;
+  }
+
+  .col-right {
+    width: 100%;
+    height: 50%;
+  }
+
+  .nav-container {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .nav-label {
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

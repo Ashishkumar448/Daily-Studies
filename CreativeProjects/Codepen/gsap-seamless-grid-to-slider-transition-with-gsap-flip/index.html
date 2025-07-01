@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>[gsap] ❍ Seamless Grid to Slider Transition with GSAP &amp; FLIP</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="preloader">
+  <div class="preloader-counter">0</div>
+</div>
+
+<div class="container">
+  <div class="grid-container">
+    <div class="grid" id="grid">
+      <div class="grid-item" data-index="0">
+        <div class="grid-item-img" style="background-image:url(https://cdn.cosmos.so/dfff1381-f09c-454b-b98d-8a79161c3d25?format=jpeg)"></div>
+      </div>
+      <div class="grid-item" data-index="1">
+        <div class="grid-item-img" style="background-image:url(https://cdn.cosmos.so/c7af8b26-313a-40e4-9081-85f7fde00c22?format=jpeg)"></div>
+      </div>
+      <div class="grid-item" data-index="2">
+        <div class="grid-item-img" style="background-image:url(https://cdn.cosmos.so/03a36d87-af8c-4cfe-bfed-7a3dd502404b.?format=jpeg)"></div>
+      </div>
+      <div class="grid-item" data-index="3">
+        <div class="grid-item-img" style="background-image:url(https://cdn.cosmos.so/bdb2a659-2838-4055-a82e-f145c3fd4467?format=jpeg)"></div>
+      </div>
+      <div class="grid-item target" id="target-item" data-index="4">
+        <div class="grid-item-img" style="background-image:url(https://cdn.cosmos.so/fddfc757-d9c3-44f1-af6e-a607c3746738?format=jpeg)"></div>
+      </div>
+      <div class="grid-item" data-index="5">
+        <div class="grid-item-img" style="background-image:url(https://cdn.cosmos.so/51a307de-a9ba-4c9e-ad24-beff1ce023d0?format=jpeg)"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide layers in stacking order -->
+<!-- Base layer - current slide -->
+<div class="slider-image" id="slider-image"></div>
+<!-- Background parallax layer -->
+<div class="slider-image-bg" id="slider-image-bg"></div>
+<!-- Top layer - next slide -->
+<div class="slider-image-next" id="slider-image-next"></div>
+<!-- Transition overlay -->
+<div class="transition-overlay" id="transition-overlay"></div>
+
+<div class="content" id="content">
+  <h1 class="content-title">
+    <span>MONOCHROME SERIES</span>
+  </h1>
+  <div class="content-paragraph" id="content-paragraph">
+    Without color, we see differently. Form and texture speak louder. The world simplified to light and dark reveals truths that color often conceals. In this space between extremes, we find clarity. The photograph becomes a mirror reflecting not just what we see, but how we see.
+  </div>
+</div>
+
+<div class="thumbnails">
+  <div class="thumbnail" data-index="0">
+    <div class="thumbnail-img" style="background-image:url(https://cdn.cosmos.so/dfff1381-f09c-454b-b98d-8a79161c3d25?format=jpeg)"></div>
+  </div>
+  <div class="thumbnail" data-index="1">
+    <div class="thumbnail-img" style="background-image:url(https://cdn.cosmos.so/c7af8b26-313a-40e4-9081-85f7fde00c22?format=jpeg)"></div>
+  </div>
+  <div class="thumbnail" data-index="2">
+    <div class="thumbnail-img" style="background-image:url(https://cdn.cosmos.so/03a36d87-af8c-4cfe-bfed-7a3dd502404b.?format=jpeg)"></div>
+  </div>
+  <div class="thumbnail" data-index="3">
+    <div class="thumbnail-img" style="background-image:url(https://cdn.cosmos.so/bdb2a659-2838-4055-a82e-f145c3fd4467?format=jpeg)"></div>
+  </div>
+  <div class="thumbnail active" data-index="4">
+    <div class="thumbnail-img" style="background-image:url(https://cdn.cosmos.so/fddfc757-d9c3-44f1-af6e-a607c3746738?format=jpeg)"></div>
+  </div>
+  <div class="thumbnail" data-index="5">
+    <div class="thumbnail-img" style="background-image:url(https://cdn.cosmos.so/51a307de-a9ba-4c9e-ad24-beff1ce023d0?format=jpeg)"></div>
+  </div>
+</div>
+
+<div class="switch" id="switch">
+  <button class="switch-button switch-button-grid switch-button-current">
+    <span class="indicator-dot"></span>
+    GRID
+  </button>
+  <button class="switch-button switch-button-slider">
+    <span class="indicator-dot"></span>
+    SLIDER
+  </button>
+</div>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/CustomEase.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Flip.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

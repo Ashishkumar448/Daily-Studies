@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #0f0f0f;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+  position: relative;
+}
+
+.background-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.25;
+}
+
+.grid-item {
+  font-size: 11px;
+  letter-spacing: -0.02em;
+  padding: 10px;
+  color: #7d7d7d;
+  font-family: "Inter", monospace;
+  overflow: hidden;
+}
+
+.riddleHint {
+  color: #528ecc;
+}
+
+.page-container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.info-column {
+  width: 250px;
+  font-size: 12px;
+}
+
+.left-info {
+  text-align: right;
+  padding-right: 40px;
+}
+
+.right-info {
+  text-align: left;
+  padding-left: 40px;
+}
+
+.coordinates {
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.time {
+  letter-spacing: -0.02em;
+}
+
+.container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
+
+.background-stack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.foreground-stack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.bg-card {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+.fg-card {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.bg-card img,
+.fg-card img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+.fg-card.active {
+  opacity: 1;
+}
+
+.enigma-code {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: #525252;
+  letter-spacing: 3px;
+  text-align: center;
+  z-index: 10;
+}
+
+.riddleHint {
+  color: #528ecc;
+}
+
+.background-grid .grid-item {
+  transition: opacity 0.2s;
+}
+
+.enigma-code {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: #525252;
+  letter-spacing: -0.02em;
+  text-align: center;
+  z-index: 10;
+}

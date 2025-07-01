@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>[gsap] ❍ Drop-Down Menu Page with GSAP Animations</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="all-content" id="all-content">
+  <nav class="navigation" id="navigation">
+    <div class="navigation__container">
+      <div class="navigation__logo">The Conscious Creator</div>
+      <div class="navigation__center">
+        <div class="navigation__menu">
+          <a href="#" class="nav-link">SILENCE&SPACE</a>
+          <a href="#" class="nav-link">DEPTH&MEANING</a>
+          <a href="#" class="nav-link">WISDOM</a>
+          <a href="#" class="nav-link">ABOUT</a>
+          <button class="menu-btn" id="menu-btn">+</button>
+        </div>
+      </div>
+      <div class="navigation__right">
+        <a href="#" class="contact-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="content" id="content">
+    <div class="grid-container">
+      <div class="grid-item">
+        <div class="grid-item__wrapper">
+          <div class="grid-copy">
+            Silence & Space
+          </div>
+          <img src="https://images.unsplash.com/photo-1742403949587-42a767b9ea5b?q=80&w=2187&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Abstract light shapes">
+        </div>
+      </div>
+
+      <div class="grid-item grid-content">
+        <h1>The Wisdom Between Words</h1>
+        <p>The quality of your life is determined by the quality of your questions.<br />True creation happens in the moments of stillness, when the mind becomes quiet enough to hear what's essential.</p>
+      </div>
+
+      <div class="grid-item">
+        <div class="grid-item__wrapper">
+          <div class="grid-copy">
+            Depth & Meaning
+          </div>
+          <img src="https://images.unsplash.com/photo-1742548991283-fac7aa1a50fa?q=80&w=2187&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Abstract light shapes">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dropdown" id="dropdown">
+  <div class="dropdown__content">
+    <div class="dropdown__menu">
+      <a class="dropdown__button">SILENCE & SPACE</a>
+      <a class="dropdown__button">DEPTH & MEANING</a>
+      <a class="dropdown__button">WISDOM PRACTICE</a>
+      <a class="dropdown__button">CREATIVE PROCESS</a>
+      <a class="dropdown__button">CONNECT</a>
+    </div>
+    <div class="dropdown__image">
+      <img src="https://images.unsplash.com/photo-1742403949587-42a767b9ea5b?q=80&w=2187&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Abstract light shapes">
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://unpkg.com/gsap@3/dist/gsap.min.js'></script>
+<script src='https://assets.codepen.io/16327/CustomEase3.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

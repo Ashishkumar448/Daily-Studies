@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>[gsap] ❍ Layout Preloader Exploration with GSAP, FLIP and SPLIT TYPE N°4</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- Header Navigation -->
+<header class="header">
+  <div class="logo-left">REDUCE</div>
+  <nav class="nav-center">
+    <ul>
+      <li>FOCUS</li>
+      <li>CLARITY</li>
+      <li>SIMPLIFY</li>
+      <li>TRUTH</li>
+    </ul>
+  </nav>
+  <div class="nav-right">+GET IN TOUCH</div>
+</header>
+
+<!-- Preloader with Image Animation -->
+<div class="preloader">
+  <div class="preloader-content">
+    <div class="image-container">
+      <div id="image-0" class="image-wrapper">
+        <img src="https://cdn.cosmos.so/4900e2ad-dfdb-4f6a-8ca8-6700144e6c89?format=jpeg" alt="Preloader Image 1">
+      </div>
+      <div id="image-20" class="image-wrapper">
+        <img src="https://cdn.cosmos.so/acdef0b0-0321-4f80-9ab0-7932ccb88554?format=jpeg" alt="Preloader Image 2">
+      </div>
+      <div id="image-60" class="image-wrapper">
+        <img src="https://cdn.cosmos.so/09eb737d-c269-4fa6-a77c-4ada27419be0?format=jpeg" alt="Preloader Image 3">
+      </div>
+      <div id="image-80" class="image-wrapper">
+        <img src="https://cdn.cosmos.so/e9b9e7dc-73f5-4f7c-bbb3-ad2e3589bda0?format=jpeg" alt="Preloader Image 4">
+      </div>
+      <div id="image-100" class="image-wrapper">
+        <img src="https://cdn.cosmos.so/5b5c5242-4598-4d51-9891-0e90eeef6727?format=jpeg" alt="Preloader Image 5">
+      </div>
+    </div>
+    <div class="preloader-percentage">0</div>
+  </div>
+</div>
+
+<!-- Text Lines Container (Preloader) -->
+<div class="text-container">
+  <div class="text-line">Winning is a habit.</div>
+  <div class="text-line">Champions are made daily.</div>
+  <div class="text-line">Obstacles fuel growth.</div>
+  <div class="text-line">The mind conquers first.</div>
+  <div class="text-line">Success demands sacrifice.</div>
+  <div class="text-line">Greatness never rests.</div>
+  <div class="text-line">Victory is earned.</div>
+  <div class="text-line">Persistence prevails.</div>
+</div>
+
+<!-- Text Lines Container (Final) -->
+<div class="text-container-final">
+  <div class="text-line-final">Embrace the challenge.</div>
+  <div class="text-line-final">Find your purpose.</div>
+  <div class="text-line-final">Commit to excellence.</div>
+  <div class="text-line-final">Trust the process.</div>
+  <div class="text-line-final">Silence the doubters.</div>
+  <div class="text-line-final">Rise above fear.</div>
+  <div class="text-line-final">Own your destiny.</div>
+  <div class="text-line-final">Leave a legacy.</div>
+</div>
+
+<!-- Hero Text (Big Title) -->
+<div class="big-title">
+  <div class="title-line"><span>WINNING</span></div>
+  <div class="title-line"><span>MINDSET</span></div>
+  <div class="title-line"><span>ALWAYS</span></div>
+</div>
+
+<!-- Restart Button -->
+<button class="restart-btn">
+  <div class="dot-container">
+    <!-- Initial 4 dots -->
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+
+    <!-- Additional 4 dots (hidden initially) -->
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+
+    <!-- Center dot (hidden initially) -->
+    <div class="center-dot"></div>
+  </div>
+</button>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Flip.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/CustomEase.min.js'></script>
+<script src='https://unpkg.com/split-type@0.3.4/umd/index.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

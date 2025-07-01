@@ -1,0 +1,83 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #2d3250;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: 100%;
+}
+
+.svg-container {
+  position: relative;
+  width: 100%;
+  background-color: transparent;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+svg {
+  width: 100%;
+  height: auto;
+  overflow: visible !important;
+}
+
+svg path {
+  fill: #f2e8cf;
+  cursor: -webkit-grab;
+  cursor: grab;
+  transition: opacity 0.2s ease;
+}
+
+svg path:hover {
+  opacity: 0.8;
+}
+
+svg path:active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.tooltip {
+  position: fixed;
+  background-color: #424769;
+  color: #f2e8cf;
+  padding: 5px 10px;
+  border-radius: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 10;
+  font-size: 14px;
+}
+
+.tooltip::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid #424769;
+  /* Match tooltip background */
+}
+
+.instructions {
+  color: #f2e8cf;
+  /* Same beige as the SVG */
+  margin-top: 20px;
+  text-align: center;
+}

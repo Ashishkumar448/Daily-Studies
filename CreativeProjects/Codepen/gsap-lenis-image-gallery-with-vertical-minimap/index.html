@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>[gsap/lenis] ❍ Image Gallery with Vertical Minimap</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="fade-top"></div>
+<div class="fade-bottom"></div>
+
+<!-- Main Gallery -->
+<div id="gallery">
+  <!-- Left Column -->
+  <div class="col-left">
+    <div class="img-col" id="col1">
+      <!-- Section 0 - 3 images -->
+      <div class="img-item" data-section="0">
+        <img src="https://cdn.cosmos.so/da6d0c3b-d1db-491a-ac07-a4a9997e712e.jpeg" alt="Section 0">
+      </div>
+      <div class="img-item" data-section="0">
+        <img src="https://cdn.cosmos.so/da6d0c3b-d1db-491a-ac07-a4a9997e712e.jpeg" alt="Section 0">
+      </div>
+      <div class="img-item" data-section="0">
+        <img src="https://cdn.cosmos.so/da6d0c3b-d1db-491a-ac07-a4a9997e712e.jpeg" alt="Section 0">
+      </div>
+
+      <!-- Section 1 - 3 images -->
+      <div class="img-item" data-section="1">
+        <img src="https://cdn.cosmos.so/aebb7988-6cfe-4c7d-9a06-3a365967e06d.jpeg" alt="Section 1">
+      </div>
+      <div class="img-item" data-section="1">
+        <img src="https://cdn.cosmos.so/aebb7988-6cfe-4c7d-9a06-3a365967e06d.jpeg" alt="Section 1">
+      </div>
+      <div class="img-item" data-section="1">
+        <img src="https://cdn.cosmos.so/aebb7988-6cfe-4c7d-9a06-3a365967e06d.jpeg" alt="Section 1">
+      </div>
+
+      <!-- Section 2 - 3 images -->
+      <div class="img-item" data-section="2">
+        <img src="https://cdn.cosmos.so/dcf857a9-49e5-4e0b-8aa9-5194389b067f.jpeg" alt="Section 2">
+      </div>
+      <div class="img-item" data-section="2">
+        <img src="https://cdn.cosmos.so/dcf857a9-49e5-4e0b-8aa9-5194389b067f.jpeg" alt="Section 2">
+      </div>
+      <div class="img-item" data-section="2">
+        <img src="https://cdn.cosmos.so/dcf857a9-49e5-4e0b-8aa9-5194389b067f.jpeg" alt="Section 2">
+      </div>
+
+      <!-- Section 3 - 3 images -->
+      <div class="img-item" data-section="3">
+        <img src="https://cdn.cosmos.so/f20e4bfc-0827-4144-a924-0c86fd62c7ee.jpeg" alt="Section 3">
+      </div>
+      <div class="img-item" data-section="3">
+        <img src="https://cdn.cosmos.so/f20e4bfc-0827-4144-a924-0c86fd62c7ee.jpeg" alt="Section 3">
+      </div>
+      <div class="img-item" data-section="3">
+        <img src="https://cdn.cosmos.so/f20e4bfc-0827-4144-a924-0c86fd62c7ee.jpeg" alt="Section 3">
+      </div>
+
+      <!-- Section 4 - 3 images -->
+      <div class="img-item" data-section="4">
+        <img src="https://cdn.cosmos.so/bf0ac43e-2e2b-4a78-a1bf-2c238324c882.jpeg" alt="Section 4">
+      </div>
+      <div class="img-item" data-section="4">
+        <img src="https://cdn.cosmos.so/bf0ac43e-2e2b-4a78-a1bf-2c238324c882.jpeg" alt="Section 4">
+      </div>
+      <div class="img-item" data-section="4">
+        <img src="https://cdn.cosmos.so/bf0ac43e-2e2b-4a78-a1bf-2c238324c882.jpeg" alt="Section 4">
+      </div>
+
+      <!-- Section 5 - 3 images -->
+      <div class="img-item" data-section="5">
+        <img src="https://cdn.cosmos.so/f25cc5f1-f2cc-41a5-ad1a-a60d1062ae37.jpeg" alt="Section 5">
+      </div>
+      <div class="img-item" data-section="5">
+        <img src="https://cdn.cosmos.so/f25cc5f1-f2cc-41a5-ad1a-a60d1062ae37.jpeg" alt="Section 5">
+      </div>
+      <div class="img-item" data-section="5">
+        <img src="https://cdn.cosmos.so/f25cc5f1-f2cc-41a5-ad1a-a60d1062ae37.jpeg" alt="Section 5">
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Column -->
+  <div class="col-nav">
+    <div class="nav-container">
+      <div class="nav-item" data-section="0">
+        <img src="https://cdn.cosmos.so/da6d0c3b-d1db-491a-ac07-a4a9997e712e.jpeg" alt="Section 0">
+        <span class="nav-label">Section 1</span>
+      </div>
+      <div class="nav-item" data-section="1">
+        <img src="https://cdn.cosmos.so/aebb7988-6cfe-4c7d-9a06-3a365967e06d.jpeg" alt="Section 1">
+        <span class="nav-label">Section 2</span>
+      </div>
+      <div class="nav-item" data-section="2">
+        <img src="https://cdn.cosmos.so/dcf857a9-49e5-4e0b-8aa9-5194389b067f.jpeg" alt="Section 2">
+        <span class="nav-label">Section 3</span>
+      </div>
+      <div class="nav-item" data-section="3">
+        <img src="https://cdn.cosmos.so/f20e4bfc-0827-4144-a924-0c86fd62c7ee.jpeg" alt="Section 3">
+        <span class="nav-label">Section 4</span>
+      </div>
+      <div class="nav-item" data-section="4">
+        <img src="https://cdn.cosmos.so/bf0ac43e-2e2b-4a78-a1bf-2c238324c882.jpeg" alt="Section 4">
+        <span class="nav-label">Section 5</span>
+      </div>
+      <div class="nav-item" data-section="5">
+        <img src="https://cdn.cosmos.so/f25cc5f1-f2cc-41a5-ad1a-a60d1062ae37.jpeg" alt="Section 5">
+        <span class="nav-label">Section 6</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Columns (2 columns) -->
+  <div class="col-right">
+    <!-- Column 2 (Reversed Direction) -->
+    <div class="img-col" id="col2">
+      <!-- Section 0 - 3 images -->
+      <div class="img-item" data-section="0">
+        <img src="https://cdn.cosmos.so/da6d0c3b-d1db-491a-ac07-a4a9997e712e.jpeg" alt="Section 0">
+      </div>
+      <div class="img-item" data-section="0">
+        <img src="https://cdn.cosmos.so/da6d0c3b-d1db-491a-ac07-a4a9997e712e.jpeg" alt="Section 0">
+      </div>
+      <div class="img-item" data-section="0">
+        <img src="https://cdn.cosmos.so/da6d0c3b-d1db-491a-ac07-a4a9997e712e.jpeg" alt="Section 0">
+      </div>
+      <!-- Section 1 - 3 images -->
+      <div class="img-item" data-section="1">
+        <img src="https://cdn.cosmos.so/aebb7988-6cfe-4c7d-9a06-3a365967e06d.jpeg" alt="Section 1">
+      </div>
+      <div class="img-item" data-section="1">
+        <img src="https://cdn.cosmos.so/aebb7988-6cfe-4c7d-9a06-3a365967e06d.jpeg" alt="Section 1">
+      </div>
+      <div class="img-item" data-section="1">
+        <img src="https://cdn.cosmos.so/aebb7988-6cfe-4c7d-9a06-3a365967e06d.jpeg" alt="Section 1">
+      </div>
+      <div class="img-item" data-section="2">
+        <img src="https://cdn.cosmos.so/dcf857a9-49e5-4e0b-8aa9-5194389b067f.jpeg" alt="Section 2">
+      </div>
+      <div class="img-item" data-section="2">
+        <img src="https://cdn.cosmos.so/dcf857a9-49e5-4e0b-8aa9-5194389b067f.jpeg" alt="Section 2">
+      </div>
+      <div class="img-item" data-section="2">
+        <img src="https://cdn.cosmos.so/dcf857a9-49e5-4e0b-8aa9-5194389b067f.jpeg" alt="Section 2">
+      </div>
+      <!-- Section 3 - 3 images -->
+      <div class="img-item" data-section="3">
+        <img src="https://cdn.cosmos.so/f20e4bfc-0827-4144-a924-0c86fd62c7ee.jpeg" alt="Section 3">
+      </div>
+      <div class="img-item" data-section="3">
+        <img src="https://cdn.cosmos.so/f20e4bfc-0827-4144-a924-0c86fd62c7ee.jpeg" alt="Section 3">
+      </div>
+      <div class="img-item" data-section="3">
+        <img src="https://cdn.cosmos.so/f20e4bfc-0827-4144-a924-0c86fd62c7ee.jpeg" alt="Section 3">
+      </div>
+
+      <!-- Section 4 - 3 images -->
+      <div class="img-item" data-section="4">
+        <img src="https://cdn.cosmos.so/bf0ac43e-2e2b-4a78-a1bf-2c238324c882.jpeg" alt="Section 4">
+      </div>
+      <div class="img-item" data-section="4">
+        <img src="https://cdn.cosmos.so/bf0ac43e-2e2b-4a78-a1bf-2c238324c882.jpeg" alt="Section 4">
+      </div>
+      <div class="img-item" data-section="4">
+        <img src="https://cdn.cosmos.so/bf0ac43e-2e2b-4a78-a1bf-2c238324c882.jpeg" alt="Section 4">
+      </div>
+
+      <!-- Section 5 - 3 images -->
+      <div class="img-item" data-section="5">
+        <img src="https://cdn.cosmos.so/f25cc5f1-f2cc-41a5-ad1a-a60d1062ae37.jpeg" alt="Section 5">
+      </div>
+      <div class="img-item" data-section="5">
+        <img src="https://cdn.cosmos.so/f25cc5f1-f2cc-41a5-ad1a-a60d1062ae37.jpeg" alt="Section 5">
+      </div>
+      <div class="img-item" data-section="5">
+        <img src="https://cdn.cosmos.so/f25cc5f1-f2cc-41a5-ad1a-a60d1062ae37.jpeg" alt="Section 5">
+      </div>
+    </div>
+
+    <!-- Column 3 -->
+    <div class="img-col" id="col3">
+      <!-- Section 0 - 3 images -->
+      <div class="img-item" data-section="0">
+        <img src="https://cdn.cosmos.so/da6d0c3b-d1db-491a-ac07-a4a9997e712e.jpeg" alt="Section 0">
+      </div>
+      <div class="img-item" data-section="0">
+        <img src="https://cdn.cosmos.so/da6d0c3b-d1db-491a-ac07-a4a9997e712e.jpeg" alt="Section 0">
+      </div>
+      <div class="img-item" data-section="0">
+        <img src="https://cdn.cosmos.so/da6d0c3b-d1db-491a-ac07-a4a9997e712e.jpeg" alt="Section 0">
+      </div>
+
+      <!-- Section 1 - 3 images -->
+      <div class="img-item" data-section="1">
+        <img src="https://cdn.cosmos.so/aebb7988-6cfe-4c7d-9a06-3a365967e06d.jpeg" alt="Section 1">
+      </div>
+      <div class="img-item" data-section="1">
+        <img src="https://cdn.cosmos.so/aebb7988-6cfe-4c7d-9a06-3a365967e06d.jpeg" alt="Section 1">
+      </div>
+      <div class="img-item" data-section="1">
+        <img src="https://cdn.cosmos.so/aebb7988-6cfe-4c7d-9a06-3a365967e06d.jpeg" alt="Section 1">
+      </div>
+
+      <!-- Section 2 - 3 images -->
+      <div class="img-item" data-section="2">
+        <img src="https://cdn.cosmos.so/dcf857a9-49e5-4e0b-8aa9-5194389b067f.jpeg" alt="Section 2">
+      </div>
+      <div class="img-item" data-section="2">
+        <img src="https://cdn.cosmos.so/dcf857a9-49e5-4e0b-8aa9-5194389b067f.jpeg" alt="Section 2">
+      </div>
+      <div class="img-item" data-section="2">
+        <img src="https://cdn.cosmos.so/dcf857a9-49e5-4e0b-8aa9-5194389b067f.jpeg" alt="Section 2">
+      </div>
+
+      <!-- Section 3 - 3 images -->
+      <div class="img-item" data-section="3">
+        <img src="https://cdn.cosmos.so/f20e4bfc-0827-4144-a924-0c86fd62c7ee.jpeg" alt="Section 3">
+      </div>
+      <div class="img-item" data-section="3">
+        <img src="https://cdn.cosmos.so/f20e4bfc-0827-4144-a924-0c86fd62c7ee.jpeg" alt="Section 3">
+      </div>
+      <div class="img-item" data-section="3">
+        <img src="https://cdn.cosmos.so/f20e4bfc-0827-4144-a924-0c86fd62c7ee.jpeg" alt="Section 3">
+      </div>
+
+      <!-- Section 4 - 3 images -->
+      <div class="img-item" data-section="4">
+        <img src="https://cdn.cosmos.so/bf0ac43e-2e2b-4a78-a1bf-2c238324c882.jpeg" alt="Section 4">
+      </div>
+      <div class="img-item" data-section="4">
+        <img src="https://cdn.cosmos.so/bf0ac43e-2e2b-4a78-a1bf-2c238324c882.jpeg" alt="Section 4">
+      </div>
+      <div class="img-item" data-section="4">
+        <img src="https://cdn.cosmos.so/bf0ac43e-2e2b-4a78-a1bf-2c238324c882.jpeg" alt="Section 4">
+      </div>
+
+      <!-- Section 5 - 3 images -->
+      <div class="img-item" data-section="5">
+        <img src="https://cdn.cosmos.so/f25cc5f1-f2cc-41a5-ad1a-a60d1062ae37.jpeg" alt="Section 5">
+      </div>
+      <div class="img-item" data-section="5">
+        <img src="https://cdn.cosmos.so/f25cc5f1-f2cc-41a5-ad1a-a60d1062ae37.jpeg" alt="Section 5">
+      </div>
+      <div class="img-item" data-section="5">
+        <img src="https://cdn.cosmos.so/f25cc5f1-f2cc-41a5-ad1a-a60d1062ae37.jpeg" alt="Section 5">
+      </div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js'></script>
+<script src='https://unpkg.com/lenis@1.1.13/dist/lenis.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
