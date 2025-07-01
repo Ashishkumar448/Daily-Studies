@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Glitchy Mouse Trail with Link Morphing and GUI</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- Canvas for drawing the trails -->
+<canvas id="trailCanvas"></canvas>
+
+<div class="grid-wrapper">
+  <!-- Column 1 -->
+  <div class="column">
+    <div class="flex-container">
+      <div class="top-container">
+        <div class="top-left"><a href="#" class="reveal">Design isn't decoration.</a></div>
+        <div class="top-right">It’s a solution.</div>
+      </div>
+      <div class="bottom-container">
+        <div class="bottom-left">
+          AI will change everything.<br />
+          But human intuition will still lead.
+        </div>
+        <div class="bottom-right">
+          Adapt. Evolve.<br />
+          Don't resist the new tools—use them.
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Column 2 -->
+  <div class="column">
+    <div class="flex-container">
+      <div class="top-container">
+        <div class="top-left"><a href="#" class="reveal">Think more.</a></div>
+        <div class="top-right">Design less.</div>
+      </div>
+      <div class="bottom-container">
+        <div class="bottom-left">
+          Future isn't a place.<br />
+          It's where ideas meet execution.
+        </div>
+        <div class="bottom-right">
+          It's an idea.<br />
+          And every idea is a new beginning.
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Column 3 -->
+  <div class="column">
+    <div class="flex-container">
+      <div class="top-container">
+        <div class="top-left"><a href="#" class="reveal">Design is discovery.</a></div>
+        <div class="top-right">Find the essence.</div>
+      </div>
+      <div class="bottom-container">
+        <div class="bottom-left">
+          Design with intention.<br />
+          Every element must earn its place.
+        </div>
+        <div class="bottom-right">
+          Feel before you see.<br />
+          Emotions drive decisions.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="middle-text">
+    <p>Trust your eye,<br /> not the noise</p>
+
+    <!-- Corner Decorations -->
+    <div class="corner c-top-left">
+      <svg width="8" height="8" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="448,224 288,224 288,64 224,64 224,224 64,224 64,288 224,288 224,448 288,448 288,288 448,288" fill="currentColor" />
+      </svg>
+    </div>
+    <div class="corner c-top-right">
+      <svg width="8" height="8" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="448,224 288,224 288,64 224,64 224,224 64,224 64,288 224,288 224,448 288,448 288,288 448,288" fill="currentColor" />
+      </svg>
+    </div>
+    <div class="corner c-bottom-left">
+      <svg width="8" height="8" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="448,224 288,224 288,64 224,64 224,224 64,224 64,288 224,288 224,448 288,448 288,288 448,288" fill="currentColor" />
+      </svg>
+    </div>
+    <div class="corner c-bottom-right">
+      <svg width="8" height="8" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="448,224 288,224 288,64 224,64 224,224 64,224 64,288 224,288 224,448 288,448 288,288 448,288" fill="currentColor" />
+      </svg>
+    </div>
+  </div>
+</div>
+
+<svg id="svg" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="noise" y="0" x="0">
+      <feTurbulence class="basefrequency" stitchTiles="stitch" baseFrequency=".75" type="fractalNoise" />
+    </filter>
+    <pattern id="pattern" class="tile1" patternUnits="userSpaceOnUse" height="100" width="100" y="0" x="0">
+      <rect class="bg" x="0" y="0" width="100%" height="100%" fill="transparent" />
+      <rect class="opacity" x="0" y="0" width="100%" height="100%" filter="url(#noise)" opacity=".75" />
+    </pattern>
+  </defs>
+  <rect id="rect" x="0" y="0" width="100%" height="100%" fill="url(#pattern)" />
+</svg>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.min.js'></script>
+<script src='https://unpkg.com/split-type'></script><script  src="./script.js"></script>
+
+</body>
+</html>

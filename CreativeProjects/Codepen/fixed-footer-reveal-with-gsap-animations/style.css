@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=JetBrains+Mono:ital@0;1&display=swap");
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-foreground--100: rgb(141, 168, 146);
+  --color-background--100: rgb(49, 49, 49);
+  --color-accent: rgb(243, 234, 196);
+  --font-primary: "Inter", sans-serif;
+  --font-secondary: "JetBrains Mono", monospace;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  background-color: #fafafa;
+  position: relative;
+  z-index: 0;
+  line-height: 1.4;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 2px,
+    #0000002d 4px
+  );
+  background-size: auto 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.main-wrapper {
+  height: 200vh;
+  background-color: var(--color-foreground--100);
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  color: var(--color-background--100);
+}
+
+.main-wrapper h1 {
+  width: 100%;
+  max-width: 400px;
+  font-size: clamp(2rem, 3vw, 4rem);
+  text-align: center;
+  line-height: 1;
+}
+
+.main-wrapper p {
+  width: 100%;
+  max-width: 500px;
+  font-family: var(--font-secondary);
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  background-color: var(--color-background--100);
+  color: var(--color-foreground--100);
+  overflow: hidden;
+  padding: 2rem 6rem;
+}
+
+.footer__text {
+  text-align: center;
+  max-width: 80%;
+  font-family: var(--font-secondary);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.5;
+  color: var(--color-accent);
+}
+
+.footer__marquee {
+  font-family: var(--font-secondary);
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+  padding: 8rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.footer__marquee::before,
+.footer__marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.footer__marquee::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    var(--color-background--100),
+    transparent
+  );
+}
+
+.footer__marquee::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    var(--color-background--100),
+    transparent
+  );
+}
+
+.footer__marquee-content {
+  display: flex;
+  white-space: nowrap;
+  font-size: clamp(1.5rem, 4vw, 2rem); /* Responsive size */
+}
+
+.footer__marquee-content span {
+  margin-right: 2rem; /* Adjust spacing between repeating text */
+}
+
+.footer__center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.footer__center-content {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  flex: 0 0 40%;
+  padding-right: 1rem;
+}
+
+.footer__center-content p {
+  width: 80%;
+}
+
+.footer__svg-animation {
+  flex: 0 0 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.svg-animation path {
+  opacity: 1;
+  fill: var(--color-accent);
+}
+
+.footer__bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2rem 0 0;
+  background-color: var(--color-background--100);
+  color: var(--color-foreground--100);
+  font-family: var(--font-secondary);
+  font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+  text-transform: uppercase;
+}
+
+.footer__bottom-links {
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  margin-bottom: 10px;
+  gap: 1rem;
+}
+
+.footer__link {
+  color: var(--color-foreground--100);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer__link:hover {
+  color: var(--color-accent);
+}
+
+.footer__bottom-text {
+  text-align: center;
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>[gsap/component] ❍ Interactive Mystery Card Hover Effect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="grid-container" id="gridContainer">
+  <div class="card card-1">
+    <img src="https://cdn.cosmos.so/a19c3dc6-c82a-4301-b7a8-9f72faa09a74?format=jpeg" alt="Image 1">
+    <div class="card-content">
+      <h2>THE SPACE BETWEEN</h2>
+      <p>Where movement reveals truth</p>
+    </div>
+  </div>
+  <div class="card card-2">
+    <img src="https://cdn.cosmos.so/c3aa56e7-ac0c-47aa-ab1d-26d4b5ee8948?format=jpeg" alt="Image 2">
+    <div class="card-content">
+      <h2>CAPTURED STILLNESS</h2>
+      <p>Motion suspended in time</p>
+    </div>
+  </div>
+  <div class="card card-3">
+    <img src="https://cdn.cosmos.so/0b0960ef-5e0a-4df5-8a08-44aa57b4cabc.?format=jpeg" alt="Image 3">
+    <div class="card-content">
+      <h2>NEGATIVE PRESENCE</h2>
+      <p>Finding meaning in absence</p>
+    </div>
+  </div>
+  <div class="card card-4">
+    <img src="https://cdn.cosmos.so/60509a1f-769c-4d50-bf6d-04e7de80c369?format=jpeg" alt="Image 4">
+    <div class="card-content">
+      <h2>TEXTURE OF LIGHT</h2>
+      <p>When shadows become tangible</p>
+    </div>
+  </div>
+  <div class="card card-5" id="centerCard">
+    <img src="https://cdn.cosmos.so/a4131540-1ed8-41a8-84de-580b1327cbfd?format=jpeg" alt="Image 5" id="centerImage">
+    <div class="card-content">
+      <h2>MONOCHROME MEDITATION</h2>
+      <p>Beyond what eyes perceive</p>
+    </div>
+  </div>
+  <div class="card card-6">
+    <img src="https://cdn.cosmos.so/49037a37-144f-4d11-8466-22e9e1c71797.?format=jpeg" alt="Image 6">
+    <div class="card-content">
+      <h2>FORMLESS FORM</h2>
+      <p>The geometry of feeling</p>
+    </div>
+  </div>
+  <div class="card card-7" id="flipCard">
+    <div class="card-inner" id="cardInner">
+      <div class="card-front">
+        <img src="https://cdn.cosmos.so/fddfc757-d9c3-44f1-af6e-a607c3746738?format=jpeg" alt="Image 7">
+        <div class="card-content">
+          <h2>SPATIAL SILENCE</h2>
+          <p>Presence within emptiness</p>
+        </div>
+      </div>
+      <div class="card-back">
+        <div class="quote">
+          <p>In the spaces between light and shadow, the unseen reveals itself. The photograph captures not just what is visible, but the mystery that lies beyond perception."</p>
+          <span class="author">VS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card card-8">
+    <img src="https://cdn.cosmos.so/b0c8552f-2acf-4206-9086-a14e7ebcc0d2?format=jpeg" alt="Image 8">
+    <div class="card-content">
+      <h2>LIMINAL THRESHOLD</h2>
+      <p>Between known and unknown</p>
+    </div>
+  </div>
+  <div class="card card-9">
+    <img src="https://cdn.cosmos.so/d15e33c9-6306-4e93-9fc3-a11bca3be70a?format=jpeg" alt="Image 9">
+    <div class="card-content">
+      <h2>ESSENTIAL HARMONY</h2>
+      <p>The beauty of reduction</p>
+    </div>
+  </div>
+</div>
+
+<div class="categories" id="categoriesMenu">
+  <div class="category">Movement</div>
+  <div class="category">Stillness</div>
+  <div class="category">Minimalism</div>
+  <div class="category">Negative Space</div>
+  <div class="category">Monochrome</div>
+  <div class="category">Essence</div>
+  <div class="category">Contrast</div>
+  <div class="category">Silence</div>
+</div>
+
+<div class="logo" id="logoContainer">
+  <div class="logo-wrapper">
+    <span class="char v-char" data-index="0">V</span>
+    <span class="char" data-index="1">I</span>
+    <span class="char" data-index="2">S</span>
+    <span class="char" data-index="3">U</span>
+    <span class="char" data-index="4">A</span>
+    <span class="char" data-index="5">L</span>
+    <span class="char spacer" data-index="6"> </span>
+    <span class="char s-char" data-index="7">S</span>
+    <span class="char" data-index="8">I</span>
+    <span class="char" data-index="9">L</span>
+    <span class="char" data-index="10">E</span>
+    <span class="char" data-index="11">N</span>
+    <span class="char" data-index="12">C</span>
+    <span class="char" data-index="13">E</span>
+  </div>
+</div>
+
+<span class="mysterious-message" id="mysteriousMessage">
+  The magic lies within the seventh frame...
+</span>
+
+<!-- Interactive area for tracking mouse position -->
+<div class="interactive-area" id="interactiveArea"></div>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/CustomEase.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

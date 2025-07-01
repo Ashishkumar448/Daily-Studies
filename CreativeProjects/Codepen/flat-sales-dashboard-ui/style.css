@@ -1,0 +1,11 @@
+.half-circle-pie {
+	display: block;
+	width: 100%;
+	max-width: 30rem;
+	height: auto;
+}
+.icon {
+	display: block;
+	width: 1em;
+	height: 1em;
+}

@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap');
+
+:root {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --gradient-start: #f3e8ff;
+  --gradient-mid: #a855f7;
+  --font-main: "Cormorant Garamond", serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-weight: 400;
+  font-size: 16px;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 2.5rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+[data-gradient-reveal] {
+  min-height: 200vh;
+}
+
+.fixed-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 1024px;
+  padding: 0 24px;
+}
+
+.gradient-text {
+  font-size: 2.5rem;
+  font-weight: 600;
+  background-image: radial-gradient(
+    50% 50% at 50% 50%,
+    var(--gradient-start),
+    var(--gradient-mid) 20%,
+    transparent 50%
+  );
+  background-size: 400% 800%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@media (max-width: 768px) {
+  .gradient-text {
+    font-size: 1.5rem;
+  }
+}
+
+.content {
+  max-width: 800px;
+  text-align: center;
+}

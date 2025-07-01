@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+
+:root {
+  --color--foreground--100: rgb(205, 201, 185);
+  --color--background--100: rgb(121, 120, 114);
+  --color--accent--100: rgb(169, 169, 169);
+  --font-primary: "Space Mono", monospace;
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: var(--font-primary);
+  background-color: var(--color--background--100);
+  color: var(--color--accent--100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pricing-table {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 800px;
+  width: 100%;
+}
+.pricing-card {
+  position: relative;
+  background-color: var(--color--foreground--100);
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-list_item-inner {
+  position: relative;
+  z-index: 2;
+  border: 1px solid white;
+}
+.card-list_bg-fill {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 16px);
+  height: calc(100% + 1px);
+  pointer-events: none;
+  z-index: 1;
+}
+.card-list_bg-path {
+  fill: var(--color--accent--100);
+}

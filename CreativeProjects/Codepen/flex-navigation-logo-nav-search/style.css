@@ -1,0 +1,72 @@
+@import 'https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700';
+body {
+  font-family: "Playfair Display", sans-serif;
+  color: orangered;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: darkblue;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+ul li a {
+  font-style: italic;
+}
+ul li a:hover {
+  color: orangered;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1180px;
+}
+
+header {
+  display: flex;
+  flex: row;
+  align-items: center;
+  border: 1px solid blue;
+  width: 100%;
+  margin: 50px 0;
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  header {
+    flex: column;
+  }
+}
+header .logo {
+  order: 1;
+  flex: 0 0 100px;
+  flex-shrink: 0;
+  font-size: 20px;
+}
+header nav {
+  order: 2;
+  flex-grow: 1;
+  text-align: right;
+}
+header .search {
+  order: 3;
+  text-align: center;
+  flex: 0 0 50px;
+  flex-shrink: 0;
+}
+header .search a:hover {
+  background: orangered;
+  padding: 10px;
+  color: white;
+}

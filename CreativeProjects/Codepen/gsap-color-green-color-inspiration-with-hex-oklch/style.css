@@ -1,0 +1,258 @@
+@font-face {
+  src: url("https://fonts.cdnfonts.com/css/pp-neue-montreal") format("woff2");
+  font-family: "PP Neue Montreal", sans-serif;
+  font-weight: 400;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: calc(100vw / 1512 * 10);
+}
+
+body {
+  font-family: "PP Neue Montreal", sans-serif;
+  font-weight: 500;
+  font-size: 1.8rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.color-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+
+.color-bar {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: flex 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1;
+  flex: 1;
+  overflow: hidden;
+}
+
+.color-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  padding: 3rem 0;
+}
+
+.color-name {
+  -ms-writing-mode: tb-lr;
+      writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  text-align: center;
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  align-self: center;
+}
+
+.color-codes {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.color-hex {
+  -ms-writing-mode: tb-lr;
+      writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  text-align: center;
+  font-size: 1.4rem;
+  letter-spacing: 0.05rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.color-oklch {
+  -ms-writing-mode: tb-lr;
+      writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  text-align: center;
+  font-size: 1.2rem;
+  letter-spacing: 0.05rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  opacity: 0.8;
+}
+
+.dark-text .color-name,
+.dark-text .color-hex,
+.dark-text .color-oklch {
+  color: rgba(0, 0, 0, 0.9);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+/* Shades container */
+.shades-container {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.shade-item {
+  height: 16.666%; /* 1/6 of the container */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.shade-info {
+  -ms-writing-mode: tb-lr;
+      writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  text-align: center;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.dark-shade .shade-info {
+  color: rgba(0, 0, 0, 0.9);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.copy-notification {
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Color order */
+.off-black {
+  background-color: #1a1a1a;
+  order: 1;
+}
+.off-white {
+  background-color: #f5f5f5;
+  order: 2;
+}
+.nori {
+  background-color: #344e41;
+  order: 3;
+}
+.zucchini {
+  background-color: #3a5311;
+  order: 4;
+}
+.meadow {
+  background-color: #3a5a40;
+  order: 5;
+}
+.conifer {
+  background-color: #4d7c0f;
+  order: 6;
+}
+.tortoise {
+  background-color: #606c38;
+  order: 7;
+}
+.moss {
+  background-color: #588157;
+  order: 8;
+}
+.willow {
+  background-color: #a3b18a;
+  order: 9;
+}
+.fern {
+  background-color: #b5c99a;
+  order: 10;
+}
+.citron {
+  background-color: #c5d86d;
+  order: 11;
+}
+.pistachio {
+  background-color: #d4e6a3;
+  order: 12;
+}
+
+@media (max-width: 768px) {
+  .color-container {
+    flex-direction: column;
+  }
+
+  .color-bar {
+    width: 100%;
+  }
+
+  .color-content {
+    flex-direction: row;
+    padding: 0 2rem;
+  }
+
+  .color-name,
+  .color-hex,
+  .color-oklch,
+  .shade-info {
+    -ms-writing-mode: lr-tb;
+        writing-mode: horizontal-tb;
+    transform: none;
+  }
+
+  .color-codes {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .shades-container {
+    flex-direction: row;
+  }
+
+  .shade-item {
+    height: 100%;
+    width: 16.666%;
+  }
+
+  html {
+    font-size: calc(100vw / 375 * 10);
+  }
+}

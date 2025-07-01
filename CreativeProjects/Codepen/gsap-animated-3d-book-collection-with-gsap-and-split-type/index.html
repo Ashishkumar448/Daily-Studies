@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>[gsap] ❍ Animated 3D Book Collection with GSAP and Split-Type</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="theme-toggle" id="theme-toggle"></div>
+
+<svg style="position: absolute; width: 100%; height: 100%; z-index: 0;" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="dottedGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="rgba(0,0,0,0.15)" />
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#dottedGrid)" />
+</svg>
+
+<div class="book-title-overlay">
+  <div class="book-title-text">Ten Principles for Good Design</div>
+</div>
+
+<div class="shelf-container">
+  <div class="book-shadow">
+    <div class="book-shadow__item"></div>
+    <div class="book-shadow__item side"></div>
+    <div class="book-shadow__item"></div>
+    <div class="book-shadow__item"></div>
+  </div>
+
+  <div class="shelf"></div>
+
+  <div class="books-wrapper">
+    <div class="books__item">
+      <div class="books__container">
+        <div class="books__cover">
+          <div class="books__back-cover"></div>
+          <div class="books__inside">
+            <div class="books__page"></div>
+            <div class="books__page"></div>
+            <div class="books__page"></div>
+          </div>
+          <div class="books__image">
+            <img src="https://covers.shakespeareandcompany.com/97818386/9781838661533.jpg" alt="Dieter Rams: The Complete Works">
+            <div class="books__effect"></div>
+            <div class="books__light"></div>
+          </div>
+          <div class="books__hitbox" data-book-index="0" data-book-title="The Complete Works"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-book" data-book-index="side" data-book-title="Design Systems">
+      <div class="side-book__title">Design Systems</div>
+      <div class="side-book__decoration"></div>
+      <div class="side-book__decoration"></div>
+    </div>
+
+    <div class="books__item">
+      <div class="books__container">
+        <div class="books__cover">
+          <div class="books__back-cover"></div>
+          <div class="books__inside">
+            <div class="books__page"></div>
+            <div class="books__page"></div>
+            <div class="books__page"></div>
+          </div>
+          <div class="books__image">
+            <img src="https://covers.shakespeareandcompany.com/97802413/9780241371831.jpg" alt="Zen: The Art of Simple Living by Shunmyo Masuno">
+            <div class="books__effect"></div>
+            <div class="books__light"></div>
+          </div>
+          <div class="books__hitbox" data-book-index="1" data-book-title="Simple Living"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="books__item" id="default-open-book">
+      <div class="books__container">
+        <div class="books__cover">
+          <div class="books__back-cover"></div>
+          <div class="books__inside">
+            <div class="books__page"></div>
+            <div class="books__page"></div>
+            <div class="books__page"></div>
+          </div>
+          <div class="books__image">
+            <img src="https://covers.shakespeareandcompany.com/97837913/9783791387321.jpg" alt="Dieter Rams: Ten Principles for Good Design">
+            <div class="books__effect"></div>
+            <div class="books__light"></div>
+          </div>
+          <div class="books__hitbox" data-book-index="2" data-book-title="Ten Principles for Good Design"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="book-descriptions">
+    <div class="book-description" data-book-index="0">
+      <h3>Dieter Rams: The Complete Works</h3>
+      <div class="author">by Klaus Klemp</div>
+      <div class="lines-animation">
+        <p>From legendary music producer Rick Rubin comes a profound guide to the powerful source of creative inspiration. The Creative Act is a beautiful and generous course of study that illuminates the path of the artist as a road we all can follow.</p>
+      </div>
+    </div>
+
+    <div class="book-description" data-book-index="side">
+      <h3>Design Systems</h3>
+      <div class="author">A Practical Guide</div>
+      <div class="lines-animation">
+        <p>A comprehensive guide to creating, documenting, and maintaining design systems. This book covers the essential elements of design systems, from typography and color to components and patterns, helping teams build cohesive and scalable product experiences.</p>
+      </div>
+    </div>
+
+    <div class="book-description" data-book-index="1">
+      <h3>Zen: The Art of Simple Living</h3>
+      <div class="author">by Shunmyo Masuno</div>
+      <div class="lines-animation">
+        <p>Drawing on centuries of wisdom, renowned Zen Buddhist priest Shunmyo Masuno applies the essence of Zen to modern life. Through simple, practical lessons, discover how a few minutes a day can transform your life and bring happiness and fulfillment.</p>
+      </div>
+    </div>
+
+    <div class="book-description active" data-book-index="2">
+      <h3>Dieter Rams: Ten Principles for Good Design</h3>
+      <div class="author">by Dieter Rams</div>
+      <div class="lines-animation">
+        <p>The definitive resource for designers at all levels. This comprehensive guide covers Dieter Rams' famous ten principles for good design, providing essential knowledge for creating functional, aesthetic, and long-lasting design solutions.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/CustomEase.min.js'></script>
+<script src='https://unpkg.com/split-type@0.3.4/umd/index.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

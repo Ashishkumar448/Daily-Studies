@@ -1,0 +1,182 @@
+/* Importing fonts and setting global styles */
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Space+Mono&display=swap");
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+:root {
+  --color--foreground--100: rgb(33, 33, 33);
+  --color--background--100: rgb(220, 220, 220);
+  --color--accent--100: rgb(210, 255, 140);
+  --font-primary: "Inter", sans-serif;
+  --font-secondary: "Space Mono", monospace;
+  --margin: 32px;
+  --gutter: 16px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  background-color: var(--color--background--100);
+  color: var(--color--foreground--100);
+  letter-spacing: -0.02em;
+}
+h3 {
+  font-family: var(--font-secondary);
+  font-size: 1.25rem;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+.page-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: var(--margin) 0;
+}
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "hero-text coordinates"
+    "scroll-indicator scroll-indicator";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  gap: var(--gutter);
+  width: 100%;
+  height: 100%;
+  max-width: calc(100% - var(--margin) * 2);
+}
+.hero-text {
+  grid-area: hero-text;
+  align-self: start;
+  justify-self: start;
+}
+.coordinates {
+  grid-area: coordinates;
+  font-family: var(--font-secondary);
+  font-size: 0.75rem;
+  align-self: start;
+  justify-self: end;
+  background-color: var(--color--accent--100);
+  color: var(--color--background--100);
+  z-index: 200;
+  transition: color 0.4s ease;
+}
+body.menu-open .coordinates {
+  color: var(--color--foreground--100);
+}
+.scroll-indicator {
+  grid-area: scroll-indicator;
+  font-family: var(--font-secondary);
+  font-size: 1.2rem;
+  align-self: end;
+  justify-self: center;
+  color: rgba(33, 33, 33, 0.7);
+  opacity: 0;
+  transform: translateY(20px);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+}
+.overlay-menu__btn {
+  position: fixed;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 200;
+  color: var(--color--foreground--100);
+  text-transform: uppercase;
+}
+.overlay-menu__btn-text {
+  display: none;
+}
+.overlay-menu__btn-text--menu {
+  display: block;
+}
+body.menu-open .overlay-menu__btn-text--menu {
+  display: none;
+}
+body.menu-open .overlay-menu__btn-text--close {
+  display: block;
+}
+body.menu-open .overlay-menu__btn {
+  color: var(--color--background--100);
+}
+/* Overlay Menu Styling */
+.overlay-menu {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color--foreground--100);
+  display: flex;
+  flex-direction: column;
+  -webkit-clip-path: inset(100% 0 0 0);
+          clip-path: inset(100% 0 0 0);
+  pointer-events: none;
+  z-index: 100;
+}
+.overlay-menu__layout {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  opacity: 0;
+}
+.overlay-menu__logo {
+  font-size: 2rem;
+  color: var(--color--background--100);
+}
+.overlay-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.overlay-menu__link {
+  position: relative;
+  font-size: 1.5rem;
+  color: var(--color--background--100);
+  cursor: pointer;
+  text-decoration: none;
+  overflow: hidden;
+  display: inline-block;
+  -webkit-clip-path: inset(0 100% 0 0);
+          clip-path: inset(0 100% 0 0);
+  transition: -webkit-clip-path 0.2s cubic-bezier(0.41, 0.01, 0.52, 0.92);
+  transition: clip-path 0.2s cubic-bezier(0.41, 0.01, 0.52, 0.92);
+  transition: clip-path 0.2s cubic-bezier(0.41, 0.01, 0.52, 0.92), -webkit-clip-path 0.2s cubic-bezier(0.41, 0.01, 0.52, 0.92);
+}
+
+body.menu-open .overlay-menu__link {
+  -webkit-clip-path: inset(0 0% 0 0);
+          clip-path: inset(0 0% 0 0);
+}
+
+.overlay-menu__link .hover-text {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.overlay-menu__link .hover-text:nth-child(2) {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  color: var(--color--accent--100);
+}
+
+/* Keep these hover styles for non-JavaScript hover effect */
+.overlay-menu__link:hover .hover-text:nth-child(1) {
+  transform: translateY(-100%);
+}
+.overlay-menu__link:hover .hover-text:nth-child(2) {
+  transform: translateY(-100%);
+}
+
+.overlay-menu__link .char {
+  display: inline-block;
+  overflow: hidden;
+}

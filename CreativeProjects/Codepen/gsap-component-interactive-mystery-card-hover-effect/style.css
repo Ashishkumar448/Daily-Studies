@@ -1,0 +1,509 @@
+@import url("https://fonts.cdnfonts.com/css/pp-neue-montreal");
+
+:root {
+  --color-text: #332211;
+  --color-bg: #111111;
+  --font-primary: "PP Neue Montreal", sans-serif;
+  --padding: 2rem;
+  --grid-gutter: 1rem;
+  --card-size: min(
+    calc((100vh - 6 * var(--padding)) / 3),
+    calc((100vw - 6 * var(--padding)) / 3)
+  );
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+}
+
+body {
+  background-color: var(--color-bg);
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: -0.02em;
+  z-index: 0;
+}
+
+/* Background noise effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent
+    url("http://assets.iceable.com/img/noise-transparent.png") repeat 0 0;
+  background-size: 300px 300px;
+  -webkit-animation: noise-animation 0.3s steps(5) infinite;
+          animation: noise-animation 0.3s steps(5) infinite;
+  opacity: 0.65;
+  will-change: transform;
+  z-index: 500;
+  pointer-events: none;
+}
+
+@-webkit-keyframes noise-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -5%);
+  }
+  20% {
+    transform: translate(-10%, 5%);
+  }
+  30% {
+    transform: translate(5%, -10%);
+  }
+  40% {
+    transform: translate(-5%, 15%);
+  }
+  50% {
+    transform: translate(-10%, 5%);
+  }
+  60% {
+    transform: translate(15%, 0);
+  }
+  70% {
+    transform: translate(0, 10%);
+  }
+  80% {
+    transform: translate(-15%, 0);
+  }
+  90% {
+    transform: translate(10%, 5%);
+  }
+  100% {
+    transform: translate(5%, 0);
+  }
+}
+
+@keyframes noise-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -5%);
+  }
+  20% {
+    transform: translate(-10%, 5%);
+  }
+  30% {
+    transform: translate(5%, -10%);
+  }
+  40% {
+    transform: translate(-5%, 15%);
+  }
+  50% {
+    transform: translate(-10%, 5%);
+  }
+  60% {
+    transform: translate(15%, 0);
+  }
+  70% {
+    transform: translate(0, 10%);
+  }
+  80% {
+    transform: translate(-15%, 0);
+  }
+  90% {
+    transform: translate(10%, 5%);
+  }
+  100% {
+    transform: translate(5%, 0);
+  }
+}
+
+/* Dust/Scratches background effect for the entire site */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://img.freepik.com/premium-photo/white-dust-scratches-black-background_279525-2.jpg?w=640");
+  background-repeat: repeat;
+  opacity: 0.08;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.grid-container {
+  width: calc(3 * var(--card-size) + 2 * var(--grid-gutter));
+  height: calc(3 * var(--card-size) + 2 * var(--grid-gutter));
+  position: relative;
+}
+
+/* Card styling */
+.card {
+  position: absolute;
+  width: var(--card-size);
+  height: var(--card-size);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+  cursor: pointer;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.6);
+  visibility: hidden;
+}
+
+.card-5 {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  visibility: visible;
+  z-index: 10;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem;
+  color: white;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.1) 90%,
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.card h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+
+.card p {
+  font-size: 0.825rem;
+  opacity: 1;
+}
+
+/* Card flip styling */
+.card-7 {
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.01s;
+  transform-style: preserve-3d;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card-front {
+  z-index: 2;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.quote {
+  color: white;
+  text-align: left;
+  max-width: 90%;
+}
+
+.quote p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+
+.author {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+}
+
+.categories {
+  position: fixed;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  z-index: 200;
+}
+
+.category {
+  color: white;
+  border-radius: 20px;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.825rem;
+  opacity: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  transform: translateY(20px);
+  visibility: hidden;
+}
+
+.category:nth-child(1) {
+  background: rgb(61, 61, 61);
+}
+
+.category:nth-child(2) {
+  background: rgb(54, 54, 54);
+}
+
+.category:nth-child(3) {
+  background: rgb(46, 46, 46);
+}
+
+.category:nth-child(4) {
+  background: rgb(38, 38, 38);
+}
+
+.category:nth-child(5) {
+  background: rgb(31, 31, 31);
+}
+
+.category:nth-child(6) {
+  background: rgb(23, 23, 23);
+}
+
+.category:nth-child(7) {
+  background: rgb(15, 15, 15);
+}
+
+.category:nth-child(8) {
+  background: rgb(8, 8, 8);
+}
+
+.logo {
+  position: fixed;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  text-decoration: none;
+  z-index: 100;
+  text-transform: uppercase;
+  display: flex;
+}
+
+.logo-wrapper {
+  position: relative;
+  display: flex;
+}
+
+.logo .char {
+  display: inline-block;
+  transition: opacity 0.4s ease, filter 0.4s ease;
+  filter: blur(0px);
+}
+
+.logo .spacer {
+  width: 0.5em;
+  display: inline-block;
+}
+
+/* Area for tracking hover state */
+.interactive-area {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Mysterious message styling */
+.mysterious-message {
+  position: fixed;
+  left: 30px;
+  bottom: 30px;
+  color: rgba(255, 255, 255, 1);
+  font-size: 0.75rem;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.grid-container:hover ~ .mysterious-message {
+  opacity: 1;
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --padding: 1.5rem;
+    --gutter: 0.8rem;
+  }
+
+  .card h2 {
+    font-size: 1.1rem;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+  }
+
+  .mysterious-message {
+    font-size: 0.825rem;
+    left: 25px;
+    bottom: 25px;
+  }
+}
+
+@media (max-width: 992px) {
+  :root {
+    --padding: 1.2rem;
+    --gutter: 0.6rem;
+  }
+
+  .card-content {
+    padding: 1.2rem;
+  }
+
+  .card h2 {
+    font-size: 1rem;
+  }
+
+  .categories {
+    right: 20px;
+  }
+
+  .category {
+    padding: 0.45rem 0.8rem;
+    font-size: 0.825rem;
+  }
+
+  .logo {
+    left: 20px;
+    font-size: 1.5rem;
+  }
+
+  .mysterious-message {
+    font-size: 0.75rem;
+    left: 20px;
+    bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --padding: 1rem;
+    --gutter: 0.5rem;
+  }
+
+  .card-content {
+    padding: 1rem;
+  }
+
+  .card h2 {
+    font-size: 0.9rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .card p {
+    font-size: 0.75rem;
+  }
+
+  .categories {
+    right: 15px;
+  }
+
+  .category {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.75rem;
+  }
+
+  .logo {
+    left: 15px;
+    font-size: 1.2rem;
+  }
+
+  .mysterious-message {
+    font-size: 0.75rem;
+    left: 15px;
+    bottom: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  :root {
+    --padding: 0.8rem;
+    --gutter: 0.4rem;
+  }
+
+  .card-content {
+    padding: 0.8rem;
+  }
+
+  .card h2 {
+    font-size: 0.8rem;
+  }
+
+  .card p {
+    font-size: 0.65rem;
+  }
+
+  .categories {
+    right: 10px;
+  }
+
+  .category {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.7rem;
+  }
+
+  .logo {
+    left: 10px;
+    font-size: 1rem;
+  }
+
+  .mysterious-message {
+    font-size: 0.65rem;
+    left: 10px;
+    bottom: 10px;
+  }
+}
