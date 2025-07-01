@@ -1,0 +1,51 @@
+/*
+  As always, thanks to https://ctrl.xyz/ for the inspiration
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Jersey+10&display=swap");
+
+:root {
+  --color-primary: #e5fd98;
+  --color-secondary: #152023;
+}
+
+body {
+  font-family: "Jersey 10", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+}
+.text-reveal-container {
+  display: flex;
+  align-items: flex-end;
+  height: 90vh;
+  padding: 0 0 0 50px;
+}
+.text-reveal {
+  position: relative;
+  font-size: 6rem;
+  text-align: left;
+  height: 1.2em;
+}
+.text-reveal__item {
+  position: absolute;
+  white-space: nowrap;
+  -webkit-clip-path: inset(0 100% 0 0);
+          clip-path: inset(0 100% 0 0);
+  opacity: 0;
+  visibility: hidden;
+  left: 0;
+  top: 0;
+}
+.text-reveal__cube {
+  position: absolute;
+  left: 10px;
+  bottom: 36px;
+  width: 24px;
+  height: 24px;
+  transform-origin: center;
+}

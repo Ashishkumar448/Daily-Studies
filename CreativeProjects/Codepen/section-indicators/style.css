@@ -1,0 +1,243 @@
+/*
+  Inspired by the https://www.jordangilroy.com
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=IBM+Plex+Mono&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-background: rgb(85, 85, 85);
+  --color-foreground: rgb(230, 225, 215);
+  --color-accent: rgb(200, 180, 160);
+  --font-primary: "Inter", sans-serif;
+  --font-secondary: "IBM Plex Mono", monospace;
+  --margin: 32px;
+  --gutter: 16px;
+}
+
+/* Optional: Customize Scrollbar for better aesthetics */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-foreground);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+a {
+  color: var(--color-foreground);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(45, 45, 45) 0%,
+    rgb(5, 5, 5) 90%
+  );
+  color: var(--color-foreground);
+  letter-spacing: -0.03em;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+/* Background noise effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent
+    url("http://assets.iceable.com/img/noise-transparent.png") repeat 0 0;
+  background-size: 300px 300px;
+  -webkit-animation: noise-animation 0.3s steps(5) infinite;
+          animation: noise-animation 0.3s steps(5) infinite;
+  opacity: 0.9;
+  will-change: transform;
+  z-index: 100;
+  pointer-events: none;
+}
+
+@-webkit-keyframes noise-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-2%, -3%);
+  }
+  20% {
+    transform: translate(-4%, 2%);
+  }
+  30% {
+    transform: translate(2%, -4%);
+  }
+  40% {
+    transform: translate(-2%, 5%);
+  }
+  50% {
+    transform: translate(-4%, 2%);
+  }
+  60% {
+    transform: translate(3%, 0);
+  }
+  70% {
+    transform: translate(0, 3%);
+  }
+  80% {
+    transform: translate(-3%, 0);
+  }
+  90% {
+    transform: translate(2%, 2%);
+  }
+  100% {
+    transform: translate(1%, 0);
+  }
+}
+
+@keyframes noise-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-2%, -3%);
+  }
+  20% {
+    transform: translate(-4%, 2%);
+  }
+  30% {
+    transform: translate(2%, -4%);
+  }
+  40% {
+    transform: translate(-2%, 5%);
+  }
+  50% {
+    transform: translate(-4%, 2%);
+  }
+  60% {
+    transform: translate(3%, 0);
+  }
+  70% {
+    transform: translate(0, 3%);
+  }
+  80% {
+    transform: translate(-3%, 0);
+  }
+  90% {
+    transform: translate(2%, 2%);
+  }
+  100% {
+    transform: translate(1%, 0);
+  }
+}
+
+/* Navigation Menu Styles */
+.nav-menu-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.nav-menu {
+  position: fixed;
+  top: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  z-index: 1000;
+}
+
+.nav-menu__link {
+  position: relative;
+  text-decoration: none;
+  font-family: var(--font-secondary);
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.nav-menu__number {
+  font-size: 0.625rem;
+  margin-right: 10px;
+}
+
+.nav-menu__word {
+  font-size: 1rem;
+  display: inline-block;
+}
+
+.nav-menu__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-background);
+  border-radius: 4px;
+  z-index: -1;
+  -webkit-clip-path: inset(0 100% 0 0);
+          clip-path: inset(0 100% 0 0);
+}
+
+/* Section Styles */
+.section {
+  min-height: 150vh;
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-top: 1px dashed var(--color-accent);
+  border-bottom: 1px dotted var(--color-accent);
+}
+
+#connect {
+  min-height: 200vh;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}

@@ -1,0 +1,59 @@
+/*
+  Based on the Blog Article by Olivier Larose
+  https://blog.olivierlarose.com/tutorials/svg-bezier-curve
+  and Inspired by https://www.itsoffbrand.com/ with slight modifications
+*/
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+.grid-container {
+  width: 100%;
+  max-width: 1200px;
+  height: 80vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 32px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  background-color: white;
+  position: relative;
+}
+.divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: transparent;
+}
+svg {
+  position: absolute;
+  top: 0;
+  left: -75px; /* Adjust this value to allow for bending */
+  width: calc(100% + 150px); /* Adjust this value to match the left offset */
+  height: 100%;
+  overflow: visible;
+}
+path {
+  stroke: rgba(0, 0, 0, 0.1);
+  stroke-width: 1;
+  fill: none;
+}
+.slider-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+input[type="range"] {
+  width: 200px;
+}

@@ -1,0 +1,134 @@
+/*
+  Based on the awesome idea by Cubiq @ https://codepen.io/thecubiq/pen/vYwOBaa
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Libre+Baskerville&display=swap");
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+:root {
+  --color--background--100: rgb(20, 20, 22);
+  --color--foreground--100: rgb(225, 215, 200);
+  --color--accent--100: rgb(225, 215, 200);
+  --font-primary: "Inter", sans-serif;
+  --font-secondary: "Libre Baskerville", serif;
+  --margin: clamp(16px, 3vw, 32px);
+  --gutter: clamp(8px, 2vw, 16px);
+  --grid-width: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  background-color: var(--color--background--100);
+  color: var(--color--foreground--100);
+  letter-spacing: 0em;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+}
+h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: -0.03em;
+  margin-bottom: calc(4 * var(--gutter));
+}
+.split-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gutter);
+  padding: var(--gutter);
+  margin: var(--margin);
+  border: 1px solid var(--color--accent--100);
+  align-items: center;
+}
+.split-image {
+  grid-column: 1 / -1;
+  overflow: hidden;
+}
+.split-image img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.split-text {
+  grid-column: 1 / -1;
+  padding: var(--gutter);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.list li {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: var(--gutter);
+  margin-bottom: var(--gutter);
+  border-bottom: 1px solid var(--color--accent--100);
+  font-family: var(--font-secondary);
+  font-size: clamp(0.875rem, 3vw, 1.5rem);
+}
+.menu-container {
+  position: fixed;
+  bottom: var(--margin);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 90%;
+  max-width: 400px;
+}
+nav {
+  -webkit-backdrop-filter: contrast(0.8) blur(7px) url(#fluted);
+          backdrop-filter: contrast(0.8) blur(7px) url(#fluted);
+  background: rgba(225, 215, 200, 0.1);
+  padding: var(--gutter);
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+nav a {
+  color: var(--color--foreground--100);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  transition: background-color 0.3s;
+  font-size: clamp(0.75rem, 2vw, 1rem);
+  white-space: nowrap;
+}
+nav a:hover,
+nav a.active {
+  background-color: rgba(230, 225, 215, 0.2);
+}
+svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+@media (min-width: 768px) {
+  .split-section {
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .split-image {
+    grid-column: span 6;
+  }
+  .split-text {
+    grid-column: span 6;
+  }
+  .menu-container {
+    width: auto;
+  }
+  nav {
+    gap: clamp(1rem, 3vw, 4rem);
+  }
+}

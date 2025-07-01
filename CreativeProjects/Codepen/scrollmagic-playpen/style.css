@@ -1,0 +1,51 @@
+body {
+  position: relative;
+}
+
+#trigger {
+  position: absolute;
+  background: #000;
+  height: 0;
+  top: 0;
+}
+
+#trigger2 {
+  background: pink;
+  position: absolute;
+  top: 100vh;
+}
+
+#sky {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: -50vh;
+  background: skyblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#sky #moon {
+  margin: 0 auto;
+  width: 20vh;
+  height: 20vh;
+  border-radius: 100%;
+  background-color: #fab8a5;
+}
+
+.hello {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+.hello h1 {
+  font-size: 25vh;
+  font-family: "futura", "helvetica", sans-serif;
+  opacity: 0.5;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 auto;
+  text-align: center;
+}

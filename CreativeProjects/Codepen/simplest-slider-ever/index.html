@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Simplest Slider Ever</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<main>
+  <header>
+    <!-- Any header content -->
+  </header>
+
+  <div class="slider-container">
+    <div class="slider">
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1656833067020-59892f875f05?q=80&w=2235&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image 1" />
+        <div class="slide-content">
+          <h3>Title 1</h3>
+          <p>Description for image 1</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1729107722504-1b129b03cb19?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image 2" />
+        <div class="slide-content">
+          <h3>Title 2</h3>
+          <p>Description for image 2</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1727872303742-3c7d9088c67c?q=80&w=2488&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image 3" />
+        <div class="slide-content">
+          <h3>Title 3</h3>
+          <p>Description for image 3</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrows">
+      <button id="prev"><svg fill="none" height="24" stroke-width="1.5" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16.75 12H6.75M6.75 12L9.5 14.75M6.75 12L9.5 9.25" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M2 15V9C2 6.79086 3.79086 5 6 5H18C20.2091 5 22 6.79086 22 9V15C22 17.2091 20.2091 19 18 19H6C3.79086 19 2 17.2091 2 15Z" stroke="currentColor" stroke-width="1.5" />
+        </svg></button>
+      <button id="next"><svg fill="none" height="24" stroke-width="1.5" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.75 12H16.75M16.75 12L14 14.75M16.75 12L14 9.25" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M2 15V9C2 6.79086 3.79086 5 6 5H18C20.2091 5 22 6.79086 22 9V15C22 17.2091 20.2091 19 18 19H6C3.79086 19 2 17.2091 2 15Z" stroke="currentColor" stroke-width="1.5" />
+        </svg></button>
+    </div>
+  </div>
+</main>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

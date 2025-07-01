@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Scroll Progress Indicator with GSAP</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="section" data-section="Introduction" data-index="01">Introduction</div>
+<div class="section" data-section="Features" data-index="02">Features</div>
+<div class="section" data-section="Showcase" data-index="03">Showcase</div>
+<div class="section" data-section="Contact" data-index="04">Contact</div>
+
+<div class="progress-nav">
+  <div class="progress-circle">
+    <svg viewBox="0 0 24 24">
+      <circle class="circle-bg" cx="12" cy="12" r="10" />
+      <circle class="circle-progress" cx="12" cy="12" r="10" />
+    </svg>
+  </div>
+  <div class="section-title">
+    <span class="current-section">introduction</span>
+    <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  </div>
+  <div class="percentage">0%</div>
+  <div class="dropdown-menu">
+    <div class="dropdown-item" data-section="Introduction" data-index="01">Introduction</div>
+    <div class="dropdown-item" data-section="Features" data-index="02">Features</div>
+    <div class="dropdown-item" data-section="Showcase" data-index="03">Showcase</div>
+    <div class="dropdown-item" data-section="Contact" data-index="04">Contact</div>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

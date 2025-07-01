@@ -1,0 +1,87 @@
+.grid {
+  display: grid;
+
+  container-type: inline-size;
+
+  /* the gap + minimum size in the minmax() is important,
+     they can be any number, but it's used for the math below */
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+  /* for demo purposes so I didn't have to make more queries */
+  max-inline-size: 1200px;
+  margin-inline: auto;
+}
+
+.grid > * {
+  /* because minmax(200px, 1fr), once there is 400px of space,
+     plus 1rem for the gap, we'll have 2 colunms... so if it's
+     smaller than that, we know we have 1 column. */
+  @container (width < calc(400px + 1rem)) {
+    &:last-child {
+      background: hotpink;
+    }
+  }
+
+  /* 400px -> 600px wide (plus the associated gaps) === 3 columns */
+  @container (calc(400px + 1rem) <= width < calc(600px + 2rem)) {
+    &:nth-child(2n):nth-last-child(-n + 3) ~ * {
+      background: hotpink;
+    }
+
+    /* to understand the above selector, uncomment the following lines
+       when you have the viewport showing 2 columns */
+
+    /*     &:nth-child(2n) { outline: 4px dotted black; } */
+    /*     &:nth-last-child(-n + 3) { background-image: radial-gradient( circle 2px, blue 100%, transparent ); background-size: 8px 8px; }  */
+
+    /* by combining the above selectors, we are selecting the element where they both apply
+       and then by using ~ *, we are selecting all the elements that come after the one where
+       they both match */
+  }
+
+  /* 600px -> 800px wide (plus the associated gaps) === 4 columns */
+  @container (calc(600px + 2rem) <= width < calc(800px + 3rem)) {
+    &:nth-child(3n):nth-last-child(-n + 4) ~ * {
+      background: hotpink;
+    }
+
+    /* two last rows */
+    &:nth-child(3n):nth-last-child(-n + 8) ~ * {
+      background: lime;
+    }
+  }
+
+  /* 800px -> 1000px wide (plus the associated gaps) === 4 columns */
+  @container (calc(800px + 3rem) <= width < calc(1000px + 4rem)) {
+    &:nth-child(4n):nth-last-child(-n + 5) ~ * {
+      background: hotpink;
+    }
+  }
+
+  /* 1000px -> 1200px wide (plus the associated gaps) === 4 columns */
+  @container (calc(1000px + 4rem) <= width < calc(1200px + 5rem)) {
+    &:nth-child(5n):nth-last-child(-n + 6) ~ * {
+      background: hotpink;
+    }
+  }
+}
+
+/* visualization */
+body {
+  margin: 2rem;
+  font-family: system-ui;
+  text-align: center;
+}
+
+.grid {
+  border: 2px dotted;
+  padding: 1rem;
+  margin-block: 1rem;
+}
+.grid > * {
+  padding: 1rem;
+  background: dodgerblue;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px hsl(0 0 0 / 0.2);
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Section Indicators</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel='stylesheet' href='https://unpkg.com/lenis@1.1.13/dist/lenis.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<nav class="nav-menu">
+  <a href="#about" class="nav-menu__link nav-menu__link--current" data-section="about">
+    <div class="nav-menu__number">01</div>
+    <div class="nav-menu__text-wrap">
+      <div class="nav-menu__text">
+        <span class="nav-menu__word">About</span>
+      </div>
+    </div>
+    <div class="nav-menu__bg"></div>
+  </a>
+
+  <a href="#studio" class="nav-menu__link" data-section="studio">
+    <div class="nav-menu__number">02</div>
+    <div class="nav-menu__text-wrap">
+      <div class="nav-menu__text">
+        <span class="nav-menu__word">Studio</span>
+      </div>
+    </div>
+    <div class="nav-menu__bg"></div>
+  </a>
+
+  <a href="#projects" class="nav-menu__link" data-section="projects">
+    <div class="nav-menu__number">03</div>
+    <div class="nav-menu__text-wrap">
+      <div class="nav-menu__text">
+        <span class="nav-menu__word">Projects</span>
+      </div>
+    </div>
+    <div class="nav-menu__bg"></div>
+  </a>
+
+  <a href="#connect" class="nav-menu__link" data-section="connect">
+    <div class="nav-menu__number">04</div>
+    <div class="nav-menu__text-wrap">
+      <div class="nav-menu__text">
+        <span class="nav-menu__word">Connect</span>
+      </div>
+    </div>
+    <div class="nav-menu__bg"></div>
+  </a>
+</nav>
+
+<section class="section">
+  <h1>Header</h1>
+  <p>This is the header.</p>
+</section>
+
+<div id="about" class="section" data-section="about">
+  <div class="grid">
+    <div class="image-container">
+      <img src="https://images.unsplash.com/photo-1727764673414-ff6a30881bec?q=80&w=2510&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Unsplash Image 1" width="800" height="600" class="parallax" loading="lazy">
+    </div>
+    <div class="image-container">
+      <img src="https://images.unsplash.com/photo-1727764673434-bd9651981433?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Unsplash Image 2" width="800" height="600" class="parallax" loading="lazy">
+    </div>
+  </div>
+</div>
+
+<section id="studio" class="section" data-section="studio">
+  <div class="grid">
+    <div class="image-container">
+      <img src="https://images.unsplash.com/photo-1655432884529-1730575579d5?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Unsplash Image 1" width="800" height="600" class="parallax" loading="lazy">
+    </div>
+    <div class="image-container">
+      <img src="https://images.unsplash.com/photo-1655432866668-fef51361d3d7?q=80&w=2153&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Unsplash Image 2" width="800" height="600" class="parallax" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section" data-section="projects">
+  <h1>Projects Section</h1>
+  <p>Content for the Projects section.</p>
+</section>
+
+<section id="connect" class="section" data-section="connect">
+  <h1>Connect Section</h1>
+  <p>Content for the Connect section.</p>
+</section>
+
+<section class="section footer">
+  <h1>Footer</h1>
+  <p>This is the footer.</p>
+</section>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js'></script>
+<script src='https://unpkg.com/lenis@1.1.13/dist/lenis.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

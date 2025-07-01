@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=IBM+Plex+Mono&display=swap");
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --color--background: rgb(60, 60, 60);
+  --color--foreground: rgb(90, 90, 90);
+  --color--accent: rgb(170, 170, 170);
+  --font-primary: "Inter", sans-serif;
+  --font-secondary: "IBM Plex Mono", monospace;
+  --margin: 32px;
+  --gutter: 16px;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color--background);
+  color: var(--color--foreground);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.slider-container {
+  width: 400px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.slider {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.slide {
+  min-width: 400px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.slide-content {
+  font-family: var(--font-secondary);
+  font-size: 0.75rem;
+  color: white;
+  padding: 0.5px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.arrows {
+  margin-top: 10px;
+  display: flex;
+  z-index: 10;
+}
+
+button {
+  background-color: transparent;
+  color: var(--color--accent);
+  padding: 0.5rem;
+  border: none;
+  cursor: pointer;
+  margin: 0 0.5rem;
+  display: flex;
+  justify-content: center;
+}

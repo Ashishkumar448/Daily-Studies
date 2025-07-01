@@ -1,0 +1,133 @@
+@import url("https://use.typekit.net/qyp5mje.css");
+
+body {
+  background-color: #2a2a2a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: "Restore", sans-serif;
+  background: url("https://c.wallhere.com/photos/4e/c5/video_games_video_game_art_digital_art_Star_Wars_Star_Wars_Outlaws_ultrawide_Ubisoft-2273858.jpg!d?fit=bounds&width=1280&height=720")
+    no-repeat center/cover;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  padding-left: 6rem;
+}
+
+.menu-logo {
+  max-width: 300px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.menu-item {
+  text-decoration: none;
+  color: #00cccc;
+  font-size: 2.5em;
+  transition: color 0.3s ease;
+  position: relative;
+  font-weight: 800;
+}
+
+.menu-item:hover {
+  color: #ffffff;
+}
+
+.menu-item.disabled {
+  color: rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+}
+
+.menu-item.highlight {
+  position: relative;
+  color: #ffffff;
+  text-shadow: 0 0 10px #00cccc;
+  padding: 4px 16px;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  overflow: visible;
+  display: inline-block;
+  transform: skew(-5deg);
+}
+
+.menu-item.highlight::before,
+.menu-item.highlight::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: -12px;
+  right: -6px;
+  bottom: -12px;
+  border: 4px solid #ffffff;
+  transform: skew(-8deg);
+  border-radius: 16px;
+  z-index: 4;
+}
+
+.menu-item.highlight::after {
+  top: 2px;
+  left: -14px;
+  right: -6px;
+  bottom: -20px;
+  border-color: #00ffff;
+  border-radius: 20px;
+  opacity: 0.2;
+  z-index: 5;
+}
+
+.highlight-label {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%) skew(5deg);
+  font-size: 0.4em;
+  color: #ffffff;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  background: black;
+  z-index: 10;
+  padding: 6px;
+  font-size: 0.75rem;
+  display: none;
+}
+
+.highlight-text {
+  display: inline-block;
+  transform: skew(5deg);
+}
+
+.menu-item.highlight:hover {
+  text-shadow: 0 0 20px #00ffff;
+}
+
+.menu-item.highlight:hover::before,
+.menu-item.highlight:hover::after {
+  border-color: #00ffff;
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Stylized Iris</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="grid-overlay">
+  <div id="grid-container"></div>
+</div>
+
+<div id="shortcut-info">
+  Press <span class="key">G</span> to toggle grid<br />
+  Hold <span class="key">/</span> for all shortcuts
+</div>
+
+<div id="shortcut-modal">
+  <div class="modal-content">
+    <h3>Available Shortcuts</h3>
+    <ul>
+      <li><span class="key">/</span> - Hold for all Shortcuts Modal</li>
+      <li><span class="key">G</span> - Toggle Grid</li>
+      <li><span class="key">W</span> - Toggle between Light and Dark Themes</li>
+      <li><span class="key">B</span> - Toggle between Dark and Light Themes</li>
+      <li><span class="key">R</span> - Toggle between different Themes</li>
+    </ul>
+
+    <!-- Theme Grid Section for Theme Selection -->
+    <div class="theme-grid">
+
+      <div class="theme-item theme--preview theme--dark">
+        <div class="theme-info">
+          <h4>Dark</h4>
+        </div>
+        <div class="circle"></div>
+      </div>
+
+      <div class="theme-item theme--preview theme--light">
+        <div class="theme-info">
+          <h4>Light</h4>
+        </div>
+        <div class="circle"></div>
+      </div>
+
+      <div class="theme-item theme--preview theme--01">
+        <div class="theme-info">
+          <h4>Theme 01</h4>
+        </div>
+        <div class="circle"></div>
+      </div>
+
+      <div class="theme-item theme--preview theme--02">
+        <div class="theme-info">
+          <h4>Theme 02</h4>
+        </div>
+        <div class="circle"></div>
+      </div>
+
+      <div class="theme-item theme--preview theme--03">
+        <div class="theme-info">
+          <h4>Theme 03</h4>
+        </div>
+        <div class="circle"></div>
+      </div>
+
+      <div class="theme-item theme--preview theme--04">
+        <div class="theme-info">
+          <h4>Theme 04</h4>
+        </div>
+        <div class="circle"></div>
+      </div>
+
+      <div class="theme-item theme--preview theme--05">
+        <div class="theme-info">
+          <h4>Theme 05</h4>
+        </div>
+        <div class="circle"></div>
+      </div>
+
+      <div class="theme-item theme--preview theme--06">
+        <div class="theme-info">
+          <h4>Theme 06</h4>
+        </div>
+        <div class="circle"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<canvas id="shaderCanvas"></canvas>
+
+<div class="container">
+  <header>
+    <h1>Creative <span>approach</span></h1>
+    <p>Click anywhere to Embrace the unpredictable nature of creation.</p>
+  </header>
+  <section class="content">
+    <div class="tenet-block">
+      <h2>OUR PRINCIPLES</h2>
+      <h3>Embrace <span>your intuition</span></h3>
+      <p>Creation begins with a deep listening. Trust your intuition and the unknown. It’s about recognizing what resonates and what does not.</p>
+    </div>
+    <div class="tenet-block">
+      <h2>OUR BELIEFS</h2>
+      <h3>Explore with <span>curiosity & courage</span></h3>
+      <p>The act of creating is a journey into the unknown. Allow yourself to be led by curiosity, and embrace the unexpected as part of the process.</p>
+    </div>
+  </section>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r125/three.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

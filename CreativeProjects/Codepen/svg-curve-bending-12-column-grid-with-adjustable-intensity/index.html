@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>SVG Curve Bending 12 Column Grid with Adjustable Intensity</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="grid-container" id="grid">
+  <!-- Dividers will be added here by JavaScript -->
+</div>
+<div class="slider-container">
+  <input type="range" id="bendIntensity" min="0" max="75" value="50">
+  <div id="intensityValue">Bend Intensity: 50</div>
+</div>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

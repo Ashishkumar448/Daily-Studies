@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Split Grid with Flutted Nav</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<section class="split-section accent-background">
+  <div class="split-image accent-padding">
+    <img src="https://images.unsplash.com/photo-1620072404606-6f08f26ae727?q=80&w=2488&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Magic">
+  </div>
+  <div class="split-text">
+    <h2>Mycological Mysteries</h2>
+    <ul class="list">
+      <li><span>Spore Whispers</span> <span>01</span></li>
+      <li><span>Fungal Frequencies</span> <span>02</span></li>
+      <li><span>Mycelial Networks</span> <span>03</span></li>
+      <li><span>Psychedelic Portals</span> <span>04</span></li>
+      <li><span>Forest Floor Wisdom</span> <span>05</span></li>
+      <li><span>Cellular Alchemy</span> <span>06</span></li>
+      <li><span>Mushroom Mantras</span> <span>07</span></li>
+      <li><span>Cosmic Caps</span> <span>08</span></li>
+    </ul>
+  </div>
+</section>
+
+<div class="menu-container">
+  <nav>
+    <a href="#" class="active">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+</div>
+
+<svg>
+  <filter id="fluted" primitiveUnits="objectBoundingBox">
+    <feImage x="0" y="0" in="blur_0" result="image_0" crossorigin="anonymous" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1' color-interpolation-filters='sRGB'>
+                <g>
+                  <rect width='1' height='1' fill='black' />
+                  <rect width='1' height='1' fill='url(%23red)' style='mix-blend-mode:screen' />
+                  <rect width='1' height='1' fill='url(%23green)' style='mix-blend-mode:screen' />
+                  <rect width='1' height='1' fill='url(%23yellow)' style='mix-blend-mode:screen' />
+                </g>
+                <defs>
+                  <radialGradient id='yellow' cx='0' cy='0' r='1' >
+                    <stop stop-color='yellow' />
+                    <stop stop-color='yellow' offset='1' stop-opacity='0' />
+                  </radialGradient>
+                  <radialGradient id='green' cx='1' cy='0' r='1' >
+                    <stop stop-color='green' />
+                    <stop stop-color='green' offset='1' stop-opacity='0' />
+                  </radialGradient>
+                  <radialGradient id='red' cx='0' cy='1' r='1' >
+                    <stop stop-color='red' />
+                    <stop stop-color='red' offset='1' stop-opacity='0' />
+                  </radialGradient>
+                </defs>
+              </svg>" preserveAspectRatio="none meet" width=".03" height="1" />
+    <feTile in="image_0" result="tile_0" />
+    <feGaussianBlur stdDeviation=".003" edgeMode="none" in="tile_0" result="bar_smoothness" x="0" y="0" />
+    <feDisplacementMap scale=".08" xChannelSelector="R" yChannelSelector="G" in="SourceGraphic" in2="bar_smoothness" result="displacement_0" />
+  </filter>
+</svg>
+<!-- partial -->
+  
+</body>
+</html>

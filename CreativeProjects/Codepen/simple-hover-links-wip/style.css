@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Space+Mono&display=swap");
+
+:root {
+  --color-foreground: rgb(38, 54, 49);
+  --color-background: rgb(213, 227, 222);
+  --font-primary: "Inter", sans-serif;
+  --font-secondary: "Space Mono", monospace;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--color-foreground);
+}
+
+.link-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: auto;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-background);
+}
+
+.link__icon {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  margin-right: 6px;
+}
+
+.link__title {
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.link:hover .link__icon {
+  opacity: 1;
+}
+
+/* Tape Effect */
+.link--tape {
+  position: relative;
+  overflow: hidden;
+  margin-left: 22px; /* 16px width Icon + 6px margin */
+}
+
+.link--tape::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: calc(100% + 1px);
+  height: 100%;
+  background-color: var(--color-background);
+  transform: translateY(-50%) scaleX(1);
+  transform-origin: left;
+  transition: none;
+  z-index: -1;
+}
+
+.link--tape:hover {
+  color: var(--color-foreground);
+}
+
+.link--tape:not(:hover)::before {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(-50%) scaleX(0);
+}

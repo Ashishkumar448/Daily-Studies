@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=IBM+Plex+Mono&display=swap");
+
+:root {
+  --color-background: rgb(60, 66, 55);
+  --color-foreground: rgb(230, 225, 215);
+  --margin: 32px;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--color-background);
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  color: var(--color-foreground);
+}
+
+.section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  padding: var(--margin);
+}
+
+.progress-nav {
+  position: fixed;
+  top: 50%;
+  right: var(--margin);
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border-radius: 40px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Updated progress circle styles */
+.progress-circle {
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+
+.progress-circle svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.circle-bg {
+  fill: none;
+  stroke: rgba(230, 225, 215, 0.2);
+  stroke-width: 2;
+}
+
+.circle-progress {
+  fill: none;
+  stroke: var(--color-foreground);
+  stroke-width: 2;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-family: "IBM Plex Mono", monospace;
+  letter-spacing: -0.02em;
+  min-width: 100px;
+}
+
+.dropdown-arrow {
+  width: 12px;
+  height: 12px;
+  transition: transform 0.3s;
+}
+
+.progress-nav.open .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.percentage {
+  background: rgba(230, 225, 215, 0.1);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-family: "IBM Plex Mono", monospace;
+  min-width: 56px;
+  text-align: center;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 8px;
+  display: none;
+  min-width: 220px;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.progress-nav.open .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  padding: 12px 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdown-item:hover {
+  background: rgba(230, 225, 215, 0.1);
+}
+
+.dropdown-item.active {
+  background: rgba(230, 225, 215, 0.15);
+}
+
+.dropdown-item::after {
+  content: attr(data-index);
+  font-size: 12px;
+  opacity: 0.5;
+}

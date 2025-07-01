@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>[threejs] ❍ Cosmic Journey with LXSTNGHT</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="text-wrapper">
+  <h2 class="small-text">Embrace the unknown</h2>
+  <h1 class="text-line">
+    The silence between thoughts is where wisdom resides.
+    In stillness, you'll find the answers that elude you in chaos.
+  </h1>
+  <h2 class="small-text">Trust the process</h2>
+</div>
+
+<div class="audio-controls">
+  <button id="audio-toggle" class="audio-button">
+    <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="5 3 19 12 5 21 5 3"></polygon>
+    </svg>
+    <svg id="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+      <rect x="6" y="4" width="4" height="16"></rect>
+      <rect x="14" y="4" width="4" height="16"></rect>
+    </svg>
+  </button>
+  <span id="audio-status" class="audio-status">Play Music</span>
+</div>
+
+<audio id="background-music" loop>
+  <source src="https://dl.dropboxusercontent.com/scl/fi/kiioubd8rrkikem985ogn/the-shape-of-absence.mp3?rlkey=cy8jobnee3bocnlk1o9c2mjv8&dl=1" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+<!-- partial -->
+  <script type="module" src="./script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,264 @@
+@import url("https://fonts.googleapis.com/css2?family=Pirata+One&family=Libre+Baskerville:wght@400&family=Creepster&display=swap");
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color--foreground--100: #f5e8c7; /* Off-white */
+  --color--background--100: #1c1e26; /* Deep navy */
+  --color--accent--100: #d4af37;
+  --color--highlight--red: #b22222; /* Rusty red */
+  --color--highlight--orange: #b58900; /* Goldish */
+  --font-primary: "Pirata One", serif;
+  --font-secondary: "Libre Baskerville", serif;
+  --font-tertiary: "Creepster", cursive;
+  --margin: 32px;
+  --gutter: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-secondary);
+  background-color: var(--color--background--100);
+  color: var(--color--foreground--100);
+  letter-spacing: -0.02em;
+}
+
+.page-wrapper {
+  position: relative;
+  height: 600vh;
+}
+
+section {
+  height: 100vh;
+}
+
+.container-sticky {
+  position: relative;
+  height: 400vh;
+}
+
+.container {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: var(--gutter); /* Adds spacing between text and SVG */
+}
+
+.container__row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.container__content {
+  position: relative;
+  flex: 3;
+  overflow-y: auto;
+  padding: var(--margin);
+  max-width: 60%; /* Adjusted to 60% width */
+}
+
+.container__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.container__title {
+  font-size: 6rem;
+  font-weight: bold;
+  font-family: var(--font-primary);
+  color: var(--color--accent--100);
+  letter-spacing: -0.03em;
+}
+
+.container__description {
+  font-size: 2rem;
+  font-family: var(--font-secondary);
+  margin-top: var(--gutter);
+  line-height: 1.4;
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  padding: 1rem 0;
+  max-width: 100%;
+}
+
+.container__description p {
+  max-width: 40ch;
+  padding: 20px 0 120px; /* Extra space for the gradient */
+}
+
+.container__description-inner {
+  position: relative;
+  will-change: transform;
+}
+
+.container__description::before,
+.container__description::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 120px;
+  z-index: 10;
+  pointer-events: none;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.container__description::before {
+  top: -2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(28, 30, 38, 1),
+    rgba(28, 30, 38, 0) 100%
+  );
+}
+
+.container__description::after {
+  bottom: -2px;
+  background: linear-gradient(
+    to top,
+    rgba(28, 30, 38, 1),
+    rgba(28, 30, 38, 0) 100%
+  );
+}
+
+.container__svg-icon {
+  flex: 2;
+  max-width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color--accent--100);
+  transition: transform 0.5s ease;
+}
+
+.container__svg-icon svg {
+  width: 40%;
+  height: auto;
+  display: block;
+  fill: currentColor;
+  opacity: 1;
+}
+
+.container__link {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 12px 24px;
+  background-color: var(--color--highlight--red);
+  color: var(--color--foreground--100);
+  text-decoration: none;
+  font-family: var(--font-secondary);
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.container__link:hover {
+  background-color: var(--color--accent--100);
+  color: var(--color--background--100);
+}
+
+.container__gradient-top,
+.container__gradient-bottom {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 150px;
+  z-index: 0;
+}
+
+.container__gradient-top {
+  top: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(28, 30, 38, 1),
+    rgba(28, 30, 38, 0)
+  );
+}
+
+.container__gradient-bottom {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(28, 30, 38, 1), rgba(28, 30, 38, 0));
+}
+
+.mysterious-message,
+.coordinates-message {
+  text-align: center;
+  font-size: 1rem;
+  font-family: var(--font-primary);
+  color: var(--color--highlight--red);
+  display: flex;
+  justify-content: center;
+}
+
+.mysterious-message.top {
+  align-items: flex-start;
+}
+
+.mysterious-message.top p {
+  margin-top: 1rem;
+}
+
+.coordinates-message.bottom {
+  margin-bottom: 1rem;
+  align-items: flex-end;
+}
+
+.coordinates-message.bottom p {
+  margin-bottom: 1rem;
+}
+
+.map-path {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  stroke-dasharray: 3000;
+  stroke-dashoffset: 3000;
+  transition: stroke-dashoffset 1s ease-in-out;
+  z-index: 999;
+}
+
+/* Decorative Elements Styling */
+.start-point {
+  fill: var(--color--highlight--red);
+  transition: transform 0.3s ease;
+}
+
+.arrow-icon {
+  fill: var(--color--highlight--orange);
+  transform-origin: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.rock-icon {
+  fill: var(--color--foreground--100);
+}
+
+.pirate-flag {
+  fill: var(--color--accent--100);
+}
+
+.skull-icon {
+  fill: var(--color--highlight--red);
+  transition: transform 0.5s ease;
+}
+
+.treasure-chest {
+  fill: var(--color--accent--100);
+  transition: transform 0.5s ease;
+}
