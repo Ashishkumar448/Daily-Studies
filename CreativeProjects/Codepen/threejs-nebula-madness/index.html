@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>[threejs] ❍ Nebula Madness</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="coordinates top-left">{ COSMIC CONTEMPLATION }</div>
+<div class="coordinates top-right">ALPHA CENTAURI: 4.37 LY</div>
+
+<div class="audio-controls" onclick="document.getElementById('audio-toggle').click()">
+  <button id="audio-toggle" class="audio-button">
+    <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="5 3 19 12 5 21 5 3"></polygon>
+    </svg>
+    <svg id="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+      <rect x="6" y="4" width="4" height="16"></rect>
+      <rect x="14" y="4" width="4" height="16"></rect>
+    </svg>
+  </button>
+  <span id="audio-status" class="audio-status">Play Music</span>
+</div>
+
+<div class="center-content">
+  <div class="caption">DISTANT WORLDS BECKON</div>
+  <h1 class="main-text">
+    The universe holds its breath in the spaces between stars.
+    Vastness creates the clarity we can't find in proximity.
+  </h1>
+</div>
+
+<div class="coordinates bottom-center">
+  <div class="square"></div>
+</div>
+<audio id="background-music" loop>
+  <source src="https://dl.dropboxusercontent.com/scl/fi/kiioubd8rrkikem985ogn/the-shape-of-absence.mp3?rlkey=cy8jobnee3bocnlk1o9c2mjv8&dl=1" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+<div class="profile-card">
+  <img class="profile-image" src="https://filip-zrnzevic-portfolio-2025-v3.vercel.app/_next/image?url=%2Fimages%2Fprofile003.jpg&w=48&q=75" alt="Filip Zrnzević">
+  <div class="profile-info">
+    <p class="profile-name">Filip Zrnzević</p>
+    <p class="profile-twitter">
+      <a href="https://x.com/filipz" target="_blank">@filipz</a>
+    </p>
+  </div>
+</div>
+<!-- partial -->
+  <script type="module" src="./script.js"></script>
+
+</body>
+</html>

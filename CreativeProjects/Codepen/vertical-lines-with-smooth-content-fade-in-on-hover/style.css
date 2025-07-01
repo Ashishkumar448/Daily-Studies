@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Space+Mono&display=swap");
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --color--foreground--100: rgb(33, 33, 33);
+  --color--background--100: rgb(220, 220, 220);
+  --color--accent--100: rgb(210, 255, 140);
+  --font-primary: "Inter", sans-serif;
+  --font-secondary: "Space Mono", monospace;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  background-color: var(--color--background--100);
+  color: var(--color--foreground--100);
+  letter-spacing: -0.02em;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.page-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  padding-left: 2rem;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+}
+
+.biography {
+  display: flex;
+  width: 100%;
+}
+
+.biography__buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 96px;
+  gap: 1rem;
+  margin-top: 6px;
+}
+
+.biography__button {
+  width: 32px;
+  height: 4px;
+  background-color: var(--color--accent--100);
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s, width 0.3s;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  position: relative;
+}
+
+/* Pseudo-element to increase hover area without changing visual height */
+.biography__button::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  bottom: -10px;
+  left: -10px;
+  right: -10px;
+}
+
+.biography__button:hover,
+.biography__button:focus {
+  width: 64px;
+  background-color: var(--color--foreground--100);
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.biography__button.active {
+  width: 100px;
+}
+
+.biography__button.active {
+  width: 100px;
+}
+
+.biography__content {
+  flex: 1;
+  position: relative;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-primary);
+}
+
+.biography__text {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-size: 1.5rem;
+  max-width: 640px;
+}
+
+.biography__text.active {
+  opacity: 1;
+}
+
+.biography__caption {
+  font-family: var(--font-secondary);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}

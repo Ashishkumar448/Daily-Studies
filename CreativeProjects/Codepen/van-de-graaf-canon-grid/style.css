@@ -1,0 +1,278 @@
+/*
+  Hover animation inspired by the great Manoela Ilic https://tympanus.net/codrops/2024/06/19/hover-animations-for-terminal-like-typography/ and original idea by https://www.jeandawson.com/
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=JetBrains+Mono:ital@0;1&display=swap");
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+/* CSS Variables */
+:root {
+  --color--foreground--100: rgb(38, 54, 49);
+  --color--background--100: rgb(213, 227, 222);
+  --color--accent: rgb(126, 141, 136);
+  --grid-columns: 2;
+  --grid-margin: 6rem;
+  --grid-gutter: 1rem;
+  --grid-width: 100%;
+  --font-primary: "Inter", sans-serif;
+  --font-secondary: "JetBrains Mono", monospace;
+  --color-overlay: #ccc;
+  --blendmode-effect: difference;
+  --bg-blur: 0px;
+  --anim: 0;
+  font-size: 16px; /* Base font size */
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  background-color: var(--color--background--100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-weight: 400;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 2px,
+    #0000005d 43x
+  );
+  background-size: auto 100%;
+  pointer-events: none;
+}
+
+a {
+  text-decoration: none;
+  font-family: var(--font-secondary);
+  color: var(--color--foreground--100);
+  outline: none;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: none;
+  color: var(--color--foreground--100);
+  outline: none;
+}
+
+/* Overlay for the Van de Graaf Canon Grid */
+.grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background: url('data:image/svg+xml;utf8, \
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"> \
+      <line x1="0" y1="0" x2="100" y2="100" stroke="red" stroke-width="0.1" opacity="0.5"/> \
+      <line x1="0" y1="100" x2="100" y2="0" stroke="blue" stroke-width="0.1" opacity="0.5"/> \
+      <line x1="0" y1="50" x2="100" y2="50" stroke="green" stroke-width="0.1" opacity="0.5"/> \
+      <line x1="50" y1="0" x2="50" y2="100" stroke="purple" stroke-width="0.1" opacity="0.5"/> \
+      <line x1="0" y1="25" x2="100" y2="25" stroke="gray" stroke-width="0.1" opacity="0.3"/> \
+      <line x1="0" y1="75" x2="100" y2="75" stroke="gray" stroke-width="0.1" opacity="0.3"/> \
+      <line x1="25" y1="0" x2="25" y2="100" stroke="gray" stroke-width="0.1" opacity="0.3"/> \
+      <line x1="75" y1="0" x2="75" y2="100" stroke="gray" stroke-width="0.1" opacity="0.3"/> \
+    </svg>');
+  z-index: 10;
+  opacity: 0.8;
+}
+
+/* Main layout grid */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto;
+  gap: calc(var(--grid-gutter) * 2);
+  width: var(--grid-width);
+  height: 100vh;
+  position: relative;
+  padding: var(--grid-margin);
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.layout::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color--background--100);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='4' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.8;
+  z-index: 100;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* Header styling */
+header {
+  grid-column: 1 / span 3;
+  display: flex;
+  justify-content: space-between;
+  color: var(--color--foreground--100);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  z-index: 1;
+  margin-bottom: 2rem;
+}
+
+.branding,
+.designer,
+.guidelines {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-primary);
+}
+
+.branding span,
+.designer span,
+.guidelines span {
+  font-weight: 700;
+}
+
+/* Main content area styling */
+main {
+  display: flex;
+  grid-column: 1 / span 3;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  z-index: 1;
+  padding: 2rem 0;
+}
+
+/* Large Graphic Element */
+.graphic-symbol {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 40%;
+}
+
+.graphic-symbol h1 {
+  font-size: 30rem;
+  margin: 0;
+  color: var(--color--foreground--100);
+  line-height: 0.8;
+}
+
+/* Text Quote */
+.quote {
+  flex: 1;
+  padding: 0 20px;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--color--foreground--100);
+  max-width: 400px;
+  width: 100%;
+  margin-top: -5rem;
+}
+
+/* Profile Image Section */
+.profile-image {
+  position: relative;
+  width: 30%;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.profile-image img {
+  width: 100%;
+  border-radius: 15px;
+  filter: grayscale(100%) contrast(1.1);
+}
+
+.profile-caption {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  color: var(--color--background--100);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  font-family: var(--font-secondary);
+}
+
+.profile-caption h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.profile-caption p {
+  margin: 5px 0 0;
+  font-size: 0.9rem;
+}
+
+/* List item styling */
+.list__item {
+  cursor: pointer;
+  width: 100%;
+  display: grid;
+  grid-column-gap: 2rem;
+  padding: 0.5rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  justify-content: space-between;
+  align-items: start;
+  justify-items: start;
+  position: relative;
+}
+
+.list__item:hover .hover-effect--bg::after {
+  transform: scaleX(1);
+}
+
+.list__item::before {
+  content: counter(item, decimal-leading-zero);
+  counter-increment: item;
+  font-weight: 500;
+  padding: 4px 0;
+  line-height: 0.8;
+}
+
+/* Styling for hover effects */
+.hover-effect {
+  -webkit-font-kerning: none;
+          font-kerning: none;
+  position: relative;
+  white-space: nowrap;
+}
+
+.hover-effect--bg {
+  position: relative;
+  z-index: 1;
+  transition: background-color 0.3s ease;
+}
+
+.hover-effect--bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color--accent);
+  transition: transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: -1;
+  mix-blend-mode: var(--blendmode-effect);
+  -webkit-backdrop-filter: blur(var(--bg-blur));
+          backdrop-filter: blur(var(--bg-blur));
+}

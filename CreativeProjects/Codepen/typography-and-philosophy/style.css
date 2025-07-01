@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Inter:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f5f3ed;
+  font-family: "Inter", sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  height: 50vh;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-text {
+  position: absolute;
+  font-family: "Caveat", cursive;
+  font-size: 200px;
+  color: #da2a18;
+  font-weight: 700;
+  line-height: 0.8;
+  z-index: 0;
+}
+
+.bg-01 {
+  top: 10%;
+  left: 5%;
+  transform: rotate(-15deg);
+}
+
+.bg-02 {
+  top: 50%;
+  right: -5%;
+  transform: rotate(-15deg);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 2rem;
+  max-width: 800px;
+}
+
+.header {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.quote {
+  font-family: "Libre Baskerville", serif;
+  font-size: 28px;
+  line-height: 1.5;
+}
+
+.quote-emphasis {
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .background-text {
+    font-size: 120px;
+  }
+
+  .quote {
+    font-size: 22px;
+  }
+}

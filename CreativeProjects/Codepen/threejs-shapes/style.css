@@ -1,0 +1,11 @@
+/* 
+  Learning about Shapes from https://www.shadertoy.com/view/DdjSWD
+*/
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+canvas {
+  display: block;
+}

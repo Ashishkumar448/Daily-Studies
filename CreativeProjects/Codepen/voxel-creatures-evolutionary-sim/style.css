@@ -1,0 +1,67 @@
+.voxel-container {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  background: #1a202c;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.gene-progress {
+  transition: width 0.5s ease-in-out;
+}
+
+.creature-card {
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.creature-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+.pulsing {
+  animation: pulse 2s infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2d3748;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a5568;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #718096;
+}
+
+#three-container {
+  width: 100%;
+  height: 100%;
+}
+
+.stats-badge {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  border-radius: 4px;
+}

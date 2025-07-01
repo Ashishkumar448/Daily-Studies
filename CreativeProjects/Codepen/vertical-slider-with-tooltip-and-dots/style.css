@@ -1,0 +1,107 @@
+:root {
+  --color-background: #e6e2d6;
+  --color-foreground: #5c5c4f;
+  --track-color: #dad6c6;
+  --dot-color: #a8a393;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: var(--color-background);
+  font-family: Arial, sans-serif;
+}
+
+.slider {
+  width: 80px;
+  height: auto;
+  background-color: var(--track-color);
+  border-radius: 40px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider__track {
+  width: 8px;
+  height: 80%;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 20px 0;
+}
+
+.dot-container {
+  position: relative;
+  margin: 14px 0;
+  height: 6px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--dot-color);
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Extended hover area */
+.dot::before,
+.dot::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  /* Uncomment to debug hover areas */
+  /* background-color: rgba(255, 0, 0, 0.1); */
+}
+
+.dot::before {
+  top: -15px;
+}
+
+.dot::after {
+  top: 21px;
+}
+
+.tooltip {
+  position: absolute;
+  left: calc(100% + 15px);
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--color-foreground);
+  color: var(--color-background);
+  padding: 5px 10px;
+  border-radius: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.tooltip::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid var(--color-foreground);
+}
