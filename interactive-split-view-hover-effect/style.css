@@ -1,0 +1,158 @@
+:root {
+  --overlay-opacity: 0.3;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.container {
+  display: flex;
+  gap: 1rem;
+  height: 100vh;
+  width: 100%;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  padding: 4rem;
+}
+
+.box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: flex 0.5s ease, opacity 0.5s ease, border-radius 0.5s ease;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-radius: 16px;
+}
+
+.box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, var(--overlay-opacity));
+  transition: opacity 0.5s ease;
+  border-radius: inherit;
+}
+
+.box:hover::before {
+  opacity: 0;
+}
+
+.box-left {
+  background-image: url("https://images.unsplash.com/photo-1698349239416-e3ea5f594b79?q=80&w=2425&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+
+.box-right {
+  background-image: url("https://images.unsplash.com/photo-1587575171939-19180d5a9ebd?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+
+.container:hover .box {
+  flex: 1;
+}
+
+.container .box:hover {
+  flex: 2;
+}
+
+.content {
+  text-align: center;
+  color: #ffffff;
+  padding: 2rem;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+h2 {
+  font-family: Playfair Display, serif;
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 2rem;
+  text-align: left;
+  padding: 2rem;
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.number {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+/* Corrected CSS */
+.container:hover .box:not(:hover) .content p {
+  opacity: 0;
+}
+
+.container .box:hover .content p {
+  opacity: 1;
+  transform: translateX(10px); /* Adjust this to your liking */
+}
+
+.container .box .content p {
+  opacity: 1;
+}
+
+@media (max-width: 1024px) {
+  .box {
+    flex: 1;
+  }
+  .container .box:hover {
+    flex: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .box {
+    width: 100%;
+    height: 50vh;
+  }
+  .box:hover {
+    height: 60vh;
+  }
+  .box:hover ~ .box {
+    height: 40vh;
+  }
+}
+
+@media (max-width: 320px) {
+  .box {
+    width: 100%;
+    height: 50vh;
+  }
+  .box:hover {
+    height: 60vh;
+  }
+  .box:hover ~ .box {
+    height: 40vh;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 0.875rem;
+  }
+}

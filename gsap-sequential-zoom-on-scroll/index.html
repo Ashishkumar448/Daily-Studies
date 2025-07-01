@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>[gsap] ❍ Sequential Zoom on Scroll</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- First section -->
+<section class="section-first">
+  Scroll Down
+</section>
+
+<!-- Circles section -->
+<section class="section-circles">
+  <div class="circles-container">
+    <div class="layer gradient-01"></div>
+    <div class="layer gradient-02"></div>
+    <div class="layer gradient-03"></div>
+    <div class="layer gradient-04"></div>
+
+    <!-- Section indicators -->
+    <div class="section-indicators">
+      <div class="indicator-group">
+        <div class="indicator-title">Our</div>
+      </div>
+      <div class="indicator-group">
+        <div class="indicator-title">Journey</div>
+        <div class="indicator-items">
+          <div class="indicator-item" data-section="circle1">Discovery</div>
+          <div class="indicator-item" data-section="circle2">Exploration</div>
+          <div class="indicator-item" data-section="circle3">Innovation</div>
+          <div class="indicator-item" data-section="circle4">Reflection</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Last section -->
+<section class="section-last">
+  Scroll Up
+</section>
+
+<!-- Debug info element -->
+<div class="debug-info"></div>
+<!-- partial -->
+  <script src='https://unpkg.com/gsap@3/dist/gsap.min.js'></script>
+<script src='https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js'></script>
+<script src='https://assets.codepen.io/16327/CustomEase3.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

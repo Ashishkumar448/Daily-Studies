@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Horizontal Scroll / Another Approach</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="header">
+  <div class="logo">MIND</div>
+  <div class="menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<div class="horizontal-container">
+  <div class="panels-container">
+    <!-- First panel: Split -->
+    <section class="panel panel-split" data-index="0">
+      <div class="panel-left">
+        <div class="panel-content">
+          <div class="chapter">Prologue</div>
+          <h1 class="title split-text">How to Change Your Mind</h1>
+          <div class="text">
+            <p class="split-text">What does it mean to change one's mind? Not just to adopt a new opinion—but to renovate one's whole understanding of reality itself? This is what I set out to discover as I explored the renaissance of psychedelic research and its potential to transform our understanding of consciousness.</p>
+          </div>
+        </div>
+      </div>
+      <div class="panel-right">
+        <div class="panel-content">
+          <div class="image-container parallax" data-speed="0.2">
+            <img src="https://cdn.cosmos.so/7b0fa31f-ea4f-4ab5-90e1-343685904d52.jpeg" alt="Psychedelic experience">
+          </div>
+          <h2 class="subtitle split-text">The New Science of Psychedelics</h2>
+          <div class="quote split-text">"These molecules may be wasted on the young. They have so much to teach us about our minds and how they construct our sense of reality."</div>
+          <div class="author">— Michael Pollan</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Second panel: Full background -->
+    <section class="panel panel-full" data-index="1">
+      <img src="https://cdn.cosmos.so/fcc59923-f5ca-4599-aac1-459d1b150c8b.jpeg" alt="Forest path" class="panel-full-background parallax" data-speed="0.1">
+      <div class="panel-full-overlay"></div>
+      <div class="panel-full-content">
+        <div class="chapter">History</div>
+        <h2 class="title split-text">A Renaissance of Research</h2>
+        <div class="text">
+          <p class="split-text">Before LSD was demonized and pushed underground, it enjoyed a brief but promising career as a psychiatric wonder drug. From the 1950s through the mid-1960s, more than a thousand clinical papers were published, reporting on treatments for a wide variety of conditions.</p>
+          <p class="split-text">Today, after decades of prohibition, scientists are rediscovering the therapeutic potential of these compounds. Modern research at institutions like Johns Hopkins and Imperial College London has demonstrated remarkable efficacy for treating depression, addiction, and end-of-life anxiety.</p>
+        </div>
+        <div class="quote split-text">"History is not the story of strangers, aliens from another realm; it is the story of us had we been born a little earlier."</div>
+        <div class="author">— Roland Griffiths, Johns Hopkins</div>
+      </div>
+    </section>
+
+    <!-- Third panel: Split -->
+    <section class="panel panel-split" data-index="2">
+      <div class="panel-left">
+        <div class="panel-content">
+          <div class="chapter">Neuroscience</div>
+          <h2 class="title split-text">The Default Mode Network</h2>
+          <div class="text">
+            <p class="split-text">Rather than activating the brain, as was long assumed, psychedelics actually diminish activity in certain regions—particularly the default mode network (DMN), a collection of linked brain regions that generates our sense of self.</p>
+            <p class="split-text">When the DMN goes quiet, the usual boundaries we experience—between self and other, subject and object—begin to dissolve.</p>
+          </div>
+        </div>
+      </div>
+      <div class="panel-right">
+        <div class="panel-content">
+          <div class="image-container parallax" data-speed="0.15">
+            <img src="https://cdn.cosmos.so/35c92b26-9b0b-4393-a1d9-71b9430d3297.jpeg" alt="Neural patterns">
+          </div>
+          <h2 class="subtitle split-text">The Self Temporarily Quieted</h2>
+          <div class="quote split-text">"The brain on psychedelics becomes more like a child's brain: open, amenable to new ideas and connections, and not weighed down by prior beliefs and conditioning."</div>
+          <div class="author">— Robin Carhart-Harris, Imperial College</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fourth panel: Full background -->
+    <section class="panel panel-full" data-index="3">
+      <img src="https://cdn.cosmos.so/7f6d914b-f80f-46ec-bda4-d5ba4854cf80.jpeg" alt="Mystical experience" class="panel-full-background parallax" data-speed="0.1">
+      <div class="panel-full-overlay"></div>
+      <div class="panel-full-content">
+        <div class="chapter">Consciousness</div>
+        <h2 class="title split-text">Mental Health and Human Potential</h2>
+        <div class="text">
+          <p class="split-text">The evidence suggests that a carefully guided psychedelic experience can help people break out of rigid thought patterns and destructive behaviors that have resisted years of conventional therapy.</p>
+          <p class="split-text">This power to "shake the snow globe" of the mind offers hope not just for treating disorders, but for expanding our conception of human potential. By revealing the constructed nature of the self and reconnecting us to a sense of unity with others and the natural world, psychedelics may help us address the epidemic of disconnection that underlies many of our social and environmental crises.</p>
+        </div>
+        <div class="quote split-text">"I felt a great weight lift from my heart. I realized that we humans have a profound capacity for transformation."</div>
+        <div class="author">— Psilocybin Research Participant</div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="navigation">
+  <div class="nav-text">SCROLL</div>
+  <div class="nav-progress">
+    <div class="nav-progress-fill"></div>
+  </div>
+  <div class="nav-text">01 / 04</div>
+</div>
+<!-- partial -->
+  <script src='https://unpkg.com/split-type'></script><script  src="./script.js"></script>
+
+</body>
+</html>

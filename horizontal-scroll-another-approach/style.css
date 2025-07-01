@@ -1,0 +1,335 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Playfair+Display:wght@400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  overflow: hidden;
+  cursor: -webkit-grab;
+  cursor: grab;
+  background-color: #807a74;
+  color: #000;
+}
+
+body:active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+/* Using only two colors */
+:root {
+  --primary: #807a74; /* FELDGRAU */
+  --secondary: #f0dbc8; /* SHEEPSKIN */
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  mix-blend-mode: difference;
+  color: white;
+}
+
+.logo {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.menu-btn {
+  width: 30px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.menu-btn span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+}
+
+.horizontal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.panels-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  will-change: transform;
+}
+
+.panel {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* Split panel layout */
+.panel-split {
+  display: flex;
+}
+
+.panel-left,
+.panel-right {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5% 5%;
+}
+
+.panel-left {
+  background-color: var(--primary);
+  color: white;
+}
+
+.panel-right {
+  background-color: var(--secondary);
+  color: black;
+}
+
+/* Full background panel layout */
+.panel-full {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panel-full-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 110%;
+  height: 110%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 1;
+  transform: translate(0, 0);
+  will-change: transform;
+}
+
+.panel-full-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.panel-full-content {
+  position: relative;
+  z-index: 3;
+  max-width: 800px;
+  padding: 0 5%;
+  color: white;
+}
+
+.panel-content {
+  max-width: 80%;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.panel.active .panel-content,
+.panel.active .panel-full-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.panel-full-content {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.chapter {
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+.title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 2rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.subtitle {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 3rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.text {
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  line-height: 1.5;
+}
+
+.text p {
+  margin-bottom: 1.5rem;
+}
+
+.quote {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+  position: relative;
+}
+
+.author {
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.image-container {
+  width: 100%;
+  max-width: 450px;
+  height: 250px;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 110%;
+  height: 110%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transform: translate(0, 0);
+  will-change: transform;
+}
+
+.navigation {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  z-index: 100;
+  color: white;
+  mix-blend-mode: difference;
+}
+
+.nav-progress {
+  width: 150px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  transform-origin: left;
+  transform: scaleX(0);
+  will-change: transform;
+}
+
+.nav-text {
+  font-size: 0.8rem;
+}
+
+/* Split-text animations - more subtle */
+.word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease, transform 0.6s ease;
+  overflow: hidden;
+}
+
+.panel.active .word {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Prevent re-animation on scroll */
+.panel.was-active .word {
+  opacity: 1;
+  transform: translateY(0);
+  transition: none;
+}
+
+/* Word parallax effect */
+.word-parallax {
+  display: inline-block;
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .panel-split {
+    flex-direction: column;
+  }
+
+  .panel-left,
+  .panel-right {
+    width: 100%;
+    height: 50%;
+    padding: 2rem;
+  }
+
+  .panel-content,
+  .panel-full-content {
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
+  .image-container {
+    height: 180px;
+  }
+}

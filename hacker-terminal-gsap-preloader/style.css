@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
+:root {
+  --color-background: rgb(60, 60, 60);
+  --color-foreground: rgb(90, 90, 90);
+  --color-accent: rgb(170, 170, 170);
+  --font-primary: "IBM Plex Mono", monospace;
+  --margin: 32px;
+  --gutter: 16px;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: var(--font-primary);
+  background: var(--color-background);
+  color: var(--color-accent);
+}
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--color-background);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.terminal {
+  width: min(600px, 90vw);
+  height: min(400px, 60vh);
+  background: var(--color-background);
+  border: 1px solid var(--color-foreground);
+  padding: var(--margin);
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(90, 90, 90, 0.1);
+}
+
+.terminal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(90, 90, 90, 0.05),
+    rgba(90, 90, 90, 0.05) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+}
+
+.terminal-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gutter);
+}
+
+.commands-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gutter);
+}
+
+.command-line {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--gutter) * 0.5);
+  font-size: 14px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.prompt {
+  color: var(--color-accent);
+  opacity: 0.9;
+}
+
+.command {
+  color: var(--color-accent);
+  opacity: 0.9;
+}
+
+.cursor {
+  width: 8px;
+  height: 16px;
+  background: var(--color-accent);
+  display: inline-block;
+  margin-left: 4px;
+  opacity: 0;
+  vertical-align: middle;
+  /* Remove animation from default cursor */
+  -webkit-animation: none;
+          animation: none;
+}
+
+.active-cursor {
+  opacity: 0.9;
+  -webkit-animation: blink 1s infinite;
+          animation: blink 1s infinite;
+}
+
+.loading-container {
+  margin-bottom: calc(var(--margin) * 2);
+  padding: var(--gutter);
+  background: rgba(90, 90, 90, 0.05);
+  border: 1px solid var(--color-foreground);
+  border-radius: 2px;
+}
+
+.loading-bar {
+  width: 100%;
+  height: 20px;
+  background: var(--color-background);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-foreground);
+}
+
+.loading-progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background: var(--color-foreground);
+  box-shadow: 0 0 15px var(--color-foreground);
+}
+
+.loading-progress::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(170, 170, 170, 0.1) 10px,
+    rgba(170, 170, 170, 0.1) 20px
+  );
+}
+
+.percentage-wrap {
+  position: absolute;
+  bottom: var(--margin);
+  right: var(--margin);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.percentage {
+  font-family: var(--font-primary);
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--color-accent);
+  position: relative;
+  letter-spacing: 2px;
+}
+
+.percentage::before {
+  content: "[";
+  margin-right: 5px;
+}
+
+.percentage::after {
+  content: "]";
+  margin-left: 5px;
+}
+
+@-webkit-keyframes blink {
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-background);
+  visibility: hidden;
+  opacity: 0;
+  color: var(--color-accent);
+  padding: var(--margin);
+  text-align: center;
+}
+
+.content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  transform: translateY(30px);
+}
+
+.content p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  transform: translateY(30px);
+  opacity: 0.8;
+}

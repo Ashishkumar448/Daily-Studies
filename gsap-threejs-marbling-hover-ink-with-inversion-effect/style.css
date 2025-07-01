@@ -1,0 +1,371 @@
+/* PP Neue Montreal Font */
+@font-face {
+  font-family: "PP Neue Montreal";
+  font-style: normal;
+  font-weight: 400;
+  src: local("PP Neue Montreal"),
+    url("https://fonts.cdnfonts.com/s/100431/ppneuemontreal-book.woff")
+      format("woff");
+}
+@font-face {
+  font-family: "PP Neue Montreal";
+  font-style: italic;
+  font-weight: 400;
+  src: local("PP Neue Montreal"),
+    url("https://fonts.cdnfonts.com/s/100431/ppneuemontreal-italic.woff")
+      format("woff");
+}
+@font-face {
+  font-family: "PP Neue Montreal";
+  font-style: normal;
+  font-weight: 100;
+  src: local("PP Neue Montreal"),
+    url("https://fonts.cdnfonts.com/s/100431/ppneuemontreal-thin.woff")
+      format("woff");
+}
+@font-face {
+  font-family: "PP Neue Montreal";
+  font-style: normal;
+  font-weight: 500;
+  src: local("PP Neue Montreal"),
+    url("https://fonts.cdnfonts.com/s/100431/ppneuemontreal-medium.woff")
+      format("woff");
+}
+@font-face {
+  font-family: "PP Neue Montreal";
+  font-style: italic;
+  font-weight: 600;
+  src: local("PP Neue Montreal"),
+    url("https://fonts.cdnfonts.com/s/100431/ppneuemontreal-semibolditalic.woff")
+      format("woff");
+}
+@font-face {
+  font-family: "PP Neue Montreal";
+  font-style: normal;
+  font-weight: 700;
+  src: local("PP Neue Montreal"),
+    url("https://fonts.cdnfonts.com/s/100431/ppneuemontreal-bold.woff")
+      format("woff");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --padding: 2rem;
+  --gutter: 0.75rem; /* Reduced spacing between lines */
+  --columns: 12;
+  --bg-color: #0a0a0a;
+  --text-color: #e0e0e0;
+  --accent-color: #3a3aff;
+  --grid-color: rgba(255, 255, 255, 0.15);
+  --row-spacing: 4rem;
+}
+
+body {
+  font-family: "PP Neue Montreal", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.03em;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: var(--padding);
+  overflow-x: hidden;
+  position: relative;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  gap: var(--gutter);
+  row-gap: var(--row-spacing);
+  width: 100%; /* Use 100% width instead of fixed max-width */
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Grid overlay */
+.grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: var(--padding);
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.grid-overlay-inner {
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  gap: var(--gutter);
+  height: 100%;
+  width: 100%; /* Match the grid container width */
+  margin: 0 auto;
+}
+
+.grid-column {
+  height: 100%;
+  border-left: 1px solid var(--grid-color);
+  border-right: 1px solid var(--grid-color);
+  border-top: none;
+  border-bottom: none;
+  opacity: 0;
+}
+
+/* Header aligned with grid */
+.header {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  margin-bottom: 6rem;
+}
+
+.logo {
+  grid-column: 1 / span 3;
+  font-weight: 700;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.nav {
+  grid-column: 10 / span 3;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-item {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  opacity: 1;
+}
+
+.inversion-lens {
+  position: relative;
+  overflow: hidden;
+  background-color: #111;
+}
+
+.inversion-lens img {
+  display: none;
+}
+
+.inversion-lens canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.project-info {
+  font-size: 1rem;
+  margin-top: 1rem;
+  line-height: 1.2;
+}
+
+.project-date {
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-bottom: 0.1rem;
+}
+
+.project-title {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-top: 0.125rem;
+  text-transform: uppercase;
+}
+
+.project-subtitle {
+  margin-top: 0.125rem;
+  font-size: 1rem;
+}
+
+/* Editorial grid layout with increased row spacing */
+.item-1-container {
+  grid-column: 2 / span 5;
+  grid-row: 2 / span 2;
+}
+
+.item-1 {
+  height: 700px;
+}
+
+.item-2-container {
+  grid-column: 8 / span 4;
+  grid-row: 2;
+}
+
+.item-2 {
+  height: 300px;
+}
+
+.item-3-container {
+  grid-column: 3 / span 4;
+  grid-row: 4;
+  margin-top: var(--row-spacing); /* Added extra spacing */
+}
+
+.item-3 {
+  height: 350px;
+}
+
+.item-4-container {
+  grid-column: 8 / span 3;
+  grid-row: 3 / span 2;
+  margin-top: var(--row-spacing); /* Added extra spacing */
+}
+
+.item-4 {
+  height: 450px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --padding: 1.5rem;
+    --gutter: 0.5rem; /* Further reduced on tablet */
+    --row-spacing: 3rem; /* Adjusted for tablet */
+  }
+
+  body {
+    font-size: 15px;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .grid-overlay-inner {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .header {
+    margin-bottom: 3rem;
+  }
+
+  .logo {
+    grid-column: 1 / span 3;
+    font-size: 1.3rem;
+  }
+
+  .nav {
+    grid-column: 4 / span 3;
+  }
+
+  .nav-item {
+    font-size: 1rem;
+  }
+
+  .item-1-container {
+    grid-column: 1 / span 6;
+    grid-row: 2;
+  }
+
+  .item-2-container {
+    grid-column: 1 / span 3;
+    grid-row: 3;
+    margin-top: var(--row-spacing);
+  }
+
+  .item-3-container {
+    grid-column: 4 / span 3;
+    grid-row: 3;
+    margin-top: var(--row-spacing);
+  }
+
+  .item-4-container {
+    grid-column: 2 / span 4;
+    grid-row: 4;
+    margin-top: var(--row-spacing);
+  }
+
+  .item-1,
+  .item-2,
+  .item-3,
+  .item-4 {
+    height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --padding: 1rem;
+    --gutter: 0.4rem; /* Further reduced on mobile */
+    --row-spacing: 2.5rem; /* Adjusted for mobile */
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-overlay-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .logo,
+  .nav {
+    grid-column: 1;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .nav-item {
+    font-size: 0.9rem;
+  }
+
+  .item-1-container,
+  .item-2-container,
+  .item-3-container,
+  .item-4-container {
+    grid-column: 1;
+    grid-row: auto;
+    margin-top: 0;
+  }
+
+  .item-1-container + .item-2-container,
+  .item-2-container + .item-3-container,
+  .item-3-container + .item-4-container {
+    margin-top: var(--row-spacing);
+  }
+
+  .item-1,
+  .item-2,
+  .item-3,
+  .item-4 {
+    height: 300px;
+  }
+}
+
+/* Improved dat.gui styling */
+.dg.ac {
+  z-index: 1001 !important;
+}
+
+/* Force dat.gui to be visible */
+.dg.main {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
