@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Threejs Explorations 1710V-02</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<canvas id="canvas"></canvas>
+<script type="x-shader/x-vertex" id="vertexShader">
+  attribute vec2 position;
+        void main() {
+            gl_Position = vec4(position, 0.0, 1.0);
+        }
+    </script>
+<script type="x-shader/x-fragment" id="fragmentShader">
+  precision highp float;
+        uniform vec2 resolution;
+        uniform float time;
+
+        #define MAX_STEPS 100
+        #define MAX_DIST 100.0
+        #define SURF_DIST 0.001
+
+        mat2 rot2D(float angle) {
+            float s = sin(angle), c = cos(angle);
+            return mat2(c, -s, s, c);
+        }
+
+        float smin(float a, float b, float k) {
+            float h = clamp(0.5 + 0.5 * (b - a) / k, 0.0, 1.0);
+            return mix(b, a, h) - k * h * (1.0 - h);
+        }
+
+        float sdSphere(vec3 p, float r) {
+            return length(p) - r;
+        }
+
+        float map(vec3 p) {
+            float d = MAX_DIST;
+            
+            for (int i = 0; i < 5; i++) {
+                float fi = float(i);
+                vec3 q = p;
+                q.xy *= rot2D(time * 0.2 + fi * 1.1);
+                q.yz *= rot2D(time * 0.15 + fi * 0.9);
+                q.zx *= rot2D(time * 0.1 + fi * 1.3);
+                
+                float sphere = sdSphere(q - vec3(sin(time * 0.3 + fi) * 0.3, 
+                                                 cos(time * 0.4 + fi) * 0.3, 
+                                                 sin(time * 0.5 + fi) * 0.3), 0.2);
+                d = smin(d, sphere, 0.2);
+            }
+            
+            return d * 0.7;
+        }
+
+        vec3 getNormal(vec3 p) {
+            vec2 e = vec2(0.001, 0);
+            return normalize(vec3(
+                map(p + e.xyy) - map(p - e.xyy),
+                map(p + e.yxy) - map(p - e.yxy),
+                map(p + e.yyx) - map(p - e.yyx)
+            ));
+        }
+
+        float rayMarch(vec3 ro, vec3 rd) {
+            float dO = 0.0;
+            for (int i = 0; i < MAX_STEPS; i++) {
+                vec3 p = ro + rd * dO;
+                float dS = map(p);
+                dO += dS;
+                if (dO > MAX_DIST || abs(dS) < SURF_DIST) break;
+            }
+            return dO;
+        }
+
+        void main() {
+            vec2 uv = (gl_FragCoord.xy - 0.5 * resolution.xy) / resolution.y;
+            vec3 ro = vec3(0, 0, -3);
+            vec3 rd = normalize(vec3(uv, 1));
+
+            float d = rayMarch(ro, rd);
+            vec3 p = ro + rd * d;
+            vec3 n = getNormal(p);
+            
+            vec3 lightPos = vec3(2, 2, -3);
+            vec3 l = normalize(lightPos - p);
+            float diff = max(dot(n, l), 0.0);
+            
+            vec3 col = vec3(1) * diff;
+            col = mix(col, vec3(0.05), smoothstep(0.0, MAX_DIST, d));
+
+            gl_FragColor = vec4(col, 1.0);
+        }
+    </script>
+
+<div class="container">
+  <div class="sidebar">
+    <div class="logo">NX<sup>°</sup></div>
+    <p class="description">THE ARCHIVE COLLECTS RECORDS OF ABANDONED WORLDS AND LOST TECHNOLOGIES, WAITING TO BE DISCOVERED.</p>
+    <nav class="nav-links">
+      <a href="#">_DATA VAULTS</a>
+      <a href="#">_DEEP SPACE</a>
+      <a href="#">_FORBIDDEN ZONES</a>
+      <a href="#">_EXODUS LOGS</a>
+    </nav>
+    <div class="footer">
+      <p>Err: [404 - SIGNAL LOST]<br />
+        SYSTEM TIME: CYCLE 2187.42</p>
+    </div>
+    <p class="division">
+      ACCESS LEVEL: RESTRICTED.<br>
+      TRACE INITIATED: SOURCE UNKNOWN.</p>
+  </div>
+  <div class="main-content">
+    <p class="signal">_Uplink Pending...</p>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js'></script><script type="module" src="./script.js"></script>
+
+</body>
+</html>

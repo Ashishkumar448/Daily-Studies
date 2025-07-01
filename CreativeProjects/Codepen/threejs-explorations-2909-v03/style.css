@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=IBM+Plex+Mono&display=swap");
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --color--background--100: rgb(85, 85, 85);
+  --color--foreground--100: rgb(230, 225, 215);
+  --color--accent--100: rgb(200, 180, 160);
+  --font-primary: "Inter", sans-serif;
+  --font-secondary: "IBM Plex Mono", monospace;
+  --margin: 32px;
+  --gutter: 16px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(45, 45, 45) 0%,
+    /* Near black */ rgb(5, 5, 5) 90% /* Very dark gray */
+  );
+  color: var(--color--foreground--100);
+  letter-spacing: -0.03em;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent
+    url("http://assets.iceable.com/img/noise-transparent.png") repeat 0 0;
+  background-size: 300px 300px;
+  -webkit-animation: noise-animation 0.3s steps(5) infinite;
+          animation: noise-animation 0.3s steps(5) infinite;
+  opacity: 0.9;
+  will-change: transform;
+  z-index: 100;
+  pointer-events: none;
+}
+
+@-webkit-keyframes noise-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-2%, -3%);
+  }
+  20% {
+    transform: translate(-4%, 2%);
+  }
+  30% {
+    transform: translate(2%, -4%);
+  }
+  40% {
+    transform: translate(-2%, 5%);
+  }
+  50% {
+    transform: translate(-4%, 2%);
+  }
+  60% {
+    transform: translate(3%, 0);
+  }
+  70% {
+    transform: translate(0, 3%);
+  }
+  80% {
+    transform: translate(-3%, 0);
+  }
+  90% {
+    transform: translate(2%, 2%);
+  }
+  100% {
+    transform: translate(1%, 0);
+  }
+}
+
+@keyframes noise-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-2%, -3%);
+  }
+  20% {
+    transform: translate(-4%, 2%);
+  }
+  30% {
+    transform: translate(2%, -4%);
+  }
+  40% {
+    transform: translate(-2%, 5%);
+  }
+  50% {
+    transform: translate(-4%, 2%);
+  }
+  60% {
+    transform: translate(3%, 0);
+  }
+  70% {
+    transform: translate(0, 3%);
+  }
+  80% {
+    transform: translate(-3%, 0);
+  }
+  90% {
+    transform: translate(2%, 2%);
+  }
+  100% {
+    transform: translate(1%, 0);
+  }
+}
+
+a {
+  color: var(--color--foreground--100);
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: transparent;
+  z-index: 10;
+}
+
+.navbar {
+  width: 100%;
+  padding: var(--gutter) var(--margin);
+  display: flex;
+  justify-content: space-between;
+  background: transparent;
+  z-index: 101;
+  width: 100%;
+  height: 80px;
+}
+
+.hero-text {
+  padding: var(--gutter) var(--margin);
+  text-align: center;
+  margin-top: 50px;
+  width: 100%;
+  text-align: left;
+}
+
+.hero-text h1 {
+  font-size: 12rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.hero-text p {
+  font-size: 1.5rem;
+  margin-top: var(--gutter);
+  line-height: 1.4;
+}
+
+.image-section {
+  width: 100%;
+  height: 35vh;
+  margin-top: var(--gutter);
+  position: relative;
+}
+
+.image-section img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.fixed-text {
+  position: fixed;
+  top: 0;
+  left: 66%;
+  height: 100vh;
+  transform: translateX(-50%);
+  background-color: var(--color--background--100);
+  padding: var(--gutter) var(--margin);
+  z-index: 102;
+  color: var(--color--foreground--100);
+  text-align: left;
+  max-width: 500px;
+  gap: 1rem;
+}
+
+.fixed-text h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  width: 90%;
+}
+
+.fixed-text p {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  width: 90%;
+  margin-bottom: 0.5rem;
+}
+
+.dg.ac {
+  z-index: 999 !important;
+}
