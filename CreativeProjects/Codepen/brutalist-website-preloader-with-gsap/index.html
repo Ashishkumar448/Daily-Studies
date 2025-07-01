@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Brutalist Website Preloader with GSAP</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="preloader">
+  <!-- Pixel grid elements -->
+  <div class="pixel-grid">
+    <div class="pixel-row" id="top-row"></div>
+    <div class="pixel-row" id="bottom-row"></div>
+    <div class="pixel-column" id="left-column"></div>
+    <div class="pixel-column" id="right-column"></div>
+  </div>
+
+  <!-- Massive counter -->
+  <div class="counter-wrapper">
+    <div class="counter" id="counter">0</div>
+    <div class="counter-outline" aria-hidden="true">0</div>
+  </div>
+
+  <!-- Status text -->
+  <div class="text-container">
+    <div class="loading-text">LOADING SYSTEM</div>
+    <div class="system-messages">
+      <div class="message">INITIALIZING</div>
+      <div class="message">DATA_TRANSFER</div>
+      <div class="message">COMPILING</div>
+      <div class="message">FINALIZING</div>
+      <div class="message">COMPLETE</div>
+    </div>
+  </div>
+
+  <!-- Progress markers -->
+  <div class="loading-bar-container">
+    <div class="loading-bar">
+      <div class="progress"></div>
+    </div>
+    <div class="loading-bar-markers">
+      <div class="marker" data-position="0">00</div>
+      <div class="marker" data-position="25">25</div>
+      <div class="marker" data-position="50">50</div>
+      <div class="marker" data-position="75">75</div>
+      <div class="marker" data-position="100">100</div>
+    </div>
+    <!-- Progressive line fills -->
+    <div class="connector-lines">
+      <div class="connector-line" id="line-0-25"></div>
+      <div class="connector-line" id="line-25-50"></div>
+      <div class="connector-line" id="line-50-75"></div>
+      <div class="connector-line" id="line-75-100"></div>
+    </div>
+  </div>
+
+  <!-- Block elements that progressively fill -->
+  <div class="block-container">
+    <div class="block" id="block-1"></div>
+    <div class="block" id="block-2"></div>
+    <div class="block" id="block-3"></div>
+    <div class="block" id="block-4"></div>
+  </div>
+</div>
+
+<main class="content">
+  <h1>SYSTEM READY</h1>
+  <p>MINIMAL INTERFACE ACTIVATED</p>
+</main>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/pixi.js@7.2.4/dist/pixi.min.js'></script>
+<script src='https://unpkg.com/split-type'></script>
+<script src='https://cdn.jsdelivr.net/npm/simplex-noise@4.0.1/dist/esm/simplex-noise.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

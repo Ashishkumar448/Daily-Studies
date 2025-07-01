@@ -1,0 +1,388 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=IBM+Plex+Mono&display=swap");
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+:root {
+  --color-background: rgb(200, 200, 200);
+  --color-foreground: rgb(60, 60, 60);
+  --color-accent: rgb(70, 70, 70);
+  --font-primary: "Inter", sans-serif;
+  --font-secondary: "IBM Plex Mono", monospace;
+  --margin: 32px;
+  --gutter: 16px;
+  --marker-active: var(--color-background);
+  --marker-inactive: var(--color-accent);
+  --marker-size: 8px;
+  --track-height: 1px;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 500vh;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  background: var(--color-foreground);
+  color: var(--color-background);
+  letter-spacing: -0.03em;
+  position: relative;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent
+    url("http://assets.iceable.com/img/noise-transparent.png") repeat 0 0;
+  background-size: 300px 300px;
+  -webkit-animation: noise-animation 0.3s steps(5) infinite;
+          animation: noise-animation 0.3s steps(5) infinite;
+  opacity: 0.9;
+  will-change: transform;
+  z-index: 100;
+  pointer-events: none;
+}
+@-webkit-keyframes noise-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-2%, -3%);
+  }
+  20% {
+    transform: translate(-4%, 2%);
+  }
+  30% {
+    transform: translate(2%, -4%);
+  }
+  40% {
+    transform: translate(-2%, 5%);
+  }
+  50% {
+    transform: translate(-4%, 2%);
+  }
+  60% {
+    transform: translate(3%, 0);
+  }
+  70% {
+    transform: translate(0, 3%);
+  }
+  80% {
+    transform: translate(-3%, 0);
+  }
+  90% {
+    transform: translate(2%, 2%);
+  }
+  100% {
+    transform: translate(1%, 0);
+  }
+}
+@keyframes noise-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-2%, -3%);
+  }
+  20% {
+    transform: translate(-4%, 2%);
+  }
+  30% {
+    transform: translate(2%, -4%);
+  }
+  40% {
+    transform: translate(-2%, 5%);
+  }
+  50% {
+    transform: translate(-4%, 2%);
+  }
+  60% {
+    transform: translate(3%, 0);
+  }
+  70% {
+    transform: translate(0, 3%);
+  }
+  80% {
+    transform: translate(-3%, 0);
+  }
+  90% {
+    transform: translate(2%, 2%);
+  }
+  100% {
+    transform: translate(1%, 0);
+  }
+}
+
+.scroll-indicator {
+  position: fixed;
+  z-index: 1000;
+}
+.scroll-indicator--horizontal {
+  width: 100%;
+  max-width: 600px;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.scroll-indicator--vertical {
+  width: 40px;
+  height: 80vh;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+}
+.scroll-indicator__track {
+  position: relative;
+  background-color: var(--marker-inactive);
+}
+.scroll-indicator--horizontal .scroll-indicator__track {
+  height: var(--track-height);
+}
+.scroll-indicator--vertical .scroll-indicator__track {
+  width: var(--track-height);
+  height: 100%;
+}
+.scroll-indicator__tooltip {
+  position: absolute;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-size: 0.875rem;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+  font-family: var(--font-secondary);
+  z-index: 10;
+}
+.scroll-indicator--horizontal .scroll-indicator__tooltip {
+  bottom: -3.5rem;
+  left: 0;
+  transform: translateX(-50%);
+  transition: left 0.1s ease-out;
+}
+.scroll-indicator--vertical .scroll-indicator__tooltip {
+  left: 100%;
+  top: 0;
+  transform: translateY(-50%);
+  transition: top 0.1s ease-out;
+  margin-left: 10px;
+}
+.scroll-indicator__tooltip::before {
+  content: "";
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: inherit;
+}
+.scroll-indicator--horizontal .scroll-indicator__tooltip::before {
+  top: -0.25rem;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+.scroll-indicator--vertical .scroll-indicator__tooltip::before {
+  top: 50%;
+  left: -0.25rem;
+  transform: translateY(-50%) rotate(45deg);
+}
+.scroll-indicator__thumb {
+  position: absolute;
+  width: var(--marker-size);
+  height: var(--marker-size);
+  background-color: var(--marker-inactive);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+.scroll-indicator--horizontal .scroll-indicator__thumb {
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  transition: left 0.1s ease-out;
+}
+.scroll-indicator--vertical .scroll-indicator__thumb {
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  transition: top 0.1s ease-out;
+}
+.scroll-indicator__progress {
+  position: absolute;
+  background-color: var(--marker-active);
+}
+.scroll-indicator--horizontal .scroll-indicator__progress {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  transition: width 0.1s ease-out;
+}
+.scroll-indicator--vertical .scroll-indicator__progress {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  transition: height 0.1s ease-out;
+}
+.scroll-indicator__scale {
+  position: relative;
+}
+.scroll-indicator--horizontal .scroll-indicator__scale {
+  width: 100%;
+  height: 40px;
+  margin-top: 10px;
+}
+.scroll-indicator--vertical .scroll-indicator__scale {
+  width: 40px;
+  height: calc(100% - 2px);
+  position: absolute;
+  top: 0;
+  left: var(--track-height);
+}
+.scroll-indicator__marker {
+  position: absolute;
+  background: var(--marker-inactive);
+  transition: background-color 0.3s ease-out;
+}
+.scroll-indicator--horizontal .scroll-indicator__marker {
+  width: 1px;
+  bottom: 0;
+  transform: translateX(-50%);
+  transition: height 0.3s ease-out, background-color 0.3s ease-out;
+}
+.scroll-indicator--vertical .scroll-indicator__marker {
+  height: 1px;
+  left: 0;
+  right: 0;
+  transform: none;
+  transition: width 0.3s ease-out, background-color 0.3s ease-out;
+  width: 10px;
+}
+.scroll-indicator--horizontal .scroll-indicator__marker--major {
+  width: 1px;
+}
+.scroll-indicator--vertical .scroll-indicator__marker--major {
+  height: 1px;
+  width: 15px;
+}
+.scroll-indicator__marker--filled {
+  background-color: var(--marker-active);
+}
+.scroll-indicator__percentage {
+  position: absolute;
+  background-color: var(--color-foreground);
+  color: var(--color-background);
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out, top 0.1s ease-out,
+    left 0.1s ease-out;
+  transform: scale(0.8);
+  font-family: var(--font-secondary);
+}
+.scroll-indicator--horizontal .scroll-indicator__percentage {
+  top: -25px;
+  transform: translateX(-50%) scale(0.8);
+}
+.scroll-indicator--vertical .scroll-indicator__percentage {
+  left: 45px;
+  transform: translateY(-50%) scale(0.8);
+}
+.scroll-indicator__percentage--visible {
+  opacity: 1;
+  transform: scale(1);
+}
+.scroll-indicator--horizontal .scroll-indicator__percentage--visible {
+  transform: translateX(-50%) scale(1);
+}
+.scroll-indicator--vertical .scroll-indicator__percentage--visible {
+  transform: translateY(-50%) scale(1);
+}
+
+a {
+  color: var(--color--foreground--100);
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+
+.navbar {
+  width: 100%;
+  padding: var(--gutter) var(--margin);
+  display: flex;
+  justify-content: space-between;
+  background: transparent;
+  z-index: 101;
+  width: 100%;
+  height: 80px;
+  position: fixed;
+}
+
+.hero-text {
+  padding: var(--gutter) var(--margin);
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.hero-text h1 {
+  font-size: 12rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.hero-text p {
+  font-size: 1.5rem;
+  margin-top: var(--gutter);
+  line-height: 1.4;
+}
+
+.image-section {
+  width: 100%;
+  height: 35vh;
+  margin-top: var(--gutter);
+  position: relative;
+}
+
+.image-section img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.fixed-text {
+  position: fixed;
+  top: 0;
+  left: 66%;
+  height: 100vh;
+  transform: translateX(-50%);
+  background-color: var(--color--background--100);
+  padding: var(--gutter) var(--margin);
+  z-index: 102;
+  color: var(--color--foreground--100);
+  text-align: left;
+  max-width: 500px;
+  gap: 1rem;
+}
+
+.fixed-text h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  width: 90%;
+}
+
+.fixed-text p {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  width: 90%;
+  margin-bottom: 0.5rem;
+}

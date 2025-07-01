@@ -1,0 +1,181 @@
+/*
+  Original idea for the shape from https://glslsandbox.com/e#108797.2
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+:root {
+  --color--foreground--100: rgb(65, 54, 47);
+  --color--background--100: rgb(177, 189, 177);
+  --color--accent: rgb(0, 0, 0);
+  --grid-columns: 12;
+  --grid-margin: 2rem;
+  --grid-gutter: 1rem;
+  --grid-width: 100%;
+  --font-primary: "Press Start 2P", sans-serif;
+  --font-secondary: "Inconsolata", monospace;
+  --color-overlay: #ccc;
+  font-size: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: var(--font-primary);
+  color: var(--color--background--100);
+  background-color: #111;
+  position: relative;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 2px,
+    #0000002d 4px
+  );
+  background-size: auto 100%;
+  pointer-events: none;
+  z-index: 100;
+}
+
+canvas {
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  z-index: 10;
+  font-family: var(--font-primary);
+}
+
+.hero {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  text-align: center;
+  height: 100vh;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  margin: 0 0 2rem;
+  font-family: var(--font-primary);
+  max-width: 800px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  margin: 0;
+  font-family: var(--font-secondary);
+  max-width: 400px;
+}
+
+.subtitle {
+  font-family: var(--font-secondary);
+  opacity: 0.8;
+  font-size: 12px;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.subtitle::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--color--background--100);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 1);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  width: 100%;
+  z-index: 10;
+  font-family: var(--font-secondary);
+  font-size: 0.875rem;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-right {
+}
+
+.hover-effect {
+  font-family: var(--font-secondary);
+  position: relative;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--color--background--100);
+  z-index: 2;
+  padding: 0.25rem 0 0;
+}
+
+.hover-effect:hover::after {
+  transform: scaleX(1);
+}
+
+.hover-effect::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color--accent);
+  transition: transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: -1;
+}
+
+.aliens {
+  fill: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  mix-blend-mode: overlay;
+}

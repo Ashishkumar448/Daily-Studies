@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic Corner Menu with GSAP</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="grid-container" id="gridContainer"></div>
+
+<nav class="menu-container">
+  <div class="corners-container">
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-number">[01]</div>
+    <a href="#" class="menu-link active">Home</a>
+  </div>
+  <div class="menu-item">
+    <div class="menu-number">[02]</div>
+    <a href="#" class="menu-link">About</a>
+  </div>
+  <div class="menu-item">
+    <div class="menu-number">[03]</div>
+    <a href="#" class="menu-link">Creative Works</a>
+  </div>
+  <div class="menu-item">
+    <div class="menu-number">[04]</div>
+    <a href="#" class="menu-link">This is a much longer menu item</a>
+  </div>
+</nav>
+
+<div class="settings-panel">
+  <h3 class="settings-title">Grid Settings</h3>
+  <div class="settings-group">
+    <label class="settings-label">Columns</label>
+    <input type="number" class="settings-input" id="columnsInput" value="12" min="2" max="24">
+  </div>
+  <div class="settings-group">
+    <label class="settings-label">Rows</label>
+    <input type="number" class="settings-input" id="rowsInput" value="4" min="2" max="12">
+  </div>
+  <button class="settings-button" id="applySettings">Apply Settings</button>
+</div>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

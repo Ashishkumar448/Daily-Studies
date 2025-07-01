@@ -1,0 +1,160 @@
+:root {
+  /* Gradient colors */
+  --gradient-start: #2f2f2f; /* Dark gray starting color of gradient */
+  --gradient-end: #1d1d1d; /* Even darker gray ending color of gradient */
+  
+  /* Card background */
+  --card-bg-start: #2a2a2a; /* Starting background color of the card */
+  --card-bg-end: #1b1b1b; /* Ending background color of the card */
+  
+  /* Border color */
+  --border-color: #3c3c3c; /* Slightly lighter gray for border */
+  
+  /* Text colors */
+  --text-primary: #f0f0f0; /* Light gray primary text color */
+  --text-secondary: #b0b0b0; /* Darker gray for secondary text */
+  
+  /* Button background gradient */
+  --button-bg-start: #383838; /* Button gradient start - dark gray */
+  --button-bg-end: #2e2e2e; /* Button gradient end - slightly darker gray */
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Sora", sans-serif;
+  box-sizing: border-box;
+  background: #191919;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 200px 250px 150px;
+  gap: 24px;
+  max-width: 991px;
+  width: 100%;
+  padding: 24px;
+  position: relative;
+}
+
+.bento-grid::after {
+  background: linear-gradient(var(--card-bg-start), var(--card-bg-end));
+  height: 150px;
+  width: 100%;
+  position: absolute;
+  content: "";
+  bottom: 12px;
+  z-index: 50;
+}
+
+.card {
+  border-radius: 24px;
+  border: 1px solid var(--border-color);
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  background: linear-gradient(var(--card-bg-start), var(--card-bg-end));
+}
+
+.card::before {
+  background: var(--gradient-start);
+  filter: blur(96px);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  content: "";
+  bottom: 12px;
+  z-index: -1;
+}
+
+.card-title {
+  margin: 8px 0 16px;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--text-primary);
+}
+
+.card-description {
+  font-size: 14px;
+  font-weight: 200;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.card-button {
+  background: linear-gradient(
+    to right,
+    var(--button-bg-start),
+    var(--button-bg-end)
+  );
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Sora", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0.5px;
+  align-self: flex-start;
+}
+
+.partial-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, transparent, #191919);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Specific grid placements */
+.inspiration {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.listening {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.intuition {
+  grid-area: 1 / 3 / 3 / 4;
+}
+
+.creative-process {
+  grid-area: 2 / 1 / 3 / 3;
+}
+
+.authenticity {
+  grid-area: 3 / 1 / 4 / 2;
+}
+
+.collaboration {
+  grid-area: 3 / 2 / 4 / 3;
+}
+
+.reflection {
+  grid-area: 3 / 3 / 4 / 4;
+}
+
+.persistence {
+  grid-area: 2 / 3 / 3 / 4;
+}
+
+.experimentation {
+  grid-area: 1 / 2 / 2 / 3;
+}

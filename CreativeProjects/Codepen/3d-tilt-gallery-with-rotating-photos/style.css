@@ -1,0 +1,152 @@
+/*
+  Inspired by https://superpower.com/
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #ffffff;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  perspective: 1600px;
+  overflow: hidden;
+}
+
+.centered-text {
+  position: absolute;
+  text-align: center;
+  z-index: 100;
+  max-width: min(600px, 90vw);
+  transform: translateZ(200px);
+}
+
+.centered-text h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  line-height: 1;
+  color: #000;
+}
+
+.centered-text p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: #000;
+  color: white;
+  font-size: 1.1rem;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.cta-button:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+.images-container {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(1000px, 80vw);
+  height: min(600px, 70vh);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1rem;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+}
+
+.floating-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  will-change: transform;
+}
+
+.floating-image img {
+  width: min(180px, 100%);
+  aspect-ratio: 4/3;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Fixed position transforms */
+.floating-image:nth-child(1) {
+  /* Top Left */
+  grid-area: 1 / 1;
+  transform: translate3d(-10%, -10%, 50px) rotateY(25deg) rotateX(-5deg);
+}
+
+.floating-image:nth-child(2) {
+  /* Top Center */
+  grid-area: 1 / 2;
+  transform: translate3d(0, -15%, 70px) rotateX(-10deg);
+}
+
+.floating-image:nth-child(3) {
+  /* Top Right */
+  grid-area: 1 / 3;
+  transform: translate3d(10%, -10%, 50px) rotateY(-25deg) rotateX(-5deg);
+}
+
+.floating-image:nth-child(4) {
+  /* Middle Left */
+  grid-area: 2 / 1;
+  transform: translate3d(-15%, 0, 70px) rotateY(30deg);
+}
+
+.floating-image:nth-child(5) {
+  /* Middle Right */
+  grid-area: 2 / 3;
+  transform: translate3d(15%, 0, 70px) rotateY(-30deg);
+}
+
+.floating-image:nth-child(6) {
+  /* Bottom Left */
+  grid-area: 3 / 1;
+  transform: translate3d(-10%, 10%, 50px) rotateY(25deg) rotateX(5deg);
+}
+
+.floating-image:nth-child(7) {
+  /* Bottom Center */
+  grid-area: 3 / 2;
+  transform: translate3d(0, 15%, 70px) rotateX(10deg);
+}
+
+.floating-image:nth-child(8) {
+  /* Bottom Right */
+  grid-area: 3 / 3;
+  transform: translate3d(10%, 10%, 50px) rotateY(-25deg) rotateX(5deg);
+}

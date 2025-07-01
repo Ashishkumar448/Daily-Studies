@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --color--background--100: rgb(20, 20, 22);
+  --color--foreground--100: rgb(225, 215, 200);
+  --color--accent--100: rgb(225, 215, 200);
+  --font-primary: "Inter", sans-serif;
+  --margin: clamp(16px, 3vw, 32px);
+  --gutter: clamp(8px, 2vw, 16px);
+  --grid-width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  background-color: var(--color--background--100);
+  color: var(--color--foreground--100);
+  letter-spacing: 0em;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.marker {
+  position: relative;
+  width: 300px;
+  height: 100px;
+  cursor: pointer;
+}
+
+h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-size: 48px;
+  z-index: 1;
+}
+
+svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.animated-path {
+  stroke-dasharray: 1259;
+  stroke-dashoffset: 1259;
+  transition: stroke-dashoffset 0.6s linear;
+}
+
+.marker:hover .animated-path {
+  stroke-dashoffset: 0;
+}

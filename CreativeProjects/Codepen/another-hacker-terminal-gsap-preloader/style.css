@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
+:root {
+  --color-primary: #00ff41;
+  --color-dark: #0a0a0a;
+  --color-secondary: #005516;
+  --font-primary: "IBM Plex Mono", monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-dark);
+  font-family: var(--font-primary);
+  overflow: hidden;
+  color: var(--color-primary);
+}
+
+.preloader {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-dark);
+}
+
+.scanner {
+  width: min(800px, 90vw);
+  height: min(400px, 60vh);
+  position: relative;
+  border: 1px solid var(--color-primary);
+  overflow: hidden;
+}
+
+.scan-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: var(--color-primary);
+  box-shadow: 0 0 10px var(--color-primary);
+  top: 0;
+  opacity: 0.5;
+}
+
+.matrix-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(32, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  gap: 1px;
+  opacity: 0.15;
+}
+
+.matrix-cell {
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.data-box {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 15px;
+  background: rgba(0, 255, 65, 0.1);
+  border: 1px solid var(--color-primary);
+}
+
+.data-line {
+  font-size: 12px;
+  margin-bottom: 5px;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.percentage-display {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 64px;
+  font-weight: bold;
+}
+
+.scanning-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 0 0 10px var(--color-primary);
+  white-space: nowrap;
+  opacity: 0;
+}
+
+.content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-dark);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      to right,
+      rgba(0, 255, 65, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(0, 255, 65, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}

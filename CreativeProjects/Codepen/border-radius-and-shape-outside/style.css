@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  display: flex;
+  flex-flow: column;
+  align-items: start;
+  gap: 1rem;
+  margin: 1rem;
+  font: 300 1rem/1.5 ui-sans-serif, system-ui, sans-serif;
+}
+
+.content {
+  --shape: radial-gradient(farthest-side at 100% 0%, transparent 0 calc(100% - 1.5rem), #8888 0);
+  
+  display: block;
+  padding: 1rem 1rem 0 0;
+  block-size: min(20rem, 90dvb);
+  inline-size: min(30rem, 90dvi);
+  max-inline-size: 90dvi;
+  overflow: hidden;
+  resize: both;
+  border: 1px solid;
+  border-radius: 1rem 1rem 0.25rem 100%;
+  font-size: var(--fontSize, 1em);
+
+  &::before {
+    content: '';
+    float: left;
+    block-size: 100%;
+    inline-size: 100%;
+    shape-outside: var(--shape);
+  }
+
+  body:has(:checked) & {
+    overflow: visible;
+    
+    &::before {
+      background: var(--shape);
+    }
+  }
+}
+
+.options {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 3rem;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 1ch;
+}

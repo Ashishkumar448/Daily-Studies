@@ -1,0 +1,321 @@
+/*
+  Based on the original idea and implementation by Victor Vergara
+  https://codepen.io/vcomics/pen/JjpgBwY
+*/
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=IBM+Plex+Mono&display=swap");
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-background: rgb(60, 66, 55);
+  --color-foreground: rgb(230, 225, 215);
+  --color-accent: rgb(200, 180, 160);
+  --font-primary: "Inter", sans-serif;
+  --font-secondary: "IBM Plex Mono", monospace;
+  --margin: 32px;
+  --gutter: 16px;
+  --marker-active: var(--color-accent);
+  --marker-inactive: var(--color-background);
+  --marker-size: 8px;
+  --track-height: 1px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 500vh;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(85, 85, 85) 0%,
+    /* Near black */ rgb(0, 0, 0) 90% /* Very dark gray */
+  );
+  color: var(--color-foreground);
+  letter-spacing: -0.03em;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent
+    url("http://assets.iceable.com/img/noise-transparent.png") repeat 0 0;
+  background-size: 300px 300px;
+  -webkit-animation: noise-animation 0.3s steps(5) infinite;
+          animation: noise-animation 0.3s steps(5) infinite;
+  opacity: 0.9;
+  will-change: transform;
+  z-index: 100;
+  pointer-events: none;
+}
+
+@-webkit-keyframes noise-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-2%, -3%);
+  }
+  20% {
+    transform: translate(-4%, 2%);
+  }
+  30% {
+    transform: translate(2%, -4%);
+  }
+  40% {
+    transform: translate(-2%, 5%);
+  }
+  50% {
+    transform: translate(-4%, 2%);
+  }
+  60% {
+    transform: translate(3%, 0);
+  }
+  70% {
+    transform: translate(0, 3%);
+  }
+  80% {
+    transform: translate(-3%, 0);
+  }
+  90% {
+    transform: translate(2%, 2%);
+  }
+  100% {
+    transform: translate(1%, 0);
+  }
+}
+
+@keyframes noise-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-2%, -3%);
+  }
+  20% {
+    transform: translate(-4%, 2%);
+  }
+  30% {
+    transform: translate(2%, -4%);
+  }
+  40% {
+    transform: translate(-2%, 5%);
+  }
+  50% {
+    transform: translate(-4%, 2%);
+  }
+  60% {
+    transform: translate(3%, 0);
+  }
+  70% {
+    transform: translate(0, 3%);
+  }
+  80% {
+    transform: translate(-3%, 0);
+  }
+  90% {
+    transform: translate(2%, 2%);
+  }
+  100% {
+    transform: translate(1%, 0);
+  }
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: transparent;
+  z-index: 10;
+}
+
+.text-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.text-wrapper h1 {
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--color-foreground);
+  font-family: var(--font-primary);
+}
+
+.text-wrapper .small-text {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--color-accent);
+  font-family: var(--font-secondary);
+  text-transform: uppercase;
+}
+
+.scroll-indicator {
+  position: fixed;
+  z-index: 1000;
+}
+.scroll-indicator--vertical {
+  width: 40px;
+  height: 100vh;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.scroll-indicator__track {
+  position: relative;
+  background-color: var(--marker-inactive);
+}
+.scroll-indicator--vertical .scroll-indicator__track {
+  width: var(--track-height);
+  height: 100%;
+}
+.scroll-indicator__tooltip {
+  position: absolute;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-size: 0.875rem;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+  font-family: var(--font-secondary);
+  z-index: 10;
+}
+.scroll-indicator--vertical .scroll-indicator__tooltip {
+  left: 100%;
+  top: 0;
+  transform: translateY(-50%);
+  transition: top 0.1s ease-out;
+  margin-left: 10px;
+}
+.scroll-indicator__tooltip::before {
+  content: "";
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: inherit;
+}
+.scroll-indicator--vertical .scroll-indicator__tooltip::before {
+  top: 50%;
+  left: -0.25rem;
+  transform: translateY(-50%) rotate(45deg);
+}
+.scroll-indicator__thumb {
+  position: absolute;
+  width: var(--marker-size);
+  height: var(--marker-size);
+  background-color: var(--marker-inactive);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+.scroll-indicator--vertical .scroll-indicator__thumb {
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  transition: top 0.1s ease-out;
+}
+.scroll-indicator__progress {
+  position: absolute;
+  background-color: var(--marker-active);
+}
+.scroll-indicator--vertical .scroll-indicator__progress {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  transition: height 0.1s ease-out;
+}
+.scroll-indicator__scale {
+  position: relative;
+}
+.scroll-indicator--vertical .scroll-indicator__scale {
+  width: 40px;
+  height: calc(100% - 2px);
+  position: absolute;
+  top: 0;
+  left: var(--track-height);
+}
+.scroll-indicator__marker {
+  position: absolute;
+  background: var(--marker-inactive);
+  transition: background-color 0.3s ease-out;
+}
+.scroll-indicator--vertical .scroll-indicator__marker {
+  height: 1px;
+  left: 0;
+  right: 0;
+  transform: none;
+  transition: width 0.3s ease-out, background-color 0.3s ease-out;
+  width: 10px;
+}
+.scroll-indicator--vertical .scroll-indicator__marker--major {
+  height: 1px;
+  width: 15px;
+}
+.scroll-indicator__marker--filled {
+  background-color: var(--marker-active);
+}
+.scroll-indicator__percentage {
+  position: absolute;
+  background-color: var(--color-foreground);
+  color: var(--color-background);
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out, top 0.1s ease-out,
+    left 0.1s ease-out;
+  transform: scale(0.8);
+  font-family: var(--font-secondary);
+}
+.scroll-indicator--vertical .scroll-indicator__percentage {
+  left: 45px;
+  transform: translateY(-50%) scale(0.8);
+}
+.scroll-indicator__percentage--visible {
+  opacity: 1;
+  transform: scale(1);
+}
+.scroll-indicator--vertical .scroll-indicator__percentage--visible {
+  transform: translateY(-50%) scale(1);
+}
+
+a {
+  color: var(--color-foreground);
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+
+.navbar {
+  width: 100%;
+  padding: var(--gutter) var(--margin);
+  display: flex;
+  justify-content: space-between;
+  background: transparent;
+  z-index: 101;
+  width: 100%;
+  height: 80px;
+  position: fixed;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Carnival Spinner</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="container">
+  <div id="lottie"> </div>
+
+  <div id="enter">
+    <button id="enter" onclick="start()">enter</button>
+  </div>
+</div>
+<canvas class="webgl"></canvas>
+
+<script>
+  let start = () => {
+    document.getElementById("container").style.display = "none";
+    window.start3 = true;
+    anim.stop();
+  }
+</script>
+<!-- partial -->
+  <script type="module" src="./script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "TypographerFraktur";
+  src: url("https://assets.codepen.io/1626039/TypographerFrakturLig-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "MathJaxFraktur";
+  src: url("https://assets.codepen.io/1626039/MathJax_Fraktur-Regular.otf") format("opentype");
+}
+body, html {
+  margin: 0;
+  background: #666b64;
+  font-size: 16px;
+}
+section {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem;
+    padding: 2rem 4rem;
+    background: white;
+}
+svg {
+  flex: .5 .3 320px;
+}
+p {
+  font-family: TypographerFraktur;
+  line-height: 1rem;
+  margin: 1em 0;
+  text-align: justify;
+  word-spacing: -0.4ch;
+  flex: 1 .7 300px;
+}
+p::first-letter {
+  font-size: 4.5rem;
+  line-height: 4rem;
+  float: left;
+  margin-left: -0.1em;
+  margin-right: 0.2rem;
+}
+p .num {
+  font-family: MathJaxFraktur;
+  font-weight: bold;
+}
